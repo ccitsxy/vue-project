@@ -1,0 +1,118 @@
+@import './modern-normalize.css';
+
+:root {
+  --text-color: #fff;
+
+  --disabled-color: #1c1f2359;
+  --disabled-bg-color: #2e32380d;
+
+  --primary-color: #0064fa;
+  --primary-hover-color: #0062d6;
+  --primary-active-color: #004fb3;
+
+  --secondary-color: #0095ee;
+  --secondary-hover-color: #007bca;
+  --secondary-active-color: #0063a7;
+
+  --success-color: #3bb346;
+  --success-hover-color: #30953b;
+  --success-active-color: #25772f;
+
+  --light-tertiary-color: #1c1f23cc;
+  --tertiary-color: #6b7075;
+  --tertiary-hover-color: #555b61;
+  --tertiary-active-color: #41464c;
+
+  --warning-color: #fc8800;
+  --warning-hover-color: #d26700;
+  --warning-active-color: #a84a00;
+
+  --danger-color: #f93920;
+  --danger-hover-color: #d52515;
+  --danger-active-color: #b2140c;
+
+  --light-bg-color: #2e32380d;
+  --light-hover-bg-color: #2e323817;
+  --light-active-bg-color: #2e323821;
+
+  --borderless-bg-color: transparent;
+  --borderless-hover-bg-color: #2e32380d;
+  --borderless-active-bg-color: #2e323817;
+}
+
+.button {
+  --button-font-size: 14px;
+  --button-font-weight: 600;
+
+  --border: 0 solid transparent;
+  --button-border-radius: 6px;
+
+  --button-height: 32px;
+  --button-line-height: 1.5;
+  --button-padding: 6px 12px;
+
+  --button-large-height: 40px;
+  --button-large-line-height: 1.5;
+  --button-large-padding: 10px 16px;
+
+  --button-small-height: 24px;
+  --button-small-line-height: 1.5;
+  --button-small-padding: 2px 12px;
+
+  --button-icon-only-padding: 8px;
+  --button-small-icon-only-padding: 4px;
+  --button-large-icon-only-padding: 12px;
+
+  --button-light-disabled-color: var(--disabled-color);
+  --button-disabled-color: var(--disabled-color);
+  --button-disabled-bg-color: var(--disabled-bg-color);
+  --button-disabled-hover-color: var(--disabled-color);
+  --button-disabled-hover-bg-color: var(--disabled-bg-color);
+
+  --button-primary-color: var(--text-color);
+  --button-primary-bg-color: var(--primary-color);
+  --button-primary-hover-bg-color: var(--primary-hover-color);
+  --button-primary-active-bg-color: var(--primary-active-color);
+  --button-light-primary-color: var(--primary-color);
+
+  --button-secondary-color: var(--text-color);
+  --button-secondary-bg-color: var(--secondary-color);
+  --button-secondary-hover-bg-color: var(--secondary-hover-color);
+  --button-secondary-active-bg-color: var(--secondary-active-color);
+  --button-light-secondary-color: var(--secondary-color);
+
+  --button-tertiary-color: var(--text-color);
+  --button-tertiary-bg-color: var(--tertiary-color);
+  --button-tertiary-hover-bg-color: var(--tertiary-hover-color);
+  --button-tertiary-active-bg-color: var(--tertiary-active-color);
+  --button-light-tertiary-color: var(--light-tertiary-color);
+
+  --button-warning-color: var(--text-color);
+  --button-warning-bg-color: var(--warning-color);
+  --button-warning-hover-bg-color: var(--warning-hover-color);
+  --button-warning-active-bg-color: var(--warning-active-color);
+  --button-light-warning-color: var(--warning-color);
+
+  --button-danger-color: var(--text-color);
+  --button-danger-bg-color: var(--danger-color);
+  --button-danger-hover-bg-color: var(--danger-hover-color);
+  --button-danger-active-bg-color: var(--danger-active-color);
+  --button-light-danger-color: var(--danger-color);
+
+  --button-light-bg-color: var(--light-bg-color);
+  --button-light-hover-bg-color: var(--light-hover-bg-color);
+  --button-light-active-bg-color: var(--light-active-bg-color);
+
+  --button-borderless-bg-color: var(--borderless-bg-color);
+  --button-borderless-hover-bg-color: var(--borderless-hover-bg-color);
+  --button-borderless-active-bg-color: var(--borderless-active-bg-color);
+
+  --button-content-left-margin-right: 8px;
+  --button-content-right-margin-left: 8px;
+}
+
+.icon {
+  --icon-small: 12px;
+  --icon-medium: 16px;
+  --icon-large: 20px;
+}
