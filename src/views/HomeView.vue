@@ -9,18 +9,21 @@ import IconFont from '@/components/icon/IconFont.vue'
   <Button>主要按钮</Button>
   <Button status="secondary">次要按钮</Button>
   <Button status="tertiary">第三按钮</Button>
+  <Button status="success">成功按钮</Button>
   <Button status="warning">警告按钮</Button>
   <Button status="danger">危险按钮</Button>
 
   <Button theme="solid" status="primary">深色主要</Button>
   <Button theme="solid" status="secondary">深色次要</Button>
   <Button theme="solid" status="tertiary">深色第三</Button>
+  <Button theme="solid" status="success">深色成功</Button>
   <Button theme="solid" status="warning">深色警告</Button>
   <Button theme="solid" status="danger">深色危险</Button>
 
   <Button theme="borderless" status="primary">主要</Button>
   <Button theme="borderless" status="secondary">次要</Button>
   <Button theme="borderless" status="tertiary">第三</Button>
+  <Button theme="borderless" status="success">成功</Button>
   <Button theme="borderless" status="warning">警告</Button>
   <Button theme="borderless" status="danger">危险</Button>
 

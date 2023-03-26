@@ -87,6 +87,12 @@
   --button-tertiary-active-bg-color: var(--tertiary-active-color);
   --button-light-tertiary-color: var(--light-tertiary-color);
 
+  --button-success-color: var(--text-color);
+  --button-success-bg-color: var(--success-color);
+  --button-success-hover-bg-color: var(--success-hover-color);
+  --button-success-active-bg-color: var(--success-active-color);
+  --button-light-success-color: var(--success-color);
+
   --button-warning-color: var(--text-color);
   --button-warning-bg-color: var(--warning-color);
   --button-warning-hover-bg-color: var(--warning-hover-color);
@@ -115,4 +121,26 @@
   --icon-small: 12px;
   --icon-medium: 16px;
   --icon-large: 20px;
+}
+
+.spin {
+  --spin-wrapper-animation-duration: 600ms;
+  --spin-indicator-animation-duration: 1600ms;
+
+  --spin-bg-color: var(--primary-color);
+
+  --spin-large: 32px;
+  --spin-middle: 20px;
+  --spin-small: 14px;
+
+  --spin-child-opacity: 0.5;
+}
+
+@keyframes animation-rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

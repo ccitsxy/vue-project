@@ -74,6 +74,27 @@
     }
   }
 
+
+  &-success {
+    color: var(--button-success-color);
+    background-color: var(--button-success-bg-color);
+
+    @media (any-hover: hover) {
+      &:not(.button-borderless):not(.button-light):hover {
+        background-color: var(--button-success-hover-bg-color);
+      }
+    }
+
+    &:not(.button-borderless):not(.button-light):active {
+      background-color: var(--button-success-active-bg-color);
+    }
+
+    &.button-borderless,
+    &.button-light {
+      color: var(--button-light-success-color);
+    }
+  }
+
   &-warning {
     color: var(--button-warning-color);
     background-color: var(--button-warning-bg-color);

@@ -6,7 +6,7 @@ import { SpinIcon } from '../spin'
 
 export type HtmlType = 'button' | 'reset' | 'submit'
 export type Size = 'default' | 'small' | 'large'
-export type Status = 'primary' | 'secondary' | 'tertiary' | 'warning' | 'danger'
+export type Status = 'primary' | 'secondary' | 'tertiary'| 'success' | 'warning' | 'danger'
 export type Theme = 'solid' | 'borderless' | 'light'
 
 const props = defineProps({
@@ -101,6 +101,7 @@ const ButtonIcon = () => {
     ]"
     :type="type"
     :disabled="disabled"
+    :aria-disabled="disabled"
     :aria-label="ariaLabel"
     @click="handleClick"
     @mousedown="handleMouseDown"

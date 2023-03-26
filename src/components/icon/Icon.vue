@@ -73,16 +73,7 @@ defineProps({
 }
 
 .icon-spin {
-  animation: var(--icon-spin-animation-duration) linear infinite icon-spin-animation;
+  animation: var(--icon-spin-animation-duration) linear infinite animation-spin;
   animation-fill-mode: forwards;
-}
-
-@keyframes icon-spin-animation {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 </style>
