@@ -4,7 +4,7 @@ import { mount } from '@vue/test-utils'
 import Divider from '../Divider.vue'
 
 describe('Divider.vue', () => {
-  it('renders a div', () => {
+  it('renders the component', () => {
     const wrapper = mount(Divider)
     expect(wrapper.find('div').exists()).toBe(true)
   })
@@ -26,6 +26,8 @@ describe('Divider.vue', () => {
 
   it('sets margin style based on margin prop', () => {
     const wrapper = mount(Divider, { props: { margin: '10px' } })
-    expect(wrapper.find('div').attributes('style')).toContain('margin-top: 10px; margin-bottom: 10px;')
+    expect(wrapper.find('div').attributes('style')).toContain(
+      'margin-top: 10px; margin-bottom: 10px;'
+    )
   })
 })

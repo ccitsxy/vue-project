@@ -16,8 +16,7 @@ withDefaults(defineProps<Props>(), {
   component: undefined,
   rotate: undefined,
   size: 'medium',
-  spin: false,
-
+  spin: false
 })
 </script>
 
@@ -36,5 +35,5 @@ withDefaults(defineProps<Props>(), {
 </template>
 
 <style lang="scss">
-@use './icon.scss'
+@use './icon.scss';
 </style>

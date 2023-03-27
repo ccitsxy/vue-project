@@ -1,0 +1,100 @@
+.alert {
+  padding: $spacing-alert-paddingY $spacing-alert-paddingX;
+
+  &-content-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-description {
+    margin: 0;
+  }
+
+  .alert-content-wrapper {
+    .alert-content {
+      display: flex;
+      flex: 1;
+      align-items: top;
+    }
+  }
+
+  &-in-container {
+    border-radius: $radius-alert;
+
+    .alert-content-wrapper {
+      .alert-content {
+        &-body {
+          flex: 1;
+
+          .alert-title + .alert-description {
+            margin-top: $spacing-alert_title_description-marginTop;
+          }
+        }
+      }
+    }
+  }
+
+  &-full {
+    .alert-content-wrapper {
+      .alert-content {
+        justify-content: center;
+      }
+      .alert-icon,
+      .alert-content-body {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  &-close {
+    margin-left: $spacing-alert_closeBtn-marginLeft;
+    height: $height-alert_closeBtn;
+    width: $width-alert_closeBtn;
+  }
+
+  &-extra {
+    margin-top: $spacing-alert_extra-marginTop;
+  }
+
+  &-icon {
+    display: flex;
+    margin-right: $spacing-alert_icon-marginRight;
+  }
+
+  &-info {
+    background-color: $color-alert_info-bg-default;
+    color: $color-alert_info-text-default;
+
+    &.alert-bordered {
+      border: $width-alert-border solid $color-alert_info-border-default;
+    }
+  }
+
+  &-warning {
+    background-color: $color-alert_warning-bg-default;
+    color: $color-alert_warning-text-default;
+
+    &.alert-bordered {
+      border: $width-alert-border solid $color-alert_warning-border-default;
+    }
+  }
+
+  &-success {
+    background-color: $color-alert_success-bg-default;
+    color: $color-alert_success-text-default;
+
+    &.alert-bordered {
+      border: $width-alert-border solid $color-alert_success-border-default;
+    }
+  }
+
+  &-danger {
+    background-color: $color-alert_danger-bg-default;
+    color: $color-alert_danger-text-default;
+
+    &.alert-bordered {
+      border: $width-alert-border solid $color-alert_danger-border-default;
+    }
+  }
+}

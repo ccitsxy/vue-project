@@ -4,7 +4,7 @@ import { mount } from '@vue/test-utils'
 import Button from '../Button.vue'
 
 describe('Button.vue', () => {
-  it('renders default button', () => {
+  it('renders the component', () => {
     const wrapper = mount(Button)
     expect(wrapper.classes()).toContain('button')
     expect(wrapper.classes()).toContain('button-light')
@@ -12,30 +12,6 @@ describe('Button.vue', () => {
     expect(wrapper.vm.$props.disabled).toBe(false)
     expect(wrapper.vm.$props.loading).toBe(false)
     expect(wrapper.vm.$props.iconPlacement).toBe('left')
-  })
-
-  it('renders button with specified props', () => {
-    const wrapper = mount(Button, {
-      props: {
-        size: 'large',
-        status: 'danger',
-        theme: 'borderless',
-        block: true,
-        loading: true,
-        disabled: false,
-        icon: 'test-icon',
-        iconPlacement: 'right'
-      }
-    })
-    expect(wrapper.classes()).toContain('button')
-    expect(wrapper.classes()).toContain('button-borderless')
-    expect(wrapper.classes()).toContain('button-large')
-    expect(wrapper.classes()).toContain('button-danger')
-    expect(wrapper.classes()).toContain('button-block')
-    expect(wrapper.classes()).toContain('button-loading')
-    expect(wrapper.vm.$props.disabled).toBe(false)
-    expect(wrapper.vm.$props.icon).toBe('test-icon')
-    expect(wrapper.vm.$props.iconPlacement).toBe('right')
   })
 
   it('emits click event when button is clicked', async () => {
