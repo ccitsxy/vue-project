@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { nanoid } from 'nanoid'
-const uuid = nanoid()
+const id = nanoid()
 </script>
 
 <template>
@@ -13,7 +13,7 @@ const uuid = nanoid()
     aria-hidden="true"
   >
     <defs>
-      <linearGradient :id="`linearGradient-${uuid}`" x1="0%" y1="100%" x2="100%" y2="100%">
+      <linearGradient :id="id" x1="0%" y1="100%" x2="100%" y2="100%">
         <stop stop-color="currentColor" stop-opacity="0" offset="0%"></stop>
         <stop stop-color="currentColor" stop-opacity="0.50" offset="39.9430698%"></stop>
         <stop stop-color="currentColor" offset="100%"></stop>
@@ -23,7 +23,7 @@ const uuid = nanoid()
       <rect fill-opacity="0.01" fill="none" x="0" y="0" width="36" height="36"></rect>
       <path
         d="M34,18 C34,9.163444 26.836556,2 18,2 C11.6597233,2 6.18078805,5.68784135 3.59122325,11.0354951"
-        :stroke="`url(#linearGradient-${uuid})`"
+        :stroke="`url(#${id})`"
         stroke-width="4"
         stroke-linecap="round"
       ></path>

@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const spin = shallowRef(false)
-watchEffect(async () => {
+watchEffect(() => {
   if (props.spin) {
     if (props.delay > 0)
       useTimeoutFn(() => {

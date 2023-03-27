@@ -59,17 +59,13 @@ import Divider from '@/components/divider/Divider.vue'
 
   <Button loading status="warning" block theme="solid">撤销</Button>
 
-  <span>Semi Design 是一个设计系统。</span>
-  <Divider dashed margin="12px" />
-  <span>它定义了一套中后台设计与前端基础组件。</span>
-
-  <span>左</span>
-  <Divider direction="vertical" margin="12px" />
-  <span>中</span>
-  <Divider direction="vertical" margin="12px" />
-  <span>右</span>
-
-  <Divider margin="12px" />
+  <Divider margin="12px">
+    <span>左</span>
+    <Divider direction="vertical" margin="12px" />
+    <span>中</span>
+    <Divider direction="vertical" margin="12px" />
+    <span>右</span>
+  </Divider>
 
   <Divider margin="12px" align="left"> 这是居左文字 </Divider>
 

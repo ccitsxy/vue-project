@@ -3,14 +3,14 @@ export interface Props {
   direction?: 'horizontal' | 'vertical'
   align?: 'left' | 'right' | 'center'
   dashed?: boolean
-  margin?: number | string
+  margin?: string
 }
 
 withDefaults(defineProps<Props>(), {
   direction: 'horizontal',
   align: 'center',
   dashed: false,
-  margin: undefined
+  margin: ''
 })
 </script>
 

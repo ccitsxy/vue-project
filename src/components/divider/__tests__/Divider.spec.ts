@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
 import Divider from '../Divider.vue'
 
-describe('Divider.vue', () => {
+describe('Divider', () => {
   it('renders the component', () => {
     const wrapper = mount(Divider)
     expect(wrapper.find('div').exists()).toBe(true)
