@@ -74,11 +74,11 @@ pnpm lint
 
 ### Todo
 
-- [ ] Banner
+- [ ] Alert
 - [ ] Back Top
 - [x] Button
 - [ ] Collapsible
-- [ ] Divider
+- [x] Divider
 - [ ] Grid
 - [x] Icon
 - [x] Spin

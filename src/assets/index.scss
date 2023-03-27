@@ -1,4 +1,4 @@
-@import './modern-normalize.css';
+@use './reset.scss';
 
 :root {
   --text-color: #fff;
@@ -63,6 +63,9 @@
   --button-small-icon-only-padding: 4px;
   --button-large-icon-only-padding: 12px;
 
+  --button-focus-outline-offset: 2px;
+  --button-focus-outline-width: 2px;
+
   --button-light-disabled-color: var(--disabled-color);
   --button-disabled-color: var(--disabled-color);
   --button-disabled-bg-color: var(--disabled-bg-color);
@@ -73,36 +76,42 @@
   --button-primary-bg-color: var(--primary-color);
   --button-primary-hover-bg-color: var(--primary-hover-color);
   --button-primary-active-bg-color: var(--primary-active-color);
+  --button-primary-focus-outline-color: var(--primary-color);
   --button-light-primary-color: var(--primary-color);
 
   --button-secondary-color: var(--text-color);
   --button-secondary-bg-color: var(--secondary-color);
   --button-secondary-hover-bg-color: var(--secondary-hover-color);
   --button-secondary-active-bg-color: var(--secondary-active-color);
+  --button-secondary-focus-outline-color: var(--secondary-color);
   --button-light-secondary-color: var(--secondary-color);
 
   --button-tertiary-color: var(--text-color);
   --button-tertiary-bg-color: var(--tertiary-color);
   --button-tertiary-hover-bg-color: var(--tertiary-hover-color);
   --button-tertiary-active-bg-color: var(--tertiary-active-color);
+  --button-tertiary-focus-outline-color: var(--tertiary-color);
   --button-light-tertiary-color: var(--light-tertiary-color);
 
   --button-success-color: var(--text-color);
   --button-success-bg-color: var(--success-color);
   --button-success-hover-bg-color: var(--success-hover-color);
   --button-success-active-bg-color: var(--success-active-color);
+  --button-success-focus-outline-color: var(--success-color);
   --button-light-success-color: var(--success-color);
 
   --button-warning-color: var(--text-color);
   --button-warning-bg-color: var(--warning-color);
   --button-warning-hover-bg-color: var(--warning-hover-color);
   --button-warning-active-bg-color: var(--warning-active-color);
+  --button-warning-focus-outline-color: var(--warning-color);
   --button-light-warning-color: var(--warning-color);
 
   --button-danger-color: var(--text-color);
   --button-danger-bg-color: var(--danger-color);
   --button-danger-hover-bg-color: var(--danger-hover-color);
   --button-danger-active-bg-color: var(--danger-active-color);
+  --button-danger-focus-outline-color: var(--danger-color);
   --button-light-danger-color: var(--danger-color);
 
   --button-light-bg-color: var(--light-bg-color);
@@ -136,7 +145,22 @@
   --spin-child-opacity: 0.5;
 }
 
-@keyframes animation-rotate {
+.divider {
+  --divider-color: #1c1f23;
+  --divider-margin: 1px 0;
+  --divider-line-border-width: 1px;
+  --divider-line-border-color: #1c1f2314;
+  --divider-border-width: 1px;
+  --divider-border-color: #1c1f2314;
+  --divider-vertical-height: 20px;
+  --divider-text-padding: 0 8px;
+  --divider-text-font-weight: 600;
+  --divider-text-font-size: 14px;
+  --divider-left-line-width: 40px;
+  --divider-right-line-width: 40px;
+}
+
+@keyframes animation-spin {
   from {
     transform: rotate(0);
   }

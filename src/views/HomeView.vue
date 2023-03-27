@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import HelloWorld from '../components/hello-world/HelloWorld.vue'
 import Button from '@/components/button/Button.vue'
 import IconFont from '@/components/icon/IconFont.vue'
+import Spin from '@/components/spin/Spin.vue'
+import Divider from '@/components/divider/Divider.vue'
 </script>
 
 <template>
-  <HelloWorld msg="You did it!" />
   <Button>主要按钮</Button>
   <Button status="secondary">次要按钮</Button>
   <Button status="tertiary">第三按钮</Button>
@@ -58,4 +58,38 @@ import IconFont from '@/components/icon/IconFont.vue'
   <Button loading status="danger" :icon="IconFont">删除</Button>
 
   <Button loading status="warning" block theme="solid">撤销</Button>
+
+  <span>Semi Design 是一个设计系统。</span>
+  <Divider dashed margin="12px" />
+  <span>它定义了一套中后台设计与前端基础组件。</span>
+
+  <span>左</span>
+  <Divider direction="vertical" margin="12px" />
+  <span>中</span>
+  <Divider direction="vertical" margin="12px" />
+  <span>右</span>
+
+  <Divider margin="12px" />
+
+  <Divider margin="12px" align="left"> 这是居左文字 </Divider>
+
+  <Divider margin="12px" align="center"> 这是居中文字 </Divider>
+
+  <Divider margin="12px" align="right"> 这是居右文字 </Divider>
+
+  <Divider margin="12px">
+    <IconFont />
+  </Divider>
+
+  <div style="height: 120px; width: 120px">
+    <Spin :delay="2000" size="large">
+      <template #tip> I am loading... </template>
+      <div
+        style="border: 1px solid var(--semi-color-primary); border-radius: 4px; padding-left: 8px"
+      >
+        <p>Here are some texts.</p>
+        <p>And more texts on the way.</p>
+      </div>
+    </Spin>
+  </div>
 </template>

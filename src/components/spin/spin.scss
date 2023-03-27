@@ -1,0 +1,78 @@
+.spin {
+  position: relative;
+  display: inline-block;
+
+  height: auto;
+  width: auto;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &-wrapper {
+    display: block;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    transform: translateY(-50%);
+    top: 50%;
+    color: var(--spin-bg-color);
+
+    & > svg {
+      animation: var(--spin-wrapper-animation-duration) linear infinite animation-spin;
+      animation-fill-mode: forwards;
+
+      width: var(--spin-middle);
+      height: var(--spin-middle);
+    }
+  }
+
+  &-indicator {
+    display: inline-flex;
+    animation: var(--spin-indicator-animation-duration) linear infinite animation-spin;
+    animation-fill-mode: forwards;
+  }
+
+  &-child {
+    opacity: var(--spin-child-opacity);
+    user-select: none;
+  }
+
+  &-hidden {
+    &::after {
+      content: none;
+    }
+
+    & > .spin-child {
+      opacity: 1;
+      user-select: auto;
+    }
+  }
+}
+
+.spin-small {
+  & > .spin-wrapper svg {
+    width: var(--spin-small);
+    height: var(--spin-small);
+  }
+}
+
+.spin-middle {
+  & > .spin-wrapper svg {
+    width: var(--spin-middle);
+    height: var(--spin-middle);
+  }
+}
+
+.spin-large {
+  & > .spin-wrapper svg {
+    width: var(--spin-large);
+    height: var(--spin-large);
+  }
+}

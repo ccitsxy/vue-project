@@ -14,18 +14,30 @@
   height: var(--button-height);
   line-height: var(--button-line-height);
 
+  &:focus-visible {
+    outline-width: var(--button-focus-outline-width);
+    outline-style: solid;
+    outline-offset: var(--button-focus-outline-offset);
+  }
+
   &-primary {
     color: var(--button-primary-color);
     background-color: var(--button-primary-bg-color);
 
-    @media (any-hover: hover) {
-      &:not(.button-borderless):not(.button-light):hover {
-        background-color: var(--button-primary-hover-bg-color);
-      }
+    &:focus-visible {
+      outline-color: var(--button-primary-focus-outline-color);
     }
 
-    &:not(.button-borderless):not(.button-light):active {
-      background-color: var(--button-primary-active-bg-color);
+    &:not(.button-borderless):not(.button-light) {
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: var(--button-primary-hover-bg-color);
+        }
+      }
+
+      &:active {
+        background-color: var(--button-primary-active-bg-color);
+      }
     }
 
     &.button-borderless,
@@ -38,14 +50,20 @@
     color: var(--button-secondary-color);
     background-color: var(--button-secondary-bg-color);
 
-    @media (any-hover: hover) {
-      &:not(.button-borderless):not(.button-light):hover {
-        background-color: var(--button-secondary-hover-bg-color);
-      }
+    &:focus-visible {
+      outline-color: var(--button-secondary-focus-outline-color);
     }
 
-    &:not(.button-borderless):not(.button-light):active {
-      background-color: var(--button-secondary-active-bg-color);
+    &:not(.button-borderless):not(.button-light) {
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: var(--button-secondary-hover-bg-color);
+        }
+      }
+
+      &:active {
+        background-color: var(--button-secondary-active-bg-color);
+      }
     }
 
     &.button-borderless,
@@ -58,14 +76,20 @@
     color: var(--button-tertiary-color);
     background-color: var(--button-tertiary-bg-color);
 
-    @media (any-hover: hover) {
-      &:not(.button-borderless):not(.button-light):hover {
-        background-color: var(--button-tertiary-hover-bg-color);
-      }
+    &:focus-visible {
+      outline-color: var(--button-tertiary-focus-outline-color);
     }
 
-    &:not(.button-borderless):not(.button-light):active {
-      background-color: var(--button-tertiary-active-bg-color);
+    &:not(.button-borderless):not(.button-light) {
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: var(--button-tertiary-hover-bg-color);
+        }
+      }
+
+      &:active {
+        background-color: var(--button-tertiary-active-bg-color);
+      }
     }
 
     &.button-borderless,
@@ -74,19 +98,24 @@
     }
   }
 
-
   &-success {
     color: var(--button-success-color);
     background-color: var(--button-success-bg-color);
 
-    @media (any-hover: hover) {
-      &:not(.button-borderless):not(.button-light):hover {
-        background-color: var(--button-success-hover-bg-color);
-      }
+    &:focus-visible {
+      outline-color: var(--button-success-focus-outline-color);
     }
 
-    &:not(.button-borderless):not(.button-light):active {
-      background-color: var(--button-success-active-bg-color);
+    &:not(.button-borderless):not(.button-light) {
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: var(--button-success-hover-bg-color);
+        }
+      }
+
+      &:active {
+        background-color: var(--button-success-active-bg-color);
+      }
     }
 
     &.button-borderless,
@@ -99,14 +128,20 @@
     color: var(--button-warning-color);
     background-color: var(--button-warning-bg-color);
 
-    @media (any-hover: hover) {
-      &:not(.button-borderless):not(.button-light):hover {
-        background-color: var(--button-warning-hover-bg-color);
-      }
+    &:focus-visible {
+      outline-color: var(--button-warning-focus-outline-color);
     }
 
-    &:not(.button-borderless):not(.button-light):active {
-      background-color: var(--button-warning-active-bg-color);
+    &:not(.button-borderless):not(.button-light) {
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: var(--button-warning-hover-bg-color);
+        }
+      }
+
+      &:active {
+        background-color: var(--button-warning-active-bg-color);
+      }
     }
 
     &.button-borderless,
@@ -119,14 +154,20 @@
     color: var(--button-danger-color);
     background-color: var(--button-danger-bg-color);
 
-    @media (any-hover: hover) {
-      &:not(.button-borderless):not(.button-light):hover {
-        background-color: var(--button-danger-hover-bg-color);
-      }
+    &:focus-visible {
+      outline-color: var(--button-danger-focus-outline-color);
     }
 
-    &:not(.button-borderless):not(.button-light):active {
-      background-color: var(--button-danger-active-bg-color);
+    &:not(.button-borderless):not(.button-light) {
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: var(--button-danger-hover-bg-color);
+        }
+      }
+
+      &:active {
+        background-color: var(--button-danger-active-bg-color);
+      }
     }
 
     &.button-borderless,
@@ -141,10 +182,12 @@
     color: var(--button-disabled-color);
     background-color: var(--button-disabled-bg-color);
 
-    @media (any-hover: hover) {
-      &:not(.button-borderless):not(.button-light):hover {
-        color: var(--button-disabled-hover-color);
-        background-color: var(--button-disabled-hover-bg-color);
+    &:not(.button-borderless):not(.button-light) {
+      @media (any-hover: hover) {
+        &:hover {
+          color: var(--button-disabled-hover-color);
+          background-color: var(--button-disabled-hover-bg-color);
+        }
       }
     }
 
@@ -163,6 +206,7 @@
           background-color: var(--button-light-hover-bg-color);
         }
       }
+
       &:active {
         background-color: var(--button-light-active-bg-color);
       }
@@ -178,6 +222,7 @@
           background-color: var(--button-borderless-hover-bg-color);
         }
       }
+
       &:active {
         background-color: var(--button-borderless-active-bg-color);
       }
@@ -214,13 +259,11 @@
   &.button-loading {
 
     pointer-events: none;
-     cursor: wait;
-
     .button-content {
       & > svg {
         width: 16px;
         height: 16px;
-        animation: 0.6s linear infinite button-animation-rotate;
+        animation: 0.6s linear infinite animation-spin;
         animation-fill-mode: forwards;
       }
     }
@@ -252,15 +295,5 @@
     &-right {
       margin-left: var(--button-content-right-margin-left);
     }
-  }
-}
-
-@keyframes button-animation-rotate {
-  from {
-    transform: rotate(0);
-  }
-
-  to {
-    transform: rotate(360deg);
   }
 }
