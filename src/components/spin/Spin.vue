@@ -2,7 +2,7 @@
 import type { CSSProperties } from 'vue'
 import { shallowRef, watchEffect } from 'vue'
 import { useTimeoutFn } from '@vueuse/core'
-import SpinIcon from './SpinIcon.vue'
+import SpinIcon from '../icon/IconSpin.vue'
 
 export type SpinSize = 'small' | 'middle' | 'large'
 
@@ -39,9 +39,9 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div :class="['spin', `spin-${size}`, { 'spin-hidden': !spin }, wrapperClassName]">
-    <div v-if="spin" class="spin-wrapper">
-      <div v-if="$slots.indicator" class="spin-indicator">
+  <div :class="['c-spin', `c-spin-${size}`, { 'c-spin-hidden': !spin }, wrapperClassName]">
+    <div v-if="spin" class="c-spin-wrapper">
+      <div v-if="$slots.indicator" class="c-spin-indicator">
         <slot name="indicator" />
       </div>
       <SpinIcon v-else />
@@ -50,7 +50,7 @@ watchEffect(() => {
         <slot name="tip" />
       </div>
     </div>
-    <div class="spin-child" :style="childStyle">
+    <div class="c-spin-child" :style="childStyle">
       <slot />
     </div>
   </div>

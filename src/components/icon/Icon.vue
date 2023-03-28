@@ -23,7 +23,7 @@ withDefaults(defineProps<Props>(), {
 <template>
   <span
     role="img"
-    :class="['icon', `icon-${size}`, { 'icon-spin': spin }]"
+    :class="['c-icon', `c-icon-${size}`, { 'c-icon-spin': spin }]"
     :style="{
       transform: `rotate(${rotate}deg)`
     }"

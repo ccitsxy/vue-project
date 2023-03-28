@@ -1,1 +1,1 @@
-export { default as SpinIcon } from './SpinIcon.vue'
+export { default as Spin } from './Spin.vue'

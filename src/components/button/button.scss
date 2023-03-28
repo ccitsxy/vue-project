@@ -1,283 +1,283 @@
-.button {
+.c-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   vertical-align: middle;
   cursor: pointer;
   user-select: none;
-  border: var(--button-border);
-  border-radius: var(--button-border-radius);
-  padding: var(--button-padding);
-  font-size: var(--button-font-size);
-  font-family: var(--button-font-family);
-  font-weight: var(--button-font-weight);
-  height: var(--button-height);
-  line-height: var(--button-line-height);
+  border: var(--c-button-border);
+  border-radius: var(--c-button-border-radius);
+  padding: var(--c-button-padding);
+  font-size: var(--c-button-font-size);
+  font-family: var(--c-button-font-family);
+  font-weight: var(--c-button-font-weight);
+  height: var(--c-button-height);
+  line-height: var(--c-button-line-height);
 
   &:focus-visible {
-    outline-width: var(--button-focus-outline-width);
+    outline-width: var(--c-button-focus-outline-width);
     outline-style: solid;
-    outline-offset: var(--button-focus-outline-offset);
+    outline-offset: var(--c-button-focus-outline-offset);
   }
 
   &-primary {
-    color: var(--button-primary-color);
-    background-color: var(--button-primary-bg-color);
+    color: var(--c-button-primary-color);
+    background-color: var(--c-button-primary-bg-color);
 
     &:focus-visible {
-      outline-color: var(--button-primary-focus-outline-color);
+      outline-color: var(--c-button-primary-focus-outline-color);
     }
 
-    &:not(.button-borderless):not(.button-light) {
+    &:not(.c-button-borderless):not(.c-button-light) {
       @media (any-hover: hover) {
         &:hover {
-          background-color: var(--button-primary-hover-bg-color);
+          background-color: var(--c-button-primary-hover-bg-color);
         }
       }
 
       &:active {
-        background-color: var(--button-primary-active-bg-color);
+        background-color: var(--c-button-primary-active-bg-color);
       }
     }
 
-    &.button-borderless,
-    &.button-light {
-      color: var(--button-light-primary-color);
+    &.c-button-borderless,
+    &.c-button-light {
+      color: var(--c-button-light-primary-color);
     }
   }
 
   &-secondary {
-    color: var(--button-secondary-color);
-    background-color: var(--button-secondary-bg-color);
+    color: var(--c-button-secondary-color);
+    background-color: var(--c-button-secondary-bg-color);
 
     &:focus-visible {
-      outline-color: var(--button-secondary-focus-outline-color);
+      outline-color: var(--c-button-secondary-focus-outline-color);
     }
 
-    &:not(.button-borderless):not(.button-light) {
+    &:not(.c-button-borderless):not(.c-button-light) {
       @media (any-hover: hover) {
         &:hover {
-          background-color: var(--button-secondary-hover-bg-color);
+          background-color: var(--c-button-secondary-hover-bg-color);
         }
       }
 
       &:active {
-        background-color: var(--button-secondary-active-bg-color);
+        background-color: var(--c-button-secondary-active-bg-color);
       }
     }
 
-    &.button-borderless,
-    &.button-light {
-      color: var(--button-light-secondary-color);
+    &.c-button-borderless,
+    &.c-button-light {
+      color: var(--c-button-light-secondary-color);
     }
   }
 
   &-tertiary {
-    color: var(--button-tertiary-color);
-    background-color: var(--button-tertiary-bg-color);
+    color: var(--c-button-tertiary-color);
+    background-color: var(--c-button-tertiary-bg-color);
 
     &:focus-visible {
-      outline-color: var(--button-tertiary-focus-outline-color);
+      outline-color: var(--c-button-tertiary-focus-outline-color);
     }
 
-    &:not(.button-borderless):not(.button-light) {
+    &:not(.c-button-borderless):not(.c-button-light) {
       @media (any-hover: hover) {
         &:hover {
-          background-color: var(--button-tertiary-hover-bg-color);
+          background-color: var(--c-button-tertiary-hover-bg-color);
         }
       }
 
       &:active {
-        background-color: var(--button-tertiary-active-bg-color);
+        background-color: var(--c-button-tertiary-active-bg-color);
       }
     }
 
-    &.button-borderless,
-    &.button-light {
-      color: var(--button-light-tertiary-color);
+    &.c-button-borderless,
+    &.c-button-light {
+      color: var(--c-button-light-tertiary-color);
     }
   }
 
   &-success {
-    color: var(--button-success-color);
-    background-color: var(--button-success-bg-color);
+    color: var(--c-button-success-color);
+    background-color: var(--c-button-success-bg-color);
 
     &:focus-visible {
-      outline-color: var(--button-success-focus-outline-color);
+      outline-color: var(--c-button-success-focus-outline-color);
     }
 
-    &:not(.button-borderless):not(.button-light) {
+    &:not(.c-button-borderless):not(.c-button-light) {
       @media (any-hover: hover) {
         &:hover {
-          background-color: var(--button-success-hover-bg-color);
+          background-color: var(--c-button-success-hover-bg-color);
         }
       }
 
       &:active {
-        background-color: var(--button-success-active-bg-color);
+        background-color: var(--c-button-success-active-bg-color);
       }
     }
 
-    &.button-borderless,
-    &.button-light {
-      color: var(--button-light-success-color);
+    &.c-button-borderless,
+    &.c-button-light {
+      color: var(--c-button-light-success-color);
     }
   }
 
   &-warning {
-    color: var(--button-warning-color);
-    background-color: var(--button-warning-bg-color);
+    color: var(--c-button-warning-color);
+    background-color: var(--c-button-warning-bg-color);
 
     &:focus-visible {
-      outline-color: var(--button-warning-focus-outline-color);
+      outline-color: var(--c-button-warning-focus-outline-color);
     }
 
-    &:not(.button-borderless):not(.button-light) {
+    &:not(.c-button-borderless):not(.c-button-light) {
       @media (any-hover: hover) {
         &:hover {
-          background-color: var(--button-warning-hover-bg-color);
+          background-color: var(--c-button-warning-hover-bg-color);
         }
       }
 
       &:active {
-        background-color: var(--button-warning-active-bg-color);
+        background-color: var(--c-button-warning-active-bg-color);
       }
     }
 
-    &.button-borderless,
-    &.button-light {
-      color: var(--button-light-warning-color);
+    &.c-button-borderless,
+    &.c-button-light {
+      color: var(--c-button-light-warning-color);
     }
   }
 
   &-danger {
-    color: var(--button-danger-color);
-    background-color: var(--button-danger-bg-color);
+    color: var(--c-button-danger-color);
+    background-color: var(--c-button-danger-bg-color);
 
     &:focus-visible {
-      outline-color: var(--button-danger-focus-outline-color);
+      outline-color: var(--c-button-danger-focus-outline-color);
     }
 
-    &:not(.button-borderless):not(.button-light) {
+    &:not(.c-button-borderless):not(.c-button-light) {
       @media (any-hover: hover) {
         &:hover {
-          background-color: var(--button-danger-hover-bg-color);
+          background-color: var(--c-button-danger-hover-bg-color);
         }
       }
 
       &:active {
-        background-color: var(--button-danger-active-bg-color);
+        background-color: var(--c-button-danger-active-bg-color);
       }
     }
 
-    &.button-borderless,
-    &.button-light {
-      color: var(--button-light-danger-color);
+    &.c-button-borderless,
+    &.c-button-light {
+      color: var(--c-button-light-danger-color);
     }
   }
 
   &-disabled {
     cursor: not-allowed;
 
-    color: var(--button-disabled-color);
-    background-color: var(--button-disabled-bg-color);
+    color: var(--c-button-disabled-color);
+    background-color: var(--c-button-disabled-bg-color);
 
-    &:not(.button-borderless):not(.button-light) {
+    &:not(.c-button-borderless):not(.c-button-light) {
       @media (any-hover: hover) {
         &:hover {
-          color: var(--button-disabled-hover-color);
-          background-color: var(--button-disabled-hover-bg-color);
+          color: var(--c-button-disabled-hover-color);
+          background-color: var(--c-button-disabled-hover-bg-color);
         }
       }
     }
 
-    &.button-light,
-    &.button-borderless {
-      color: var(--button-light-disabled-color);
+    &.c-button-light,
+    &.c-button-borderless {
+      color: var(--c-button-light-disabled-color);
     }
   }
 
   &-light {
-    background-color: var(--button-light-bg-color);
+    background-color: var(--c-button-light-bg-color);
 
     &:not(:disabled) {
       @media (any-hover: hover) {
         &:hover {
-          background-color: var(--button-light-hover-bg-color);
+          background-color: var(--c-button-light-hover-bg-color);
         }
       }
 
       &:active {
-        background-color: var(--button-light-active-bg-color);
+        background-color: var(--c-button-light-active-bg-color);
       }
     }
   }
 
   &-borderless {
-    background-color: var(--button-borderless-bg-color);
+    background-color: var(--c-button-borderless-bg-color);
 
     &:not(:disabled) {
       @media (any-hover: hover) {
         &:hover {
-          background-color: var(--button-borderless-hover-bg-color);
+          background-color: var(--c-button-borderless-hover-bg-color);
         }
       }
 
       &:active {
-        background-color: var(--button-borderless-active-bg-color);
+        background-color: var(--c-button-borderless-active-bg-color);
       }
     }
   }
 
   &-large {
-    height: var(--button-large-height);
-    line-height: var(--button-large-line-height);
-    padding: var(--button-large-padding);
+    height: var(--c-button-large-height);
+    line-height: var(--c-button-large-line-height);
+    padding: var(--c-button-large-padding);
   }
 
   &-small {
-    height: var(--button-small-height);
-    line-height: var(--button-small-line-height);
-    padding: var(--button-small-padding);
+    height: var(--c-button-small-height);
+    line-height: var(--c-button-small-line-height);
+    padding: var(--c-button-small-padding);
   }
 
   &-block {
     width: 100%;
   }
 
-  &.button-with-icon {
+  &.c-button-with-icon {
     display: inline-flex;
     align-items: center;
 
-    .button-content {
+    .c-button-content {
       display: flex;
       align-items: center;
       justify-content: center;
     }
   }
 
-  &.button-loading {
+  &.c-button-loading {
     pointer-events: none;
-    .button-content {
+    .c-button-content {
       & > svg {
         width: 16px;
         height: 16px;
-        animation: 0.6s linear infinite animation-spin;
+        animation: var(--c-button-loading-duration) linear infinite animation-spin;
         animation-fill-mode: forwards;
       }
     }
   }
 
-  &.button-with-icon-only {
-    padding: var(--button-icon-only-padding);
+  &.c-button-with-icon-only {
+    padding: var(--c-button-icon-only-padding);
 
-    &.button {
+    &.c-button {
       &-small {
-        padding: var(--button-small-icon-only-padding);
+        padding: var(--c-button-small-icon-only-padding);
       }
 
       &-large {
-        padding: var(--button-large--icon-only-padding);
+        padding: var(--c-button-large--icon-only-padding);
       }
     }
   }
@@ -288,11 +288,11 @@
     justify-content: center;
 
     &-left {
-      margin-right: var(--button-content-left-margin-right);
+      margin-right: var(--c-button-content-left-margin-right);
     }
 
     &-right {
-      margin-left: var(--button-content-right-margin-left);
+      margin-left: var(--c-button-content-right-margin-left);
     }
   }
 }

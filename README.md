@@ -79,11 +79,11 @@ pnpm lint
 - [x] Button
 - [ ] Collapsible
 - [x] Divider
-- [ ] Grid
+- [x] Grid
 - [x] Icon
 - [x] Spin
 - [ ] Switch
-- [ ] Space
+- [x] Space
 - [ ] Popover (floating-ui)
 - [ ] Tooltip (floating-ui)
 - [ ] Input

@@ -1,7 +1,9 @@
 import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
+import { markRaw } from 'vue'
 import Icon from '../Icon.vue'
+import IconSpin from '../IconSpin.vue'
 
 describe('Icon', () => {
   it('renders the component', () => {
@@ -24,7 +26,7 @@ describe('Icon', () => {
         size: 'large'
       }
     })
-    expect(wrapper.classes('icon-large')).toBe(true)
+    expect(wrapper.classes('c-icon-large')).toBe(true)
   })
 
   it('renders with spin class when spin prop is true', () => {
@@ -33,7 +35,7 @@ describe('Icon', () => {
         spin: true
       }
     })
-    expect(wrapper.classes('icon-spin')).toBe(true)
+    expect(wrapper.classes('c-icon-spin')).toBe(true)
   })
 
   it('renders with rotation transform when rotate prop is provided', () => {
@@ -48,10 +50,10 @@ describe('Icon', () => {
   it('renders the default slot if no component prop is provided', () => {
     const wrapper = mount(Icon, {
       slots: {
-        default: '<span>test-slot</span>'
+        default: markRaw(IconSpin)
       }
     })
-    expect(wrapper.find('span').text()).toBe('test-slot')
+    expect(wrapper.findComponent(IconSpin).exists()).toBe(true)
   })
 
   it('renders the provided component', () => {

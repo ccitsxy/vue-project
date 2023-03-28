@@ -1,20 +1,20 @@
-.divider {
+.c-divider {
   box-sizing: border-box;
-  margin: var(--divider-margin);
-  color: var(--divider-color);
+  margin: var(--c-divider-margin);
+  color: var(--c-divider-color);
 
   &-dashed {
     border-bottom-style: dashed;
     &::before,
     &::after {
-      border-bottom: var(--divider-line-border-width) dashed var(--divider-line-border-color);
+      border-bottom: var(--c-divider-line-border-width) dashed var(--c-divider-line-border-color);
     }
   }
 
   &-horizontal {
     display: flex;
     width: 100%;
-    border-bottom: var(--divider-border-width) solid var(--divider-border-color);
+    border-bottom: var(--c-divider-border-width) solid var(--c-divider-border-color);
   }
 
   &-vertical {
@@ -22,8 +22,8 @@
     vertical-align: middle;
     border-bottom: 0;
     margin: 0;
-    border-left: var(--divider-line-border-width) solid var(--divider-line-border-color);
-    height: var(--divider-vertical-height);
+    border-left: var(--c-divider-line-border-width) solid var(--c-divider-line-border-color);
+    height: var(--c-divider-vertical-height);
   }
 
   &-with-text {
@@ -32,23 +32,23 @@
     white-space: nowrap;
     border-bottom: 0;
 
-    .divider-text {
+    .c-divider-text {
       display: inline-block;
-      padding: var(--divider-text-padding);
-      font-weight: var(--divider-text-font-weight);
-      font-size: var(--divider-text-font-size);
+      padding: var(--c-divider-text-padding);
+      font-weight: var(--c-divider-text-font-weight);
+      font-size: var(--c-divider-text-font-size);
     }
 
     &::before,
     &::after {
       content: '';
       width: 50%;
-      border-bottom: var(--divider-line-border-width) solid var(--divider-line-border-color);
+      border-bottom: var(--c-divider-line-border-width) solid var(--c-divider-line-border-color);
     }
 
     &-left {
       &::before {
-        width: var(--divider-left-line-width);
+        width: var(--c-divider-left-line-width);
       }
 
       &::after {
@@ -62,7 +62,7 @@
       }
 
       &::after {
-        width: var(--divider-right-line-width);
+        width: var(--c-divider-right-line-width);
       }
     }
   }

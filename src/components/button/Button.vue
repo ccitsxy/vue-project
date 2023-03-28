@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import type { Component } from 'vue'
 import { useSlots, h } from 'vue'
-import { Icon } from '../icon'
-import { SpinIcon } from '../spin'
+import { Icon, IconSpin } from '../icon'
 
 export type HtmlType = 'button' | 'reset' | 'submit'
 export type Size = 'default' | 'small' | 'large'
@@ -61,7 +60,7 @@ const handleMouseLeave = (e: MouseEvent) => {
 const slots = useSlots()
 const ButtonIcon = () => {
   if (props.loading && !props.disabled) {
-    return h(SpinIcon)
+    return h(IconSpin)
   } else if (props.icon) {
     return h(Icon, { component: props.icon })
   } else if (slots.icon) {
@@ -73,15 +72,15 @@ const ButtonIcon = () => {
 <template>
   <button
     :class="[
-      'button',
-      `button-${theme}`,
-      `button-${size}`,
-      `button-${status}`,
-      { 'button-disabled': disabled },
-      { 'button-block': block },
-      { 'button-loading': loading && !disabled },
-      { 'button-with-icon': loading || icon || $slots.icon },
-      { 'button-with-icon-only': !$slots.default && (loading || icon || $slots.icon) }
+      'c-button',
+      `c-button-${theme}`,
+      `c-button-${status}`,
+      {[`c-button-${size}`]: size !== 'default'},
+      { 'c-button-disabled': disabled },
+      { 'c-button-block': block },
+      { 'c-button-loading': loading && !disabled },
+      { 'c-button-with-icon': loading || icon || $slots.icon },
+      { 'c-button-with-icon-only': !$slots.default && (loading || icon || $slots.icon) }
     ]"
     :type="type"
     :disabled="disabled"
@@ -92,7 +91,7 @@ const ButtonIcon = () => {
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
   >
-    <span class="button-content">
+    <span class="c-button-content">
       <template v-if="!$slots.default && (loading || icon || $slots.icon)">
         <button-icon />
       </template>
@@ -102,12 +101,12 @@ const ButtonIcon = () => {
       <template v-else-if="$slots.default && (loading || icon || $slots.icon)">
         <template v-if="iconPlacement === 'left'">
           <button-icon />
-          <span class="button-content-right">
+          <span class="c-button-content-right">
             <slot />
           </span>
         </template>
         <template v-else-if="iconPlacement === 'right'">
-          <span class="button-content-left">
+          <span class="c-button-content-left">
             <slot />
           </span>
           <button-icon />

@@ -1,4 +1,4 @@
-.spin {
+.c-spin {
   position: relative;
   display: inline-block;
 
@@ -22,25 +22,25 @@
     width: 100%;
     transform: translateY(-50%);
     top: 50%;
-    color: var(--spin-bg-color);
+    color: var(--c-spin-bg-color);
 
     & > svg {
-      animation: var(--spin-wrapper-animation-duration) linear infinite animation-spin;
+      animation: var(--c-spin-wrapper-animation-duration) linear infinite animation-c-spin;
       animation-fill-mode: forwards;
 
-      width: var(--spin-middle);
-      height: var(--spin-middle);
+      width: var(--c-spin-middle);
+      height: var(--c-spin-middle);
     }
   }
 
   &-indicator {
     display: inline-flex;
-    animation: var(--spin-indicator-animation-duration) linear infinite animation-spin;
+    animation: var(--c-spin-indicator-animation-duration) linear infinite c-animation-spin;
     animation-fill-mode: forwards;
   }
 
   &-child {
-    opacity: var(--spin-child-opacity);
+    opacity: var(--c-spin-child-opacity);
     user-select: none;
   }
 
@@ -49,30 +49,30 @@
       content: none;
     }
 
-    & > .spin-child {
+    & > .c-spin-child {
       opacity: 1;
       user-select: auto;
     }
   }
 }
 
-.spin-small {
-  & > .spin-wrapper svg {
-    width: var(--spin-small);
-    height: var(--spin-small);
+.c-spin-small {
+  & > .c-spin-wrapper svg {
+    width: var(--c-spin-small);
+    height: var(--c-spin-small);
   }
 }
 
-.spin-middle {
-  & > .spin-wrapper svg {
-    width: var(--spin-middle);
-    height: var(--spin-middle);
+.c-spin-middle {
+  & > .c-spin-wrapper svg {
+    width: var(--c-spin-middle);
+    height: var(--c-spin-middle);
   }
 }
 
-.spin-large {
-  & > .spin-wrapper svg {
-    width: var(--spin-large);
-    height: var(--spin-large);
+.c-spin-large {
+  & > .c-spin-wrapper svg {
+    width: var(--c-spin-large);
+    height: var(--c-spin-large);
   }
 }

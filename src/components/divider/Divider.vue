@@ -17,10 +17,10 @@ withDefaults(defineProps<Props>(), {
 <template>
   <div
     :class="[
-      'divider',
-      `divider-${direction}`,
-      { 'divider-dashed': dashed },
-      { [`divider-with-text divider-with-text-${align}`]: $slots.default }
+      'c-divider',
+      `c-divider-${direction}`,
+      { 'c-divider-dashed': dashed },
+      { [`c-divider-with-text c-divider-with-text-${align}`]: $slots.default }
     ]"
     :style="{
       marginLeft: direction === 'vertical' ? margin : '',
@@ -29,7 +29,7 @@ withDefaults(defineProps<Props>(), {
       marginBottom: direction === 'horizontal' ? margin : ''
     }"
   >
-    <span v-if="$slots.default" class="divider-text">
+    <span v-if="$slots.default" class="c-divider-text">
       <slot />
     </span>
   </div>

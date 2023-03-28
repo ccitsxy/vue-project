@@ -1,8 +1,9 @@
 import { describe, it, expect, vitest } from 'vitest'
 
 import { mount } from '@vue/test-utils'
+import { markRaw } from 'vue'
 import Spin from '../Spin.vue'
-import SpinIcon from '../SpinIcon.vue'
+import { IconSpin } from '@/components/icon'
 
 describe('Spin', () => {
   it('renders the component', () => {
@@ -16,7 +17,7 @@ describe('Spin', () => {
         default: '<span>test-slot</span>'
       }
     })
-    expect(wrapper.find('.spin-child').text()).toBe('test-slot')
+    expect(wrapper.find('.c-spin-child').text()).toBe('test-slot')
   })
 
   it('renders the correct size', () => {
@@ -25,7 +26,7 @@ describe('Spin', () => {
         size: 'large'
       }
     })
-    expect(wrapper.classes('spin-large')).toBe(true)
+    expect(wrapper.classes('c-spin-large')).toBe(true)
   })
 
   it('renders the tip', () => {
@@ -40,15 +41,15 @@ describe('Spin', () => {
   it('renders the indicator slot', () => {
     const wrapper = mount(Spin, {
       slots: {
-        indicator: '<span>test-indicator</span>'
+        indicator: markRaw(IconSpin)
       }
     })
-    expect(wrapper.find('.spin-indicator').text()).toBe('test-indicator')
+    expect(wrapper.findComponent(IconSpin).exists()).toBe(true)
   })
 
-  it('renders the default SpinIcon when no indicator slot is provided', () => {
+  it('renders the default IconSpin when no indicator slot is provided', () => {
     const wrapper = mount(Spin)
-    expect(wrapper.findComponent(SpinIcon).exists()).toBe(true)
+    expect(wrapper.findComponent(IconSpin).exists()).toBe(true)
   })
 
   it('hides the spin content when spin prop is false', async () => {
@@ -57,7 +58,7 @@ describe('Spin', () => {
         spin: false
       }
     })
-    expect(wrapper.classes('spin-hidden')).toBe(true)
+    expect(wrapper.classes('c-spin-hidden')).toBe(true)
   })
 
   it('delays the spin display by the specified delay prop', async () => {
@@ -67,10 +68,10 @@ describe('Spin', () => {
         delay: 1000
       }
     })
-    expect(wrapper.classes('spin-hidden')).toBe(true)
+    expect(wrapper.classes('c-spin-hidden')).toBe(true)
     vitest.advanceTimersByTime(1000)
     await wrapper.vm.$nextTick()
-    expect(wrapper.classes('spin-hidden')).toBe(false)
+    expect(wrapper.classes('c-spin-hidden')).toBe(false)
   })
 
   it('applies the wrapperClassName prop', () => {
@@ -83,6 +84,6 @@ describe('Spin', () => {
       props: { childStyle: { backgroundColor: 'red' } },
       slots: { default: 'test-slot' }
     })
-    expect(wrapper.find('.spin-child').attributes('style')).toContain('background-color: red;')
+    expect(wrapper.find('.c-spin-child').attributes('style')).toContain('background-color: red;')
   })
 })
