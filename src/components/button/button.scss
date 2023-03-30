@@ -287,12 +287,12 @@
     align-items: center;
     justify-content: center;
 
-    &-left {
-      margin-right: var(--c-button-content-left-margin-right);
+    &-start {
+      margin-inline-end: var(--c-button-content-start-margin-inline-end);
     }
 
-    &-right {
-      margin-left: var(--c-button-content-right-margin-left);
+    &-end {
+      margin-inline-start: var(--c-button-content-end-margin-inline-start);
     }
   }
 }

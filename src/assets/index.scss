@@ -126,8 +126,8 @@
   --c-button-borderless-hover-bg-color: var(--c-borderless-hover-bg-color);
   --c-button-borderless-active-bg-color: var(--c-borderless-active-bg-color);
 
-  --c-button-content-left-margin-right: 8px;
-  --c-button-content-right-margin-left: 8px;
+  --c-button-content-start-margin-inline-end: 8px;
+  --c-button-content-end-margin-inline-start: 8px;
 
   --c-button-loading-duration: 3600ms;
 }
@@ -168,8 +168,8 @@
   --c-divider-text-padding: 0 8px;
   --c-divider-text-font-weight: 600;
   --c-divider-text-font-size: 14px;
-  --c-divider-left-line-width: 40px;
-  --c-divider-right-line-width: 40px;
+  --c-divider-start-line-width: 40px;
+  --c-divider-end-line-width: 40px;
 }
 
 @keyframes c-animation-spin {

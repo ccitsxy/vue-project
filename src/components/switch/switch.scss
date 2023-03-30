@@ -1,0 +1,261 @@
+.c-switch {
+}
+
+.c-switch {
+  box-sizing: border-box;
+  display: inline-block;
+  border-radius: var(--switch-border-radius);
+  border: var(--switch-border-width) solid var(--switch-border-color);
+  position: relative;
+  cursor: pointer;
+  background-color: $color-switch_default-bg-default;
+  // box-shadow: inset 0 0 0 0 $color-switch_default-bg-success;
+  //transition: background-color $motion-switch-transitionDuration ease-in-out;
+  transition: background-color $transition_duration-switch-bg $transition_function-switch-bg
+    $transition_delay_switch-bg;
+
+  width: $width-switch;
+  height: $height-switch;
+
+  &:focus-visible {
+    outline: var(--switch-focus-outline-width) solid var(--switch-focus-outline-color);
+  }
+
+  &:hover {
+    background-color: var(--switch-hover-bg-color);
+  }
+
+  &:active {
+    border: var(--switch-active-border-width) solid var(--switch-active-border-color);
+
+    .c-switch-knob {
+      width: var(--switch-active-knob-width);
+    }
+  }
+
+  &-checked {
+    background-color: var(--switch-checked-bg-color);
+
+    &:hover {
+      background-color: var(--switch-checked-hover-bg-color);
+    }
+
+    .c-switch-knob {
+      transform: var(--switch-checked-hover-knob-transform);
+    }
+
+    &:active {
+      .c-switch-knob {
+        transform: var(--switch-checked-active-knob-transform);
+      }
+    }
+  }
+
+  // &-active {
+  //   background-color: $color-switch_checked-bg-active;
+  // }
+
+  &-disabled {
+    cursor: not-allowed;
+    background-color: $color-switch_disabled-bg-default;
+    border: $border-thickness-control $color-switch_disabled-border-default solid;
+
+    &:hover {
+      background-color: $color-switch_disabled-bg-hover;
+    }
+
+    &:active {
+      background-color: $color-switch_disabled-bg-active;
+    }
+
+    .c-switch-knob {
+      cursor: not-allowed;
+      @include shadow-0;
+      border: $width-switch_knob_disabled-border $color-switch_knob-border-default solid;
+    }
+
+    &.c-switch-checked {
+      border-color: $color-switch_checked_disabled-border-default;
+      background-color: $color-switch_checked_disabled-bg-default;
+      .c-switch-knob {
+        @include shadow-0;
+        border: none;
+      }
+    }
+  }
+
+  &-knob {
+    @include shadow-knob;
+    cursor: pointer;
+    border-radius: $width-switch_knob_default * 0.5;
+    background-color: $color-switch_knob-bg-default;
+    box-sizing: border-box;
+    position: absolute;
+    left: $spacing-switch_knob-left;
+    right: auto;
+    transition: transform $motion-switch-transitionDuration ease-in-out,
+      width $motion-switch-transitionDuration ease-in-out;
+
+    width: $width-switch_knob_default;
+    height: $width-switch_knob_default;
+    top: $spacing-switch_knob-padding;
+    transform: translateX($spacing-switch_unchecked-translateX);
+  }
+
+  &-checked-text,
+  &-unchecked-text {
+    position: absolute;
+    font-size: $font-size-small;
+    height: 100%;
+    width: 20px;
+    @include all-center;
+  }
+
+  &-checked-text {
+    color: $color-switch_checked-text-default;
+  }
+
+  &-unchecked-text {
+    color: $color-switch_unchecked-text-default;
+    right: 0;
+  }
+
+  &-loading {
+    display: inline-flex;
+    align-items: center;
+    background-color: $color-switch_spin_unchecked-bg-default;
+
+    &-spin {
+      .c-spin-wrapper {
+        display: inline-flex;
+        align-items: center;
+        color: $color-switch_loading_spin-default;
+      }
+    }
+  }
+}
+
+.c-switch-loading {
+  .c-switch-loading-spin {
+    transform: translateX($spacing-switch_spin_unchecked-translateX);
+
+    & > .c-spin-wrapper > svg {
+      width: $width-switch_spin-default;
+      height: $width-switch_spin-default;
+    }
+  }
+
+  &.c-switch-checked {
+    background-color: $color-switch_spin_checked-bg-default;
+
+    .c-switch-loading-spin {
+      transform: translateX($spacing-switch_spin_checked-translateX);
+    }
+  }
+}
+
+.c-switch-loading.c-switch-small {
+  .c-switch-loading-spin {
+    transform: translateX($spacing-switch_spin_unchecked_small-translateX);
+
+    & > .c-spin-wrapper > svg {
+      width: $width-switch_spin-small;
+      height: $width-switch_spin-small;
+    }
+  }
+  &.c-switch-checked {
+    .c-switch-loading-spin {
+      transform: translateX($spacing-switch_spin_checked_small-translateX);
+    }
+  }
+}
+
+.c-switch-loading.c-switch-large {
+  .c-switch-loading-spin {
+    transform: translateX($spacing-switch_spin_unchecked_large-translateX);
+
+    & > .c-spin-wrapper > svg {
+      width: $width-switch_spin-large;
+      height: $width-switch_spin-large;
+    }
+  }
+
+  &.c-switch-checked {
+    .c-switch-loading-spin {
+      transform: translateX($spacing-switch_spin_checked_large-translateX);
+    }
+  }
+}
+
+.c-switch-disabled.c-switch-checked {
+  background-color: $color-switch_checked_disabled-bg-default;
+}
+
+.c-switch-large {
+  width: $width-switch_large;
+  height: $height-switch_large;
+  border-radius: $radius-switch_large;
+  .c-switch-knob {
+    width: $width-switch_knob_large;
+    height: $width-switch_knob_large;
+    top: $spacing-switch_knob_large-padding;
+    border-radius: $width-switch_knob_large * 0.5;
+    transform: translateX($spacing-switch_unchecked_large-translateX);
+  }
+  &.c-switch-checked {
+    .c-switch-knob {
+      transform: translateX($spacing-switch_checked_large-translateX);
+    }
+
+    &:active {
+      .c-switch-knob {
+        transform: translateX(
+          $spacing-switch_checked_large-translateX - $spacing-switch_expand_large-translateX
+        );
+      }
+    }
+  }
+
+  &:active {
+    .c-switch-knob {
+      width: $width-switch_knob_large_active;
+    }
+  }
+  .c-switch-checked-text,
+  .c-switch-unchecked-text {
+    width: $width-switch_checked_unchecked_text;
+    font-size: $font-size-regular;
+  }
+}
+
+.c-switch-small {
+  width: var(--switch-small-width);
+  height: var(--switch-small-height);
+  border-radius: var(--switch-small-border-radius);
+  .c-switch-knob {
+    width: var(--switch-small-knob-width);
+    height: var(--switch-small-knob-width);
+    top: var(--switch-small-knob-top);
+    border-radius: calc(var(--switch-small-knob-width) / 2);
+    transform: translateX($spacing-switch_unchecked_small-translateX);
+  }
+  &.c-switch-checked {
+    .c-switch-knob {
+      transform: translateX($spacing-switch_checked_small-translateX);
+    }
+
+    &:active {
+      .c-switch-knob {
+        transform: translateX(
+          $spacing-switch_checked_small-translateX - $spacing-switch_expand_small-translateX
+        );
+      }
+    }
+  }
+
+  &:active {
+    .c-switch-knob {
+      width: $width-switch_knob_small_active;
+    }
+  }
+}

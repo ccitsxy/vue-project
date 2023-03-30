@@ -1,0 +1,81 @@
+.c-row {
+  display: flex;
+  flex-flow: row wrap;
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    display: flex;
+  }
+}
+
+.c-col-0,
+.c-col-xs-0,
+.c-col-sm-0,
+.c-col-md-0,
+.c-col-lg-0,
+.c-col-xl-0,
+.c-col-xxl-0 {
+  display: none;
+}
+
+.c-row-start {
+  justify-content: flex-start;
+}
+
+.c-row-center {
+  justify-content: center;
+}
+
+.c-row-end {
+  justify-content: flex-end;
+}
+
+.c-row-space-between {
+  justify-content: space-between;
+}
+
+.c-row-space-around {
+  justify-content: space-around;
+}
+
+.c-row-start {
+  align-items: flex-start;
+}
+
+.c-row-center {
+  align-items: center;
+}
+
+.c-row-end {
+  align-items: flex-end;
+}
+
+.c-col {
+  position: relative;
+}
+
+
+@media (min-width: $width-grid_screen-sm-min) {
+  // @include make-grid(-sm);
+}
+
+
+@media (min-width: $width-grid_screen-md-min) {
+  // @include make-grid(-md);
+}
+
+
+@media (min-width: $width-grid_screen-lg-min) {
+  // @include make-grid(-lg);
+}
+
+
+@media (min-width: $width-grid_screen-xl-min) {
+  // @include make-grid(-xl);
+}
+
+
+@media (min-width: $width-grid_screen-xxl-min) {
+  // @include make-grid(-xxl);
+}

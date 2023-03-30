@@ -18,7 +18,7 @@ export interface Props {
   disabled?: boolean
   loading?: boolean
   icon?: string | Component
-  iconPlacement?: 'left' | 'right'
+  iconPlacement?: 'start' | 'end'
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -31,7 +31,7 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   loading: false,
   icon: undefined,
-  iconPlacement: 'left'
+  iconPlacement: 'start'
 })
 
 const emit = defineEmits<{
@@ -99,14 +99,14 @@ const ButtonIcon = () => {
         <slot />
       </template>
       <template v-else-if="$slots.default && (loading || icon || $slots.icon)">
-        <template v-if="iconPlacement === 'left'">
+        <template v-if="iconPlacement === 'start'">
           <button-icon />
-          <span class="c-button-content-right">
+          <span class="c-button-content-end">
             <slot />
           </span>
         </template>
-        <template v-else-if="iconPlacement === 'right'">
-          <span class="c-button-content-left">
+        <template v-else-if="iconPlacement === 'end'">
+          <span class="c-button-content-start">
             <slot />
           </span>
           <button-icon />

@@ -74,8 +74,8 @@ describe('Spin', () => {
     expect(wrapper.classes('c-spin-hidden')).toBe(false)
   })
 
-  it('applies the wrapperClassName prop', () => {
-    const wrapper = mount(Spin, { props: { wrapperClassName: 'test-class' } })
+  it('applies the wrapperClass prop', () => {
+    const wrapper = mount(Spin, { props: { wrapperClass: 'test-class' } })
     expect(wrapper.classes('test-class')).toBe(true)
   })
 

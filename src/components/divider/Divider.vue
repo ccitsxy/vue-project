@@ -1,7 +1,7 @@
 <script setup lang="ts">
 export interface Props {
   direction?: 'horizontal' | 'vertical'
-  align?: 'left' | 'right' | 'center'
+  align?: 'start' | 'end' | 'center'
   dashed?: boolean
   margin?: string
 }
@@ -20,11 +20,12 @@ withDefaults(defineProps<Props>(), {
       'c-divider',
       `c-divider-${direction}`,
       { 'c-divider-dashed': dashed },
-      { [`c-divider-with-text c-divider-with-text-${align}`]: $slots.default }
+      { 'c-divider-with-text': $slots.default },
+      { [`c-divider-with-text-${align}`]: $slots.default && align !== 'center' }
     ]"
     :style="{
-      marginLeft: direction === 'vertical' ? margin : '',
-      marginRight: direction === 'vertical' ? margin : '',
+      marginInlineStart: direction === 'vertical' ? margin : '',
+      marginInlineEnd: direction === 'vertical' ? margin : '',
       marginTop: direction === 'horizontal' ? margin : '',
       marginBottom: direction === 'horizontal' ? margin : ''
     }"

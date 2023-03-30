@@ -7,10 +7,7 @@ import Space from '@/components/space/Space.vue'
 </script>
 
 <template>
-  <div class="greetings">
-    <h1>You did it!</h1>
-  </div>
-  <Space wrap>
+  <Space wrap style="margin: 8px">
     <Button>主要按钮</Button>
     <Button status="secondary">次要按钮</Button>
     <Button status="tertiary">第三按钮</Button>
@@ -56,7 +53,7 @@ import Space from '@/components/space/Space.vue'
     <Button :icon="IconArrowDown" theme="light" />
 
     <Button :icon="IconArrowDown" theme="solid">收起</Button>
-    <Button :icon="IconArrowDown" theme="solid" icon-placement="right">展开选项</Button>
+    <Button :icon="IconArrowDown" theme="solid" icon-placement="end">展开选项</Button>
 
     <Button loading>保存</Button>
 
@@ -64,32 +61,27 @@ import Space from '@/components/space/Space.vue'
 
     <Button loading status="warning" block theme="solid">撤销</Button>
 
-    <Divider margin="12px">
-      <span>左</span>
-      <Divider direction="vertical" margin="12px" />
-      <span>中</span>
-      <Divider direction="vertical" margin="12px" />
-      <span>右</span>
-    </Divider>
-
-    <Divider margin="12px" align="left"> 这是居左文字 </Divider>
+    <Divider margin="12px" align="start"> 这是居左文字 </Divider>
 
     <Divider margin="12px" align="center"> 这是居中文字 </Divider>
 
-    <Divider margin="12px" align="right"> 这是居右文字 </Divider>
+    <Divider margin="12px" align="end"> 这是居右文字 </Divider>
 
     <Divider margin="12px">
       <IconArrowDown />
     </Divider>
 
-    <div style="height: 120px; width: 120px">
+    <div style="height: fit-content; width: fit-content">
       <Spin :delay="2000" size="large">
         <template #tip> I am loading... </template>
         <div
-          style="border: 1px solid var(--semi-color-primary); border-radius: 4px; padding-left: 8px"
+          style="border: 1px solid var(--c-primary-color); border-radius: 4px; padding-inline-start;: 8px"
         >
           <p>Here are some texts.</p>
           <p>And more texts on the way.</p>
+          <div class="greetings">
+            <h1>You did it!</h1>
+          </div>
         </div>
       </Spin>
     </div>

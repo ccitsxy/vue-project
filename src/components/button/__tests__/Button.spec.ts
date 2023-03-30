@@ -12,7 +12,7 @@ describe('Button', () => {
     expect(wrapper.classes()).toContain('c-button-light')
     expect(wrapper.vm.$props.disabled).toBe(false)
     expect(wrapper.vm.$props.loading).toBe(false)
-    expect(wrapper.vm.$props.iconPlacement).toBe('left')
+    expect(wrapper.vm.$props.iconPlacement).toBe('start')
   })
 
   it('emits click event when button is clicked', async () => {

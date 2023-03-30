@@ -11,7 +11,7 @@ export interface Props {
   size?: SpinSize
   delay?: number
   tip?: string
-  wrapperClassName?: string
+  wrapperClass?: string
   childStyle?: CSSProperties
 }
 
@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<Props>(), {
   size: 'middle',
   delay: 0,
   tip: undefined,
-  wrapperClassName: undefined,
+  wrapperClass: undefined,
   childStyle: undefined
 })
 
@@ -39,7 +39,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div :class="['c-spin', `c-spin-${size}`, { 'c-spin-hidden': !spin }, wrapperClassName]">
+  <div :class="['c-spin', `c-spin-${size}`, { 'c-spin-hidden': !spin }, wrapperClass]">
     <div v-if="spin" class="c-spin-wrapper">
       <div v-if="$slots.indicator" class="c-spin-indicator">
         <slot name="indicator" />

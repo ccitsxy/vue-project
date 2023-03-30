@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
 import type { ColSize } from './interface'
-import { useRowSize, calColSizeClass, calcGutterStyle } from './interface'
+import { useRowSize, calColSizeClass, calGutterStyle } from './interface'
 import { rowContextKey } from './context'
 
 export interface Props {
@@ -37,18 +37,18 @@ const colSizeClass = computed(() =>
 const { gutter } = inject(rowContextKey, { gutter: computed(() => 0) })
 
 const size = useRowSize()
-const colStyle = computed(() => calcGutterStyle(gutter.value, size.value, 'col'))
+const colStyle = computed(() => calGutterStyle(gutter.value, size.value, 'col'))
 </script>
 
 <template>
   <div
     :class="[
       'c-col',
-      { [`c-col-${span}`]: span },
-      { [`c-col-order-${order}`]: order },
-      { [`c-col-offset-${offset}`]: offset },
-      { [`c-col-push-${push}`]: push },
-      { [`c-col-push-${pull}`]: pull },
+      `c-col-${span}`,
+      `c-col-order-${order}`,
+      `c-col-offset-${offset}`,
+      `c-col-push-${push}`,
+      `c-col-push-${pull}`,
       colSizeClass
     ]"
     :style="colStyle"

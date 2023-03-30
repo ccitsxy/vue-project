@@ -17,7 +17,7 @@ export interface ColSizeObject {
 
 export type ColSize = number | ColSizeObject
 
-export const calcSize = (width: number): Breakpoint => {
+export const calSize = (width: number): Breakpoint => {
   switch (true) {
     case width < 575:
       return 'xs'
@@ -35,9 +35,9 @@ export const calcSize = (width: number): Breakpoint => {
 }
 
 export const useRowSize = () => {
-  const size = shallowRef(calcSize(isClient ? window.innerWidth : 0))
+  const size = shallowRef(calSize(isClient ? window.innerWidth : 0))
   const updateSize = () => {
-    size.value = calcSize(isClient ? window.innerWidth : 0)
+    size.value = calSize(isClient ? window.innerWidth : 0)
   }
   useEventListener('resize', updateSize)
   return size
@@ -66,7 +66,7 @@ export const calColSizeClass = (sizesVal: (ColSize | undefined)[]) => {
   return classes
 }
 
-export function calcGutterStyle(
+export function calGutterStyle(
   gutter: Gutter | [Gutter, Gutter] | undefined,
   currentSize: Breakpoint,
   direction: 'row' | 'col'
@@ -76,9 +76,9 @@ export function calcGutterStyle(
   const setPaddingX = (gutter: number | undefined) => {
     if (!isUndefined(gutter)) {
       if (direction === 'row') {
-        style.paddingLeft = style.paddingRight = `${gutter / -2}px`
+        style.paddingInlineStart = style.paddingInlineEnd = `${gutter / -2}px`
       } else if (direction === 'col') {
-        style.paddingLeft = style.paddingRight = `${gutter / 2}px`
+        style.paddingInlineStart = style.paddingInlineEnd = `${gutter / 2}px`
       }
     }
   }
