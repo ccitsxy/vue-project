@@ -19,7 +19,7 @@ const props = withDefaults(defineProps<Props>(), {
   align: 'center',
   gap: 'tight'
 })
-const calGapStyleAndClass = (gap: Gap | [Gap, Gap]) => {
+const useGapStyleAndClass = (gap: Gap | [Gap, Gap]) => {
   const gapStyle: CSSProperties = {}
   const gapClass: string[] = []
 
@@ -45,7 +45,7 @@ const calGapStyleAndClass = (gap: Gap | [Gap, Gap]) => {
   return { gapStyle, gapClass }
 }
 
-const gapStyleAndClass = computed(() => calGapStyleAndClass(props.gap))
+const gapStyleAndClass = computed(() => useGapStyleAndClass(props.gap))
 </script>
 
 <template>

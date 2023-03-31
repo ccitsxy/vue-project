@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { computed, provide } from 'vue'
 import type { Gutter } from './interface'
-import { calGutterStyle, useRowSize } from './interface'
+import { useGutterStyle, useRowSize } from './interface'
 import { rowContextKey } from './context'
 
 export interface Props {
-  align?: 'top' | 'middle' | 'bottom'
+  align?: 'start' | 'center' | 'end'
   justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between'
   gutter?: Gutter | [Gutter, Gutter]
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  align: 'middle',
+  align: 'center',
   justify: 'start',
   gutter: undefined
 })
@@ -20,11 +20,11 @@ const gutter = computed(() => props.gutter)
 provide(rowContextKey, { gutter })
 
 const size = useRowSize()
-const rowStyle = computed(() => calGutterStyle(props.gutter, size.value, 'row'))
+const rowStyle = computed(() => useGutterStyle(props.gutter, size.value, 'row'))
 </script>
 
 <template>
-  <div :class="['c-row', `c-row-${justify}`, `c-row-${align}`]" :style="rowStyle">
+  <div :class="['c-row', `c-row-justify-${justify}`, `c-row-align-${align}`]" :style="rowStyle">
     <slot />
   </div>
 </template>

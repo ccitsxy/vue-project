@@ -262,7 +262,7 @@
       & > svg {
         width: 16px;
         height: 16px;
-        animation: var(--c-button-loading-duration) linear infinite animation-spin;
+        animation: var(--c-button-loading-duration) linear infinite var(--c-button-loading-function);
         animation-fill-mode: forwards;
       }
     }

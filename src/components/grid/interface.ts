@@ -17,7 +17,7 @@ export interface ColSizeObject {
 
 export type ColSize = number | ColSizeObject
 
-export const calSize = (width: number): Breakpoint => {
+export const useSize = (width: number): Breakpoint => {
   switch (true) {
     case width < 640:
       return 'xs'
@@ -35,15 +35,15 @@ export const calSize = (width: number): Breakpoint => {
 }
 
 export const useRowSize = () => {
-  const size = shallowRef(calSize(isClient ? window.innerWidth : 0))
+  const size = shallowRef(useSize(isClient ? window.innerWidth : 0))
   const updateSize = () => {
-    size.value = calSize(isClient ? window.innerWidth : 0)
+    size.value = useSize(isClient ? window.innerWidth : 0)
   }
   useEventListener('resize', updateSize)
   return size
 }
 
-export const calColSizeClass = (sizesVal: (ColSize | undefined)[]) => {
+export const useColSizeClass = (sizesVal: (ColSize | undefined)[]) => {
   const classes: string[] = []
 
   const sizes = ['xxl', 'xl', 'lg', 'sm', 'xs']
@@ -66,7 +66,7 @@ export const calColSizeClass = (sizesVal: (ColSize | undefined)[]) => {
   return classes
 }
 
-export function calGutterStyle(
+export function useGutterStyle(
   gutter: Gutter | [Gutter, Gutter] | undefined,
   currentSize: Breakpoint,
   direction: 'row' | 'col'

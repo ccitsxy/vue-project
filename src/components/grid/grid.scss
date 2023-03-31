@@ -1,13 +1,3 @@
-@use 'sass:math';
-
-.c-grid {
-  --c-grid-min-width-sm: 640px;
-  --c-grid-min-width-md: 768px;
-  --c-grid-min-width-lg: 1024px;
-  --c-grid-min-width-xl: 1280px;
-  --c-grid-min-width-xxl: 1536px;
-}
-
 .c-row {
   display: flex;
   width: 100%;
@@ -28,7 +18,7 @@
   display: none;
 }
 
-.c-row-start {
+.c-row-justify-start {
   justify-content: flex-start;
 }
 
@@ -36,133 +26,133 @@
   justify-content: center;
 }
 
-.c-row-end {
+.c-row-justify-end {
   justify-content: flex-end;
 }
 
-.c-row-space-between {
+.c-row-justify-space-between {
   justify-content: space-between;
 }
 
-.c-row-space-around {
+.c-row-justify-space-around {
   justify-content: space-around;
 }
 
-.c-row-top {
+.c-row-align-start {
   align-items: flex-start;
 }
 
-.c-row-medium {
+.c-row-align-center {
   align-items: center;
 }
 
-.c-row-bottom {
+.c-row-align-end {
   align-items: flex-end;
 }
 
 @for $i from 1 through 24 {
   .c-col-#{$i} {
-    width: math.percentage($i / 24);
+    width: calc($i / 24 * 100%);
   }
   .c-col-order-#{$i} {
     order: #{$i};
   }
   .c-col-offset-#{$i} {
-    margin-inline-start: math.percentage($i / 24);
+    margin-inline-start: calc($i / 24 * 100%);
   }
   .c-col-push-#{$i} {
-    inset-inline-start: math.percentage($i / 24);
+    inset-inline-start: calc($i / 24 * 100%);
   }
   .c-col-pull-#{$i} {
-    inset-inline-end: math.percentage($i / 24);
+    inset-inline-end: calc($i / 24 * 100%);
   }
   @media (min-width: var(--c-grid-width-sm)) {
     .c-col-sm-#{$i} {
-      width: math.percentage($i / 24);
+      width: calc($i / 24 * 100%);
     }
     .c-col-sm-order-#{$i} {
       order: #{$i};
     }
     .c-col-sm-offset-#{$i} {
-      margin-inline-start: math.percentage($i / 24);
+      margin-inline-start: calc($i / 24 * 100%);
     }
     .c-col-sm-push-#{$i} {
-      inset-inline-start: math.percentage($i / 24);
+      inset-inline-start: calc($i / 24 * 100%);
     }
     .c-col-sm-pull-#{$i} {
-      inset-inline-end: math.percentage($i / 24);
+      inset-inline-end: calc($i / 24 * 100%);
     }
   }
 
   @media (min-width: var(--c-grid-width-md)) {
     .c-col-md-#{$i} {
-      width: math.percentage($i / 24);
+      width: calc($i / 24 * 100%);
     }
     .c-col-md-order-#{$i} {
       order: #{$i};
     }
     .c-col-md-offset-#{$i} {
-      margin-inline-start: math.percentage($i / 24);
+      margin-inline-start: calc($i / 24 * 100%);
     }
     .c-col-md-push-#{$i} {
-      inset-inline-start: math.percentage($i / 24);
+      inset-inline-start: calc($i / 24 * 100%);
     }
     .c-col-md-pull-#{$i} {
-      inset-inline-end: math.percentage($i / 24);
+      inset-inline-end: calc($i / 24 * 100%);
     }
   }
 
   @media (min-width: var(--c-grid-width-lg)) {
     .c-col-lg-#{$i} {
-      width: math.percentage($i / 24);
+      width: calc($i / 24 * 100%);
     }
     .c-col-lg-order-#{$i} {
       order: #{$i};
     }
     .c-col-lg-offset-#{$i} {
-      margin-inline-start: math.percentage($i / 24);
+      margin-inline-start: calc($i / 24 * 100%);
     }
     .c-col-lg-push-#{$i} {
-      inset-inline-start: math.percentage($i / 24);
+      inset-inline-start: calc($i / 24 * 100%);
     }
     .c-col-lg-pull-#{$i} {
-      inset-inline-end: math.percentage($i / 24);
+      inset-inline-end: calc($i / 24 * 100%);
     }
   }
 
   @media (min-width: var(--c-grid-width-xl)) {
     .c-col-xl-#{$i} {
-      width: math.percentage($i / 24);
+      width: calc($i / 24 * 100%);
     }
     .c-col-xl-order-#{$i} {
       order: #{$i};
     }
     .c-col-xl-offset-#{$i} {
-      margin-inline-start: math.percentage($i / 24);
+      margin-inline-start: calc($i / 24 * 100%);
     }
     .c-col-xl-push-#{$i} {
-      inset-inline-start: math.percentage($i / 24);
+      inset-inline-start: calc($i / 24 * 100%);
     }
     .c-col-xl-pull-#{$i} {
-      inset-inline-end: math.percentage($i / 24);
+      inset-inline-end: calc($i / 24 * 100%);
     }
   }
 
   @media (min-width: var(--c-grid-width-xxl)) {
     .c-col-xxl-#{$i} {
-      width: math.percentage($i / 24);
+      width: calc($i / 24 * 100%);
     }
     .c-col-xxl-order-#{$i} {
       order: #{$i};
     }
     .c-col-xxl-offset-#{$i} {
-      margin-inline-start: math.percentage($i / 24);
+      margin-inline-start: calc($i / 24 * 100%);
     }
     .c-col-xxl-push-#{$i} {
-      inset-inline-start: math.percentage($i / 24);
+      inset-inline-start: calc($i / 24 * 100%);
     }
     .c-col-xxl-pull-#{$i} {
-      inset-inline-end: math.percentage($i / 24);
+      inset-inline-end: calc($i / 24 * 100%);
     }
   }
 }

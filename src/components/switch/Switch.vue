@@ -55,15 +55,17 @@ const handleMouseLeave = (e: MouseEvent) => {
 <template>
   <button
     ref="wrapper"
+    :aria-checked="props.checked"
+    :aria-disabled="props.disabled"
     :class="[
       'c-switch',
       `c-switch-${size}`,
-      checked ? 'c-switch-checked' : '',
-      loading ? 'c-switch-loading' : ''
+      {'c-switch-checked' : checked},
+      {'c-switch-loading' : loading}
     ]"
+    :disabled="disabled"
     role="switch"
-    :aria-checked="props.checked"
-    :aria-disabled="props.disabled"
+    type="button"
     @click="handleClick"
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
@@ -82,7 +84,6 @@ const handleMouseLeave = (e: MouseEvent) => {
         <slot name="uncheckedText" />
       </div>
     </template>
-    <div class="c-switch-native-control" />
   </button>
 </template>
 

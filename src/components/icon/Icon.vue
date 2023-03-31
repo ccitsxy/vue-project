@@ -22,12 +22,12 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <span
-    role="img"
+    :aria-label="ariaLabel"
     :class="['c-icon', `c-icon-${size}`, { 'c-icon-spin': spin }]"
     :style="{
       transform: `rotate(${rotate}deg)`
     }"
-    :aria-label="ariaLabel"
+    role="img"
   >
     <component :is="component" v-if="component" />
     <slot v-else-if="$slots.default" />

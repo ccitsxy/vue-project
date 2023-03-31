@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
 import type { ColSize } from './interface'
-import { useRowSize, calColSizeClass, calGutterStyle } from './interface'
+import { useRowSize, useColSizeClass, useGutterStyle } from './interface'
 import { rowContextKey } from './context'
 
 export interface Props {
@@ -31,13 +31,13 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const colSizeClass = computed(() =>
-  calColSizeClass([props.xxl, props.xl, props.lg, props.sm, props.xs])
+  useColSizeClass([props.xxl, props.xl, props.lg, props.sm, props.xs])
 )
 
 const { gutter } = inject(rowContextKey, { gutter: computed(() => 0) })
 
 const size = useRowSize()
-const colStyle = computed(() => calGutterStyle(gutter.value, size.value, 'col'))
+const colStyle = computed(() => useGutterStyle(gutter.value, size.value, 'col'))
 </script>
 
 <template>

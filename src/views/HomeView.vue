@@ -6,6 +6,10 @@ import Divider from '@/components/divider/Divider.vue'
 import Space from '@/components/space/Space.vue'
 import Col from '@/components/grid/Col.vue'
 import Row from '@/components/grid/Row.vue'
+import Switch from '@/components/switch/Switch.vue'
+import { shallowRef } from 'vue'
+
+const checked = shallowRef(false)
 </script>
 
 <template>
@@ -100,5 +104,6 @@ import Row from '@/components/grid/Row.vue'
       <Col :span="6" :push="6" style="background-color: #3bb346">col-6 push-6</Col>
       <Col :span="6" :pull="6" style="background-color: #3bb346">col-6 pull-6</Col>
     </Row>
+    <Switch v-model:checked="checked" />
   </Space>
 </template>

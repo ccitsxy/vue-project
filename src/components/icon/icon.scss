@@ -29,6 +29,6 @@
 }
 
 .c-icon-spin {
-  animation: var(--c-icon-spin-animation-duration) linear infinite c-animation-spin;
+  animation: var(--c-icon-spin-animation-duration) linear infinite var(--c-icon-spin-animation-function);
   animation-fill-mode: forwards;
 }

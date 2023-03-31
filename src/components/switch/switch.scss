@@ -1,4 +1,75 @@
 .c-switch {
+  --switch-width: 40px;
+  --switch-height: 24px;
+
+  --switch-border-radius: calc(var(--switch-width) / 2);
+  --switch-border-width: 1px;
+  --switch-border-color: transparent;
+
+  --switch-bg-color: rgba(46, 50, 56, 0.05);
+
+  --switch-focus-outline-width: 2px;
+  --switch-focus-outline-color: var(--c-primary-color);
+  --switch-focus-outline-offset: 2px;
+
+  --switch-hover-bg-color: rgba(46, 50, 56, 0.09);
+
+  --switch-active-border-color: rgba(46, 50, 56, 0.13);
+  --switch-active-knob-width: 24px;
+
+  --switch-checked-bg-color: var(--c-success-color);
+  --switch-checked-hover-bg-color: var(--c-success-hover-color);
+  --switch-checked-knob-transform: translateX(18px);
+  --switch-checked-active-knob-transform: translateX(12px);
+  --switch-disabled-bg-color: transparent;
+  --switch-disabled-border-color: rgba(28, 31, 35, 0.08);
+  --switch-knob-disabled-border-width: 1px;
+  --switch-knob-disabled-border-color: white;
+  --switch-checked-disabled-knob-border-color: transparent;
+  --switch-checked-disabled-knob-bg-color: #a4e0a7;
+  --switch-knob-border-radius: calc(var(--switch-knob-width) / 2);
+  --switch-knob-bg-color: white;
+  --switch-knob-inset-inline-start: 0px;
+  --switch-knob-transition-duration: 200ms;
+  --switch-knob-width: 18px;
+  --switch-knob-top: 2px;
+  --switch-knob-transform: translateX(2px);
+  --switch-text-font-size: var(--font-size-small);
+  --switch-checked-color: white;
+  --switch-unchecked-color: rgba(28, 31, 35, 0.62);
+  --switch-loading-bg-color: rgba(46, 50, 56, 0.09);
+  --switch-loading-spin-color: white;
+  --switch-loading-spin-transform: translateX(2px);;
+  --switch-loading-spin-width: 20px;
+  --switch-loading-checked-bg-color: var(--c-success-hover-color);
+  --switch-loading-checked-spin-transform: translateX(16px);
+  --switch-small-loading-spin-transform: translateX(2px);
+  --switch-small-loading-spin-width: 14px;
+  --switch-small-checked-loading-spin-transform: translateX(10px);
+  --switch-small-width: 40px;
+  --switch-small-height: 24px;
+  --switch-small-border-radius: calc(var(--switch-small-height) / 2);
+  --switch-small-knob-width: 12px;
+  --switch-small-knob-top: 1px;
+  --switch-small-knob-border-radius: calc(var(--switch-small-knob-width) / 2);
+  --switch-small-knob-transform: translateX(1px);
+  --switch-small-checked-knob-transform: translateX(11px);
+  --switch-small-checked-active-knob-transform: translateX(9px);
+  --switch-large-loading-spin-transform:translateX(2px) ;
+  --switch-large-spin-width: 32px;
+  --switch-large-checked-loading-spin-transform: translateX(22px);
+  --switch-large-width: 54px;
+  --switch-large-height: 32px;
+  --switch-large-border-radius: calc(var(--switch-large-knob-width) / 2);
+  --switch-large-knob-width: 24px;
+  --switch-large-knob-top: 3px;
+  --switch-large-knob-border-radius: calc(var(--switch-large-knob-width) / 2);
+  --switch-latge-knob-transform: translateX(3px);
+  --switch-large-checked-knob-transform: translateX(26px);
+  --switch-large-checked-active-knob-transform: translateX(16px);
+  --switch-large-active-knob-width:34px;
+  --switch-large-text-width: 26px;
+  --switch-large-font-size: 14px;
 }
 
 .c-switch {
@@ -8,17 +79,14 @@
   border: var(--switch-border-width) solid var(--switch-border-color);
   position: relative;
   cursor: pointer;
-  background-color: $color-switch_default-bg-default;
-  // box-shadow: inset 0 0 0 0 $color-switch_default-bg-success;
-  //transition: background-color $motion-switch-transitionDuration ease-in-out;
-  transition: background-color $transition_duration-switch-bg $transition_function-switch-bg
-    $transition_delay_switch-bg;
+  background-color: var(--switch-bg-color);
 
-  width: $width-switch;
-  height: $height-switch;
+  width: var(--switch-width);
+  height: var(--switch-height);
 
   &:focus-visible {
     outline: var(--switch-focus-outline-width) solid var(--switch-focus-outline-color);
+    outline-offset: var(--switch-focus-outline-offset);
   }
 
   &:hover {
@@ -26,7 +94,7 @@
   }
 
   &:active {
-    border: var(--switch-active-border-width) solid var(--switch-active-border-color);
+    border: var(--switch-border-width) solid var(--switch-active-border-color);
 
     .c-switch-knob {
       width: var(--switch-active-knob-width);
@@ -40,96 +108,83 @@
       background-color: var(--switch-checked-hover-bg-color);
     }
 
-    .c-switch-knob {
-      transform: var(--switch-checked-hover-knob-transform);
-    }
-
     &:active {
       .c-switch-knob {
         transform: var(--switch-checked-active-knob-transform);
       }
     }
-  }
 
-  // &-active {
-  //   background-color: $color-switch_checked-bg-active;
-  // }
+    .c-switch-knob {
+      transform: var(--switch-checked-knob-transform);
+    }
+  }
 
   &-disabled {
     cursor: not-allowed;
-    background-color: $color-switch_disabled-bg-default;
-    border: $border-thickness-control $color-switch_disabled-border-default solid;
-
-    &:hover {
-      background-color: $color-switch_disabled-bg-hover;
-    }
-
-    &:active {
-      background-color: $color-switch_disabled-bg-active;
-    }
+    background-color: var(--switch-disabled-bg-color);
+    border: var(--switch-border-width) solid var(--switch-disabled-border-color);
 
     .c-switch-knob {
       cursor: not-allowed;
-      @include shadow-0;
-      border: $width-switch_knob_disabled-border $color-switch_knob-border-default solid;
+      border: var(--switch-knob-disabled-border-width) solid
+        var(--switch-knob-disabled-border-color);
     }
 
     &.c-switch-checked {
-      border-color: $color-switch_checked_disabled-border-default;
-      background-color: $color-switch_checked_disabled-bg-default;
+      border-color: var(--switch-checked-disabled-knob-border-color);
+      background-color: var(--switch-checked-disabled-knob-bg-color);
+
       .c-switch-knob {
-        @include shadow-0;
         border: none;
       }
     }
   }
 
   &-knob {
-    @include shadow-knob;
+    box-shadow: 0 4px 6px #0000001a, 0 0 1px #0000004d;
     cursor: pointer;
-    border-radius: $width-switch_knob_default * 0.5;
-    background-color: $color-switch_knob-bg-default;
+    border-radius: var(--switch-knob-border-radius);
+    background-color: var(--switch-knob-bg-color);
     box-sizing: border-box;
     position: absolute;
-    left: $spacing-switch_knob-left;
-    right: auto;
-    transition: transform $motion-switch-transitionDuration ease-in-out,
-      width $motion-switch-transitionDuration ease-in-out;
+    inset-inline-start: var(--switch-knob-inset-inline-start);
+    inset-inline-end: auto;
+    transition: transform var(--switch-knob-transition-duration) ease-in-out,
+      width var(--switch-knob-transition-duration) ease-in-out;
 
-    width: $width-switch_knob_default;
-    height: $width-switch_knob_default;
-    top: $spacing-switch_knob-padding;
-    transform: translateX($spacing-switch_unchecked-translateX);
+    width: var(--switch-knob-width);
+    height: var(--switch-knob-width);
+    top: var(--switch-knob-top);
+    transform: var(--switch-knob-transform);
   }
 
   &-checked-text,
   &-unchecked-text {
     position: absolute;
-    font-size: $font-size-small;
+    font-size: var(--switch-text-font-size);
     height: 100%;
     width: 20px;
-    @include all-center;
   }
 
   &-checked-text {
-    color: $color-switch_checked-text-default;
+    color: var(--switch-checked-color);
   }
 
   &-unchecked-text {
-    color: $color-switch_unchecked-text-default;
+    color: var(--switch-unchecked-color);
     right: 0;
   }
 
   &-loading {
     display: inline-flex;
     align-items: center;
-    background-color: $color-switch_spin_unchecked-bg-default;
+    background-color: var(--switch-loading-bg-color);
 
     &-spin {
       .c-spin-wrapper {
         display: inline-flex;
         align-items: center;
-        color: $color-switch_loading_spin-default;
+        color: var(--switch-loading-spin-color);
       }
     }
   }
@@ -137,94 +192,92 @@
 
 .c-switch-loading {
   .c-switch-loading-spin {
-    transform: translateX($spacing-switch_spin_unchecked-translateX);
+    transform: var(--switch-loading-spin-transform);
 
     & > .c-spin-wrapper > svg {
-      width: $width-switch_spin-default;
-      height: $width-switch_spin-default;
+      width: var(--switch-loading-spin-width);
+      height: var(--switch-loading-spin-width);
     }
   }
 
   &.c-switch-checked {
-    background-color: $color-switch_spin_checked-bg-default;
+    background-color: var(--switch-loading-checked-bg-color);
 
     .c-switch-loading-spin {
-      transform: translateX($spacing-switch_spin_checked-translateX);
+      transform: var(--switch-checked-loading-spin-transform);
     }
   }
-}
 
-.c-switch-loading.c-switch-small {
-  .c-switch-loading-spin {
-    transform: translateX($spacing-switch_spin_unchecked_small-translateX);
-
-    & > .c-spin-wrapper > svg {
-      width: $width-switch_spin-small;
-      height: $width-switch_spin-small;
-    }
-  }
-  &.c-switch-checked {
+  &.c-switch-small {
     .c-switch-loading-spin {
-      transform: translateX($spacing-switch_spin_checked_small-translateX);
+      transform: var(--switch-small-loading-spin-transform);
+
+      & > .c-spin-wrapper > svg {
+        width: var(--switch-small-loading-spin-width);
+        height: var(--switch-small-loading-spin-width);
+      }
+    }
+
+    &.c-switch-checked {
+      .c-switch-loading-spin {
+        transform: var(--switch-small-checked-loading-spin-transform);
+      }
     }
   }
-}
 
-.c-switch-loading.c-switch-large {
-  .c-switch-loading-spin {
-    transform: translateX($spacing-switch_spin_unchecked_large-translateX);
-
-    & > .c-spin-wrapper > svg {
-      width: $width-switch_spin-large;
-      height: $width-switch_spin-large;
-    }
-  }
-
-  &.c-switch-checked {
+  &.c-switch-large {
     .c-switch-loading-spin {
-      transform: translateX($spacing-switch_spin_checked_large-translateX);
+      transform: var(--switch-large-loading-spin-transform);
+
+      & > .c-spin-wrapper > svg {
+        width: var(--switch-large-spin-width);
+        height: var(--switch-large-spin-width);
+      }
+    }
+
+    &.c-switch-checked {
+      .c-switch-loading-spin {
+        transform: var(--switch-large-checked-loading-spin-transform);
+      }
     }
   }
-}
-
-.c-switch-disabled.c-switch-checked {
-  background-color: $color-switch_checked_disabled-bg-default;
 }
 
 .c-switch-large {
-  width: $width-switch_large;
-  height: $height-switch_large;
-  border-radius: $radius-switch_large;
+  width: var(--switch-large-width);
+  height: var(--switch-large-height);
+  border-radius: var(--switch-large-border-radius);
+
   .c-switch-knob {
-    width: $width-switch_knob_large;
-    height: $width-switch_knob_large;
-    top: $spacing-switch_knob_large-padding;
-    border-radius: $width-switch_knob_large * 0.5;
-    transform: translateX($spacing-switch_unchecked_large-translateX);
+    width: var(--switch-large-knob-width);
+    height: var(--switch-large-knob-width);
+    top: var(--switch-large-knob-top);
+    border-radius: var(--switch-large-knob-border-radius);
+    transform: var(--switch-latge-knob-transform);
   }
+
   &.c-switch-checked {
     .c-switch-knob {
-      transform: translateX($spacing-switch_checked_large-translateX);
+      transform: var(--switch-large-checked-knob-transform);
     }
 
     &:active {
       .c-switch-knob {
-        transform: translateX(
-          $spacing-switch_checked_large-translateX - $spacing-switch_expand_large-translateX
-        );
+        transform: var(--switch-large-checked-active-knob-transform);
       }
     }
   }
 
   &:active {
     .c-switch-knob {
-      width: $width-switch_knob_large_active;
+      width: var(--switch-large-active-knob-width);
     }
   }
+
   .c-switch-checked-text,
   .c-switch-unchecked-text {
-    width: $width-switch_checked_unchecked_text;
-    font-size: $font-size-regular;
+    width: var(--switch-large-text-width);
+    font-size: var(--switch-large-font-size);
   }
 }
 
@@ -232,30 +285,30 @@
   width: var(--switch-small-width);
   height: var(--switch-small-height);
   border-radius: var(--switch-small-border-radius);
+
   .c-switch-knob {
     width: var(--switch-small-knob-width);
     height: var(--switch-small-knob-width);
     top: var(--switch-small-knob-top);
-    border-radius: calc(var(--switch-small-knob-width) / 2);
-    transform: translateX($spacing-switch_unchecked_small-translateX);
+    border-radius: var(--switch-small-knob-border-radius);
+    transform: var(--switch-small-knob-transform);
   }
+
   &.c-switch-checked {
     .c-switch-knob {
-      transform: translateX($spacing-switch_checked_small-translateX);
+      transform: var(--switch-small-checked-knob-transform);
     }
 
     &:active {
       .c-switch-knob {
-        transform: translateX(
-          $spacing-switch_checked_small-translateX - $spacing-switch_expand_small-translateX
-        );
+        transform: var(--switch-small-checked-active-knob-transform);
       }
     }
   }
 
   &:active {
     .c-switch-knob {
-      width: $width-switch_knob_small_active;
+      width: var(--switch-small-active-knob-width);
     }
   }
 }

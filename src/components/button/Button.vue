@@ -71,6 +71,8 @@ const ButtonIcon = () => {
 
 <template>
   <button
+    :aria-disabled="disabled"
+    :aria-label="ariaLabel"
     :class="[
       'c-button',
       `c-button-${theme}`,
@@ -82,10 +84,8 @@ const ButtonIcon = () => {
       { 'c-button-with-icon': loading || icon || $slots.icon },
       { 'c-button-with-icon-only': !$slots.default && (loading || icon || $slots.icon) }
     ]"
-    :type="type"
     :disabled="disabled"
-    :aria-disabled="disabled"
-    :aria-label="ariaLabel"
+    :type="type"
     @click="handleClick"
     @mousedown="handleMouseDown"
     @mouseenter="handleMouseEnter"
