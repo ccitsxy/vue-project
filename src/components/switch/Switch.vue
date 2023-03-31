@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { Spin } from '../spin'
 
-export type Size = 'large' | 'default' | 'small'
+export type Size = 'small' | 'middle' | 'large'
 
 export interface Props {
   ariaLabel?: string
@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
   defaultChecked: false,
   disabled: false,
   loading: false,
-  size: 'default'
+  size: 'middle'
 })
 
 const emit = defineEmits<{
@@ -71,7 +71,7 @@ const handleMouseLeave = (e: MouseEvent) => {
     <spin
       v-if="loading"
       wrapper-class-name="c-switch-loading-spin"
-      :size="size === 'default' ? 'middle' : size"
+      :size="size"
     />
     <div v-else class="c-switch-knob" aria-hidden="true" />
     <template v-if="checked && size !== 'small'">

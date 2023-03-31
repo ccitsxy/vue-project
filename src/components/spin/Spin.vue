@@ -4,11 +4,11 @@ import { shallowRef, watchEffect } from 'vue'
 import { useTimeoutFn } from '@vueuse/core'
 import SpinIcon from '../icon/IconSpin.vue'
 
-export type SpinSize = 'small' | 'middle' | 'large'
+export type Size = 'small' | 'middle' | 'large'
 
 export interface Props {
   spin?: boolean
-  size?: SpinSize
+  size?: Size
   delay?: number
   tip?: string
   wrapperClass?: string

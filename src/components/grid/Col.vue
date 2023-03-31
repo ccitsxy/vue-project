@@ -45,10 +45,10 @@ const colStyle = computed(() => calGutterStyle(gutter.value, size.value, 'col'))
     :class="[
       'c-col',
       `c-col-${span}`,
-      `c-col-order-${order}`,
-      `c-col-offset-${offset}`,
-      `c-col-push-${push}`,
-      `c-col-push-${pull}`,
+      { [`c-col-order-${order}`]: order },
+      { [`c-col-offset-${offset}`]: offset },
+      { [`c-col-push-${push}`]: push },
+      { [`c-col-pull-${pull}`]: pull },
       colSizeClass
     ]"
     :style="colStyle"

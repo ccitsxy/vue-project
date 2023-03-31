@@ -4,6 +4,8 @@ import IconArrowDown from '@/components/icon/IconArrowDown.vue'
 import Spin from '@/components/spin/Spin.vue'
 import Divider from '@/components/divider/Divider.vue'
 import Space from '@/components/space/Space.vue'
+import Col from '@/components/grid/Col.vue'
+import Row from '@/components/grid/Row.vue'
 </script>
 
 <template>
@@ -35,7 +37,7 @@ import Space from '@/components/space/Space.vue'
     <Button disabled theme="solid" status="warning">深色警告禁用</Button>
 
     <Button size="large">大尺寸</Button>
-    <Button size="default">默认尺寸</Button>
+    <Button>默认尺寸</Button>
     <Button size="small">小尺寸</Button>
 
     <Button block>块级按钮</Button>
@@ -75,7 +77,11 @@ import Space from '@/components/space/Space.vue'
       <Spin :delay="2000" size="large">
         <template #tip> I am loading... </template>
         <div
-          style="border: 1px solid var(--c-primary-color); border-radius: 4px; padding-inline-start;: 8px"
+          style="
+            border: 1px solid var(--c-primary-color);
+            border-radius: 4px;
+            padding-inline-start: 8px;
+          "
         >
           <p>Here are some texts.</p>
           <p>And more texts on the way.</p>
@@ -85,5 +91,14 @@ import Space from '@/components/space/Space.vue'
         </div>
       </Spin>
     </div>
+    <Row style="background-color: #f93920; text-align: center; color: white">
+      <Col :span="6" style="background-color: #3bb346">col-6</Col>
+      <Col :span="6" style="background-color: #3bb346">col-6</Col>
+      <Col :span="6" :offset="6" style="background-color: #3bb346">col-6 offset-6</Col>
+    </Row>
+    <Row style="background-color: #f93920; text-align: center; color: white">
+      <Col :span="6" :push="6" style="background-color: #3bb346">col-6 push-6</Col>
+      <Col :span="6" :pull="6" style="background-color: #3bb346">col-6 pull-6</Col>
+    </Row>
   </Space>
 </template>

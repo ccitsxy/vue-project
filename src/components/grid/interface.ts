@@ -19,15 +19,15 @@ export type ColSize = number | ColSizeObject
 
 export const calSize = (width: number): Breakpoint => {
   switch (true) {
-    case width < 575:
+    case width < 640:
       return 'xs'
     case width < 768:
       return 'sm'
-    case width < 992:
+    case width < 1024:
       return 'md'
-    case width < 1200:
+    case width < 1280:
       return 'lg'
-    case width < 1600:
+    case width < 1536:
       return 'xl'
     default:
       return 'xxl'

@@ -4,7 +4,7 @@ import { useSlots, h } from 'vue'
 import { Icon, IconSpin } from '../icon'
 
 export type HtmlType = 'button' | 'reset' | 'submit'
-export type Size = 'default' | 'small' | 'large'
+export type Size = 'small' | 'middle' | 'large'
 export type Status = 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger'
 export type Theme = 'solid' | 'borderless' | 'light'
 
@@ -23,7 +23,7 @@ export interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   ariaLabel: '',
-  size: 'default',
+  size: 'middle',
   status: 'primary',
   theme: 'light',
   type: 'button',
@@ -75,7 +75,7 @@ const ButtonIcon = () => {
       'c-button',
       `c-button-${theme}`,
       `c-button-${status}`,
-      {[`c-button-${size}`]: size !== 'default'},
+      `c-button-${size}`,
       { 'c-button-disabled': disabled },
       { 'c-button-block': block },
       { 'c-button-loading': loading && !disabled },

@@ -5,13 +5,13 @@ import { calGutterStyle, useRowSize } from './interface'
 import { rowContextKey } from './context'
 
 export interface Props {
-  align?: 'start' | 'center' | 'end'
+  align?: 'top' | 'middle' | 'bottom'
   justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between'
   gutter?: Gutter | [Gutter, Gutter]
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  align: 'center',
+  align: 'middle',
   justify: 'start',
   gutter: undefined
 })
