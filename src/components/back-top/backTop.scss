@@ -1,0 +1,11 @@
+.c-back-top {
+  position: fixed;
+  box-sizing: border-box;
+  inset-inline-end: var(--backtop-inset-inline-end);
+  bottom: var(--backtop-bottom);
+  z-index: var(--backtop-z-index);
+  cursor: pointer;
+
+  text-align: center;
+  overflow: hidden;
+}

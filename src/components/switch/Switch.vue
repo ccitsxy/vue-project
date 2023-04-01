@@ -9,6 +9,8 @@ export interface Props {
   ariaLabelledby?: string
   checked?: boolean
   defaultChecked?: boolean
+  checkedText?: string
+  uncheckedText?: string
   disabled?: boolean
   loading?: boolean
   size?: Size
@@ -19,6 +21,8 @@ const props = withDefaults(defineProps<Props>(), {
   ariaLabelledby: '',
   checked: false,
   defaultChecked: false,
+  checkedText: undefined,
+  uncheckedText: undefined,
   disabled: false,
   loading: false,
   size: 'middle'
@@ -60,8 +64,9 @@ const handleMouseLeave = (e: MouseEvent) => {
     :class="[
       'c-switch',
       `c-switch-${size}`,
-      {'c-switch-checked' : checked},
-      {'c-switch-loading' : loading}
+      { 'c-switch-checked': checked },
+      { 'c-switch-loading': loading },
+      { 'c-switch-disabled': disabled }
     ]"
     :disabled="disabled"
     role="switch"
@@ -70,17 +75,18 @@ const handleMouseLeave = (e: MouseEvent) => {
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
   >
-    <spin
-      v-if="loading"
-      wrapper-class-name="c-switch-loading-spin"
-      :size="size"
-    />
+    <spin v-if="loading" wrapper-class="c-switch-loading-spin" :size="size" />
     <div v-else class="c-switch-knob" aria-hidden="true" />
-    <template v-if="checked && size !== 'small'">
-      <div v-if="$slots.checkedText" class="c-switch-checked-text">
+    <template v-if="size !== 'small'">
+      <div v-if="checked && (checkedText || $slots.checkedText)" class="c-switch-checked-text">
+        {{ checkedText }}
         <slot name="checkedText" />
       </div>
-      <div v-if="$slots.uncheckedText" class="c-switch-unchecked-text">
+      <div
+        v-if="!checked && (uncheckedText || $slots.uncheckedText)"
+        class="c-switch-unchecked-text"
+      >
+        {{ uncheckedText }}
         <slot name="uncheckedText" />
       </div>
     </template>

@@ -58,6 +58,12 @@
   --c-borderless-active-bg-color: rgba(46, 50, 56, 0.09);
 }
 
+.c-back-top {
+  --backtop-inset-inline-end: 100px;
+  --backtop-bottom: 50px;
+  --backtop-z-index: 10;
+}
+
 .c-button {
   --c-button-font-size: 14px;
   --c-button-font-weight: var(--font-weight-bold);
@@ -147,6 +153,15 @@
   --c-button-loading-function: c-animation-spin;
 }
 
+.c-collapsible {
+  --collapsible-height-transition-duration: 250ms;
+  --collapsible-height-transition-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --collapsible-height-transition-delay: 0;
+  --collapsible-opacity-transition-duration: 250ms;
+  --collapsible-opacity-transition-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --collapsible-opacity-transition-delay: 0;
+}
+
 .c-divider {
   --c-divider-color: rgb(28, 31, 35);
   --c-divider-margin: 1px 0;
@@ -169,7 +184,6 @@
   --c-grid-min-width-xl: 1280px;
   --c-grid-min-width-xxl: 1536px;
 }
-
 
 .c-icon {
   --c-icon-small: 12px;
@@ -198,6 +212,87 @@
   --c-spin-small: 14px;
 
   --c-spin-child-opacity: 0.5;
+}
+
+.c-switch {
+  --switch-width: 40px;
+  --switch-height: 24px;
+
+  --switch-border-radius: calc(var(--switch-width) / 2);
+  --switch-border-width: 1px;
+  --switch-border-color: transparent;
+
+  --switch-bg-color: rgba(46, 50, 56, 0.05);
+
+  --switch-focus-outline-width: 2px;
+  --switch-focus-outline-color: var(--c-primary-color);
+  --switch-focus-outline-offset: 2px;
+
+  --switch-hover-bg-color: rgba(46, 50, 56, 0.09);
+
+  --switch-active-border-color: rgba(46, 50, 56, 0.13);
+  --switch-active-knob-width: 24px;
+
+  --switch-checked-bg-color: var(--c-success-color);
+  --switch-hover-checked-bg-color: var(--c-success-hover-color);
+  --switch-checked-knob-transform: translateX(18px);
+  --switch-active-checked-knob-transform: translateX(12px);
+
+  --switch-loading-bg-color: rgba(46, 50, 56, 0.09);
+  --switch-loading-spin-color: white;
+  --switch-loading-spin-transform: translateX(2px);
+  --switch-loading-spin-width: 18px;
+  --switch-loading-checked-bg-color: var(--c-success-hover-color);
+  --switch-loading-checked-spin-transform: translateX(18px);
+
+  --switch-disabled-bg-color: transparent;
+  --switch-disabled-border-color: rgba(28, 31, 35, 0.08);
+  --switch-disabled-knob-border-width: 1px;
+  --switch-disabled-knob-border-color: white;
+  --switch-disabled-checked-knob-border-color: transparent;
+  --switch-disabled-checked-knob-bg-color: #a4e0a7;
+
+  --switch-knob-box-shadow: 0 4px 6px #0000001a, 0 0 1px #0000004d;
+  --switch-knob-border-radius: calc(var(--switch-knob-width) / 2);
+  --switch-knob-bg-color: white;
+  --switch-knob-inset-inline-start: 0px;
+  --switch-knob-transition-duration: 200ms;
+  --switch-knob-width: 18px;
+  --switch-knob-top: 2px;
+  --switch-knob-transform: translateX(2px);
+
+  --switch-text-font-size: var(--font-size-small);
+  --switch-checked-color: white;
+  --switch-unchecked-color: rgba(28, 31, 35, 0.62);
+
+  --switch-small-loading-spin-transform: translateX(1px);
+  --switch-small-loading-spin-width: 12px;
+  --switch-small-loading-checked-spin-transform: translateX(12px);
+  --switch-small-width: 26px;
+  --switch-small-height: 16px;
+  --switch-small-active-knob-width: 14px;
+  --switch-small-border-radius: calc(var(--switch-small-height) / 2);
+  --switch-small-knob-width: 12px;
+  --switch-small-knob-top: 1px;
+  --switch-small-knob-border-radius: calc(var(--switch-small-knob-width) / 2);
+  --switch-small-knob-transform: translateX(1px);
+  --switch-small-checked-knob-transform: translateX(12px);
+  --switch-small-checked-active-knob-transform: translateX(9px);
+  --switch-large-loading-spin-width: 24px;
+  --switch-large-loading-spin-transform: translateX(3px);
+  --switch-large-loading-checked-spin-transform: translateX(26px);
+  --switch-large-width: 54px;
+  --switch-large-height: 32px;
+  --switch-large-border-radius: calc(var(--switch-large-width) / 2);
+  --switch-large-knob-width: 24px;
+  --switch-large-knob-top: 3px;
+  --switch-large-knob-border-radius: calc(var(--switch-large-knob-width) / 2);
+  --switch-latge-knob-transform: translateX(3px);
+  --switch-large-checked-knob-transform: translateX(26px);
+  --switch-large-active-checked-knob-transform: translateX(16px);
+  --switch-large-active-knob-width: 34px;
+  --switch-large-text-width: 26px;
+  --switch-large-font-size: 14px;
 }
 
 @keyframes c-animation-spin {

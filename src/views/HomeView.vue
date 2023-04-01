@@ -1,19 +1,22 @@
 <script setup lang="ts">
+import { shallowRef } from 'vue'
+
 import Button from '@/components/button/Button.vue'
-import IconArrowDown from '@/components/icon/IconArrowDown.vue'
+import IconArrowUp from '@/components/icon/IconArrowUp.vue'
 import Spin from '@/components/spin/Spin.vue'
 import Divider from '@/components/divider/Divider.vue'
 import Space from '@/components/space/Space.vue'
 import Col from '@/components/grid/Col.vue'
 import Row from '@/components/grid/Row.vue'
 import Switch from '@/components/switch/Switch.vue'
-import { shallowRef } from 'vue'
+import BackTop from '@/components/back-top/BackTop.vue'
+import Icon from "@/components/icon/Icon.vue";
 
 const checked = shallowRef(false)
 </script>
 
 <template>
-  <Space wrap style="margin: 8px">
+  <Space wrap style="margin: 8px;">
     <Button>主要按钮</Button>
     <Button status="secondary">次要按钮</Button>
     <Button status="tertiary">第三按钮</Button>
@@ -46,24 +49,24 @@ const checked = shallowRef(false)
 
     <Button block>块级按钮</Button>
 
-    <Button :icon="IconArrowDown" size="small" />
+    <Button :icon="IconArrowUp" size="small" />
 
-    <Button disabled :icon="IconArrowDown" />
+    <Button disabled :icon="IconArrowUp" />
 
-    <Button status="primary" :icon="IconArrowDown" />
-    <Button status="secondary" :icon="IconArrowDown" />
-    <Button status="warning" :icon="IconArrowDown" />
-    <Button status="danger" :icon="IconArrowDown" />
+    <Button status="primary" :icon="IconArrowUp" />
+    <Button status="secondary" :icon="IconArrowUp" />
+    <Button status="warning" :icon="IconArrowUp" />
+    <Button status="danger" :icon="IconArrowUp" />
 
-    <Button :icon="IconArrowDown" theme="solid" />
-    <Button :icon="IconArrowDown" theme="light" />
+    <Button :icon="IconArrowUp" theme="solid" />
+    <Button :icon="IconArrowUp" theme="light" />
 
-    <Button :icon="IconArrowDown" theme="solid">收起</Button>
-    <Button :icon="IconArrowDown" theme="solid" icon-placement="end">展开选项</Button>
+    <Button :icon="IconArrowUp" theme="solid">收起</Button>
+    <Button :icon="IconArrowUp" theme="solid" icon-placement="end">展开选项</Button>
 
     <Button loading>保存</Button>
 
-    <Button loading status="danger" :icon="IconArrowDown">删除</Button>
+    <Button loading status="danger" :icon="IconArrowUp">删除</Button>
 
     <Button loading status="warning" block theme="solid">撤销</Button>
 
@@ -74,7 +77,7 @@ const checked = shallowRef(false)
     <Divider margin="12px" align="end"> 这是居右文字 </Divider>
 
     <Divider margin="12px">
-      <IconArrowDown />
+      <IconArrowUp />
     </Divider>
 
     <div style="height: fit-content; width: fit-content">
@@ -104,6 +107,19 @@ const checked = shallowRef(false)
       <Col :span="6" :push="6" style="background-color: #3bb346">col-6 push-6</Col>
       <Col :span="6" :pull="6" style="background-color: #3bb346">col-6 pull-6</Col>
     </Row>
+    <Switch v-model:checked="checked" size="small" />
     <Switch v-model:checked="checked" />
+    <Switch v-model:checked="checked" size="large" />
+
+    <Switch v-model:checked="checked" size="small" loading />
+    <Switch v-model:checked="checked" loading />
+    <Switch v-model:checked="checked" size="large" loading />
+
+    <Switch v-model:checked="checked" checked-text="开" unchecked-text="关" />
+    <Switch v-model:checked="checked" disabled checked-text="开" unchecked-text="关" />
+    <BackTop/>
+
+    <Icon :component="IconArrowUp"/>
   </Space>
+  <div style="height: 2000px;" />
 </template>
