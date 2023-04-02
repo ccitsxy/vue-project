@@ -29,8 +29,8 @@ withDefaults(defineProps<Props>(), {
     }"
     role="img"
   >
-    <component :is="component" v-if="component" />
-    <slot v-else-if="$slots.default" />
+    <component :is="component" />
+    <slot />
   </span>
 </template>
 

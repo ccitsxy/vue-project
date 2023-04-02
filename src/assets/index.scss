@@ -1,19 +1,19 @@
 @use './reset.scss';
 
 :root {
-  --font-size-small: 12px;
-  --font-size-regular: 14px;
+  --c-font-size-small: 12px;
+  --c-font-size-regular: 14px;
 
-  --header-1-font-size: 32px;
-  --header-2-font-size: 28px;
-  --header-6-font-size: 16px;
-  --header-3-font-size: 24px;
-  --header-4-font-size: 20px;
-  --header-5-font-size: 18px;
+  --c-header-1-font-size: 32px;
+  --c-header-2-font-size: 28px;
+  --c-header-6-font-size: 16px;
+  --c-header-3-font-size: 24px;
+  --c-header-4-font-size: 20px;
+  --c-header-5-font-size: 18px;
 
-  --font-weight-light: 200;
-  --font-weight-regular: 400;
-  --font-weight-bold: 600;
+  --c-font-weight-light: 200;
+  --c-font-weight-regular: 400;
+  --c-font-weight-bold: 600;
 
   --c-text-color: #fff;
 
@@ -58,15 +58,41 @@
   --c-borderless-active-bg-color: rgba(46, 50, 56, 0.09);
 }
 
+.c-alert {
+  --c-alert-padding: 12px;
+  --c-alert-border-radius: 3px;
+  --c-alert-title-description-margin-top: 2px;
+  --c-alert-close-margin-inline-start: 12px;
+  --c-alert-close-height: 24px;
+  --c-alert-close-width: 24px;
+  --c-alert-extra-margin-top: 8px;
+  --c-alert-icon-margin-inline-end: 12px;
+
+  --c-alert-border-width: 1px;
+
+  --c-alert-info-color: var(--c-primary-color);
+  --c-alert-info-bg-color: var(--c-light-primary-color);
+  --c-alert-info-border-color: var(--c-primary-color);
+  --c-alert-success-color: var(--c-success-color);
+  --c-alert-success-bg-color: var(--c-light-success-color);
+  --c-alert-success-border-color: var(--c-success-color);
+  --c-alert-warning-color: var(--c-warning-color);
+  --c-alert-warning-bg-color: var(--c-light-warning-color);
+  --c-alert-warning-border-color: var(--c-warning-color);
+  --c-alert-danger-color: var(--c-danger-color);
+  --c-alert-danger-bg-color: var(--c-light-danger-color);
+  --c-alert-danger-border-color: var(--c-danger-color);
+}
+
 .c-back-top {
-  --backtop-inset-inline-end: 100px;
-  --backtop-bottom: 50px;
-  --backtop-z-index: 10;
+  --c-backtop-inset-inline-end: 100px;
+  --c-backtop-bottom: 50px;
+  --c-backtop-z-index: 10;
 }
 
 .c-button {
   --c-button-font-size: 14px;
-  --c-button-font-weight: var(--font-weight-bold);
+  --c-button-font-weight: var(--c-font-weight-bold);
 
   --c-button-border: 0 solid transparent;
   --c-button-border-radius: 6px;
@@ -129,7 +155,7 @@
   --c-button-warning-hover-bg-color: var(--c-warning-hover-color);
   --c-button-warning-active-bg-color: var(--c-warning-active-color);
   --c-button-warning-focus-outline-color: var(--c-warning-color);
-  --c-button-light-warning-color: var(--c-warning-color);
+  --c-button-light-warning-color: var(--c--warning-color);
 
   --c-button-danger-color: var(--c-text-color);
   --c-button-danger-bg-color: var(--c-danger-color);
@@ -261,7 +287,7 @@
   --switch-knob-top: 2px;
   --switch-knob-transform: translateX(2px);
 
-  --switch-text-font-size: var(--font-size-small);
+  --switch-text-font-size: var(--c-font-size-small);
   --switch-checked-color: white;
   --switch-unchecked-color: rgba(28, 31, 35, 0.62);
 

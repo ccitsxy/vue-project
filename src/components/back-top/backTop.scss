@@ -1,9 +1,9 @@
 .c-back-top {
   position: fixed;
   box-sizing: border-box;
-  inset-inline-end: var(--backtop-inset-inline-end);
-  bottom: var(--backtop-bottom);
-  z-index: var(--backtop-z-index);
+  inset-inline-end: var(--c-backtop-inset-inline-end);
+  bottom: var(--c-backtop-bottom);
+  z-index: var(--c-backtop-z-index);
   cursor: pointer;
 
   text-align: center;

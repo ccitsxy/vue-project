@@ -1,3 +1,8 @@
 export { default as Icon } from './Icon.vue'
 export { default as IconSpin } from './IconSpin.vue'
 export { default as IconArrowUp } from './IconArrowUp.vue'
+export { default as IconInfo } from './IconInfo.vue'
+export { default as IconWarning } from './IconWarning.vue'
+export { default as IconDanger } from './IconDanger.vue'
+export { default as IconSuccess } from './IconSuccess.vue'
+export { default as IconClose } from './IconClose.vue'

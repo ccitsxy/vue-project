@@ -11,6 +11,7 @@ import Row from '@/components/grid/Row.vue'
 import Switch from '@/components/switch/Switch.vue'
 import BackTop from '@/components/back-top/BackTop.vue'
 import Icon from "@/components/icon/Icon.vue";
+import Alert from '@/components/alert/Alert.vue'
 
 const checked = shallowRef(false)
 </script>
@@ -117,9 +118,25 @@ const checked = shallowRef(false)
 
     <Switch v-model:checked="checked" checked-text="开" unchecked-text="关" />
     <Switch v-model:checked="checked" disabled checked-text="开" unchecked-text="关" />
+    <Switch v-model:checked="checked" disabled>
+      <template #checkedText>
+        开
+      </template>
+      <template #uncheckedText>
+        关
+      </template>
+    </Switch>
     <BackTop/>
 
     <Icon :component="IconArrowUp"/>
+
+    <Alert status="info" description="A pre-released version is available."/>
+    <Alert
+      :fullscreen="false"
+      bordered
+      status="warning"
+      description="This version of the document is going to expire after 4 days."
+    />
   </Space>
   <div style="height: 2000px;" />
 </template>
