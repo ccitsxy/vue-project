@@ -60,7 +60,7 @@
 
 .c-alert {
   --c-alert-padding: 12px;
-  --c-alert-border-radius: 3px;
+  --c-alert-border-radius: 6px;
   --c-alert-title-description-margin-top: 2px;
   --c-alert-close-margin-inline-start: 12px;
   --c-alert-close-height: 24px;
@@ -215,6 +215,7 @@
   --c-icon-small: 12px;
   --c-icon-medium: 16px;
   --c-icon-large: 20px;
+  --c-icon-extra-large: 24px;
 
   --c-icon-spin-animation-duration: 3600;
   --c-icon-spin-animation-function: c-animation-spin;

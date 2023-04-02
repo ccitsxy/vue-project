@@ -2,14 +2,14 @@
 import type { Component } from 'vue'
 import { shallowRef, computed } from 'vue'
 
-import { Icon, IconInfo, IconWarning, IconDanger, IconSuccess,IconClose } from '../icon'
+import { Icon, IconInfo, IconWarning, IconDanger, IconSuccess, IconClose } from '../icon'
 import { Button } from '../button'
 
 export type Status = 'info' | 'success' | 'warning' | 'danger'
 
 export interface Props {
   status?: Status
-  fullscreen?: boolean
+  showIcon?: boolean
   title?: string
   description?: string
   icon?: string | Component
@@ -19,7 +19,7 @@ export interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   status: 'info',
-  fullscreen: true,
+  showIcon: true,
   title: undefined,
   description: undefined,
   icon: undefined,
@@ -55,17 +55,12 @@ const alertIcon = computed(() => {
 <template>
   <div
     v-if="visible"
-    :class="[
-      'c-alert',
-      { [`c-alert-${status}`]: status },
-      { 'c-alert-bordered': !fullscreen && bordered },
-      fullscreen ? 'c-alert-fullscreen' : 'c-alert-in-container'
-    ]"
+    :class="['c-alert', { [`c-alert-${status}`]: status }, { 'c-alert-bordered': bordered }]"
     role="alert"
   >
     <div class="c-alert-content-wrapper">
-      <div v-if="fullscreen" class="c-alert-icon">
-        <Icon :component="alertIcon" size="large" />
+      <div v-if="showIcon" class="c-alert-icon">
+        <Icon :component="alertIcon" size="extra-large" />
       </div>
       <div class="c-alert-content">
         <div class="c-alert-content-body">

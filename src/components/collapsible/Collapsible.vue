@@ -49,10 +49,7 @@ const { height: childHeight } = useElementSize(children)
 <template>
   <div
     :id="id"
-    :class="[
-      'c-collapsible',
-       {'c-collapsible-transition' : motion && isTransitioning}
-    ]"
+    :class="['c-collapsible', { 'c-collapsible-transition': motion && isTransitioning }]"
     :style="{
       overflow: 'hidden',
       height: isOpen ? `${childHeight}px` : `${collapsedHeight}px`,
@@ -62,13 +59,11 @@ const { height: childHeight } = useElementSize(children)
     @transitionend="handleTransitionEnd"
   >
     <div ref="children" :key="reCalcKey" style="overflow: hidden">
-      <slot
-        v-if="(keepDOM || collapsedHeight !== 0 || isOpen) && $slots.default"
-      />
+      <slot v-if="(keepDOM || collapsedHeight !== 0 || isOpen) && $slots.default" />
     </div>
   </div>
 </template>
 
 <style lang="scss">
-@use './collapsible.scss'
+@use './collapsible.scss';
 </style>
