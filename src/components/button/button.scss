@@ -258,6 +258,7 @@
 
   &.c-button-loading {
     cursor: wait;
+    opacity: var(--c-button-loading-opacity);
     .c-button-content {
       & > svg {
         width: 16px;
