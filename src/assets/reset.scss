@@ -8,9 +8,6 @@ svg {
 
 body {
   font-size: 14px;
-  font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, 'Segoe UI',
-    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-    'Noto Color Emoji';
 }
 
 button {
@@ -59,8 +56,8 @@ Sections
 
 body {
   margin: 0; /* 1 */
-  // font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-  //   'Segoe UI Emoji'; /* 2 */
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji'; /* 2 */
 }
 
 /*

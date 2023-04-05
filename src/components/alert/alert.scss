@@ -8,6 +8,13 @@
     flex-direction: row;
   }
 
+  &-title {
+    color: var(--c-alert-description-color);
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
+  }
+
   &-description {
     margin: 0;
     color: var(--c-alert-description-color);
@@ -24,7 +31,7 @@
       align-items: center;
       &-body {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         flex-direction: column;
         .c-alert-title + .c-alert-description {
           margin-top: var(--c-alert-title-description-margin-top);
