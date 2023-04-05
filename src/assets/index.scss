@@ -67,8 +67,9 @@
   --c-alert-close-width: 24px;
   --c-alert-extra-margin-top: 8px;
   --c-alert-icon-margin-inline-end: 12px;
-
   --c-alert-border-width: 1px;
+
+  --c-alert-description-color: #1c1f23;
 
   --c-alert-info-color: var(--c-primary-color);
   --c-alert-info-bg-color: var(--c-light-primary-color);
@@ -155,7 +156,7 @@
   --c-button-warning-hover-bg-color: var(--c-warning-hover-color);
   --c-button-warning-active-bg-color: var(--c-warning-active-color);
   --c-button-warning-focus-outline-color: var(--c-warning-color);
-  --c-button-light-warning-color: var(--c--warning-color);
+  --c-button-light-warning-color: var(--c-warning-color);
 
   --c-button-danger-color: var(--c-text-color);
   --c-button-danger-bg-color: var(--c-danger-color);

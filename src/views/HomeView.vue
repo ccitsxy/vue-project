@@ -81,32 +81,14 @@ const checked = shallowRef(false)
       <IconArrowUp />
     </Divider>
 
-    <div style="height: fit-content; width: fit-content">
-      <Spin :delay="2000" size="large">
-        <template #tip> I am loading... </template>
-        <div
-          style="
-            border: 1px solid var(--c-primary-color);
-            border-radius: 4px;
-            padding-inline-start: 8px;
-          "
-        >
-          <p>Here are some texts.</p>
-          <p>And more texts on the way.</p>
-          <div class="greetings">
-            <h1>You did it!</h1>
-          </div>
-        </div>
-      </Spin>
-    </div>
-    <Row style="background-color: #f93920; text-align: center; color: white">
-      <Col :span="6" style="background-color: #3bb346">col-6</Col>
-      <Col :span="6" style="background-color: #3bb346">col-6</Col>
+    <Row style="background-color: var(--c-danger-color); text-align: center; color: white">
+      <Col :span="6" style="background-color: var(--c-success-color)">col-6</Col>
+      <Col :span="6" style="background-color: var(--c-success-color)">col-6</Col>
       <Col :span="6" :offset="6" style="background-color: #3bb346">col-6 offset-6</Col>
     </Row>
     <Row style="background-color: #f93920; text-align: center; color: white">
-      <Col :span="6" :push="6" style="background-color: #3bb346">col-6 push-6</Col>
-      <Col :span="6" :pull="6" style="background-color: #3bb346">col-6 pull-6</Col>
+      <Col :span="6" :push="6" style="background-color: var(--c-success-color)">col-6 push-6</Col>
+      <Col :span="6" :pull="6" style="background-color: var(--c-success-color)">col-6 pull-6</Col>
     </Row>
     <Switch v-model:checked="checked" size="small" />
     <Switch v-model:checked="checked" />
@@ -132,11 +114,32 @@ const checked = shallowRef(false)
       description="A pre-released version is available."
     />
     <Alert
+      bordered
+      status="danger"
+      description="This version of the document is going to expire after 4 days."
+    />
+    <Alert
       :show-icon="false"
       bordered
       status="warning"
       description="This version of the document is going to expire after 4 days."
     />
+
+    <div style="height: fit-content; width: fit-content">
+      <Spin :delay="2000" size="large">
+        <template #tip> I am loading... </template>
+        <div
+          style="
+            border: 1px solid var(--c-primary-color);
+            border-radius: 6px;
+            padding-inline-start: 8px;
+          "
+        >
+          <p>Here are some texts.</p>
+          <p>And more texts on the way.</p>
+        </div>
+      </Spin>
+    </div>
   </Space>
   <div style="height: 2000px" />
 </template>

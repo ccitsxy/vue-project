@@ -42,7 +42,7 @@ const handleTransitionEnd = (e: TransitionEvent) => {
   isTransitioning.value = false
 }
 
-const children = shallowRef<HTMLElement | null>()
+const children = shallowRef<HTMLElement | null>(null)
 const { height: childHeight } = useElementSize(children)
 </script>
 

@@ -1,4 +1,5 @@
 .c-alert {
+  width: 100%;
   padding: var(--c-alert-padding);
   border-radius: var(--c-alert-border-radius);
 
@@ -9,7 +10,7 @@
 
   &-description {
     margin: 0;
-    color: #1c1f23;
+    color: var(--c-alert-description-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,9 +33,8 @@
     }
   }
 
-  &-icon{
-    display: flex;
-    align-items: flex-start;
+  &-icon {
+    display: inline-flex;
     margin-inline-end: var(--c-alert-icon-margin-inline-end);
   }
 
@@ -78,11 +78,11 @@
   }
 
   &-danger {
-    background-color: var(--c-alert-daner-bg-color);
-    color: var(--c-alert-daner-color);
+    background-color: var(--c-alert-danger-bg-color);
+    color: var(--c-alert-danger-color);
 
     &.c-alert-bordered {
-      border: var(--c-alert-border-width) solid var(--c-alert-daner-border-color);
+      border: var(--c-alert-border-width) solid var(--c-alert-danger-border-color);
     }
   }
 }
