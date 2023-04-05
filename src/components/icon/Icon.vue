@@ -12,7 +12,7 @@ export interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  ariaLabel: '',
+  ariaLabel: undefined,
   component: undefined,
   rotate: undefined,
   size: 'medium',

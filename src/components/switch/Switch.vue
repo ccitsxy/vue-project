@@ -17,8 +17,8 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  ariaLabel: '',
-  ariaLabelledby: '',
+  ariaLabel: undefined,
+  ariaLabelledby: undefined,
   checked: false,
   defaultChecked: false,
   checkedText: undefined,
@@ -44,21 +44,23 @@ const checked = computed({
 })
 
 const handleClick = () => {
-  checked.value = !checked.value
+  if (!props.loading && !props.disabled) checked.value = !checked.value
 }
 
 const handleMouseEnter = (e: MouseEvent) => {
-  emit('mouse-enter', e)
+  if (!props.loading && !props.disabled) emit('mouse-enter', e)
 }
 
 const handleMouseLeave = (e: MouseEvent) => {
-  emit('mouse-leave', e)
+  if (!props.loading && !props.disabled) emit('mouse-leave', e)
 }
 </script>
 
 <template>
   <button
     ref="wrapper"
+    :aria-label="ariaLabel"
+    :aria-labelledby="ariaLabelledby"
     :aria-checked="props.checked"
     :aria-disabled="props.disabled"
     :class="[

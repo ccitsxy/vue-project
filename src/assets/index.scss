@@ -266,19 +266,12 @@
   --switch-checked-knob-transform: translateX(18px);
   --switch-active-checked-knob-transform: translateX(12px);
 
-  --switch-loading-bg-color: rgba(46, 50, 56, 0.09);
   --switch-loading-spin-color: white;
   --switch-loading-spin-transform: translateX(2px);
   --switch-loading-spin-width: 18px;
-  --switch-loading-checked-bg-color: var(--c-success-hover-color);
   --switch-loading-checked-spin-transform: translateX(18px);
 
-  --switch-disabled-bg-color: transparent;
-  --switch-disabled-border-color: rgba(28, 31, 35, 0.08);
-  --switch-disabled-knob-border-width: 1px;
-  --switch-disabled-knob-border-color: white;
-  --switch-disabled-checked-knob-border-color: transparent;
-  --switch-disabled-checked-knob-bg-color: #a4e0a7;
+  --switch-disabled-opacity: 0.5;
 
   --switch-knob-box-shadow: 0 4px 6px #0000001a, 0 0 1px #0000004d;
   --switch-knob-border-radius: calc(var(--switch-knob-width) / 2);

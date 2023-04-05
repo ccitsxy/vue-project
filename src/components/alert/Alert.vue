@@ -30,6 +30,7 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits<{
   (e: 'close', event: MouseEvent): void
 }>()
+
 const visible = shallowRef(true)
 const handleCloseClick = (e: MouseEvent) => {
   emit('close', e)

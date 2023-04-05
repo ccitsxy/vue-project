@@ -47,27 +47,13 @@
 
   &-disabled {
     cursor: not-allowed;
-    background-color: var(--switch-disabled-bg-color);
-    border: var(--switch-border-width) solid var(--switch-disabled-border-color);
-
-    &:hover,
-    &:active {
-      background-color: var(--switch-disabled-bg-color);
-    }
-
-    .c-switch-knob {
+    opacity: var(--switch-disabled-opacity);
+    background-color: var(--switch-bg-color);
+    &.c-switch-knob {
       cursor: not-allowed;
-      border: var(--switch-disabled-knob-border-width) solid
-        var(--switch-disabled-knob-border-color);
     }
-
     &.c-switch-checked {
-      border-color: var(--switch-disabled-checked-knob-border-color);
-      background-color: var(--switch-disabled-checked-knob-bg-color);
-
-      .c-switch-knob {
-        border: none;
-      }
+      background-color: var(--switch-checked-bg-color);
     }
   }
 
@@ -113,10 +99,8 @@
   &-loading {
     display: inline-flex;
     align-items: center;
-    background-color: var(--switch-loading-bg-color);
 
-    cursor: not-allowed;
-    pointer-events: none;
+    cursor: wait;
 
     &-spin {
       .c-spin-wrapper {
@@ -138,8 +122,6 @@
     }
 
     &.c-switch-checked {
-      background-color: var(--switch-loading-checked-bg-color);
-
       .c-switch-loading-spin {
         transform: var(--switch-loading-checked-spin-transform);
       }

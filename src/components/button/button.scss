@@ -257,7 +257,7 @@
   }
 
   &.c-button-loading {
-    pointer-events: none;
+    cursor: wait;
     .c-button-content {
       & > svg {
         width: 16px;
