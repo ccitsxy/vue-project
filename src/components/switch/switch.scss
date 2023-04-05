@@ -32,8 +32,10 @@
   &-checked {
     background-color: var(--switch-checked-bg-color);
 
-    &:hover {
-      background-color: var(--switch-hover-checked-bg-color);
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: var(--switch-hover-checked-bg-color);
+      }
     }
 
     &:active {
