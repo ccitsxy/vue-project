@@ -15,8 +15,10 @@
     outline-offset: var(--switch-focus-outline-offset);
   }
 
-  &:hover {
-    background-color: var(--switch-hover-bg-color);
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: var(--switch-hover-bg-color);
+    }
   }
 
   &:active {
