@@ -1,17 +1,20 @@
 <script setup lang="ts">
 import type { Component } from 'vue'
-import { useSlots, h } from 'vue'
+import { useSlots, h, computed, inject } from 'vue'
+import { buttonGroupContextKey } from './context'
 import { Icon, IconSpin } from '../icon'
 
 export type HtmlType = 'button' | 'reset' | 'submit'
-export type Size = 'small' | 'middle' | 'large'
+export type Size = 'small' | 'medium' | 'large'
 export type Status = 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger'
+export type Shape = 'square' | 'circle' | 'round'
 export type Theme = 'solid' | 'borderless' | 'light'
 
 export interface Props {
   ariaLabel?: string
   size?: Size
   status?: Status
+  shape?: Shape
   theme?: Theme
   type?: HtmlType
   block?: boolean
@@ -23,8 +26,9 @@ export interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   ariaLabel: undefined,
-  size: 'middle',
+  size: 'medium',
   status: 'primary',
+  shape: 'square',
   theme: 'light',
   type: 'button',
   block: false,
@@ -67,6 +71,14 @@ const ButtonIcon = () => {
     return slots.icon()
   }
 }
+
+const { size, status, shape, theme, disabled } = inject(buttonGroupContextKey, {
+  size: computed(() => props.size),
+  status: computed(() => props.status),
+  shape: computed(() => props.shape),
+  theme: computed(() => props.theme),
+  disabled: computed(() => props.disabled)
+})
 </script>
 
 <template>
@@ -75,9 +87,10 @@ const ButtonIcon = () => {
     :aria-label="ariaLabel"
     :class="[
       'c-button',
-      `c-button-${theme}`,
-      `c-button-${status}`,
-      `c-button-${size}`,
+      `c-button-${theme || props.theme}`,
+      `c-button-${status || props.status}`,
+      `c-button-${shape || props.shape}`,
+      `c-button-${size || props.size}`,
       { 'c-button-disabled': disabled },
       { 'c-button-block': block },
       { 'c-button-loading': loading && !disabled },
@@ -117,5 +130,5 @@ const ButtonIcon = () => {
 </template>
 
 <style lang="scss">
-@use 'button.scss';
+@use './button.scss';
 </style>

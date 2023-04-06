@@ -69,7 +69,14 @@
   --c-alert-icon-margin-inline-end: 12px;
   --c-alert-border-width: 1px;
 
+  --c-alert-title-color: #1c1f23;
+  --c-alert-title-font-size: 18px;
+  --c-alert-title-line-height: 24px;
+  --c-alert-title-font-weight: 600;
+
   --c-alert-description-color: #1c1f23;
+  --c-alert-description-font-size: 14px;
+  --c-alert-description-line-height: 20px;
 
   --c-alert-info-color: var(--c-primary-color);
   --c-alert-info-bg-color: var(--c-light-primary-color);
@@ -179,6 +186,8 @@
   --c-button-loading-duration: 3600ms;
   --c-button-loading-function: c-animation-spin;
   --c-button-loading-opacity: 0.5;
+
+  --c-button-group-border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .c-collapsible {
@@ -225,7 +234,7 @@
 
 .c-space {
   --c-space-tight: 8px;
-  --c-space-middle: 16px;
+  --c-space-medium: 16px;
   --c-space-loose: 24px;
 }
 
@@ -237,7 +246,7 @@
   --c-spin-bg-color: var(--c-primary-color);
 
   --c-spin-large: 32px;
-  --c-spin-middle: 20px;
+  --c-spin-medium: 20px;
   --c-spin-small: 14px;
 
   --c-spin-child-opacity: 0.5;
