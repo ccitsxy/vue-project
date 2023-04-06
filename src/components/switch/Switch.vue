@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { Spin } from '../spin'
 
-export type Size = 'small' | 'middle' | 'large'
+export type Size = 'small' | 'medium' | 'large'
 
 export interface Props {
   ariaLabel?: string
@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
   uncheckedText: undefined,
   disabled: false,
   loading: false,
-  size: 'middle'
+  size: 'medium'
 })
 
 const emit = defineEmits<{

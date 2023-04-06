@@ -30,8 +30,8 @@
         var(--c-spin-animation-function);
       animation-fill-mode: forwards;
 
-      width: var(--c-spin-middle);
-      height: var(--c-spin-middle);
+      width: var(--c-spin-medium);
+      height: var(--c-spin-medium);
     }
   }
 
@@ -66,10 +66,10 @@
   }
 }
 
-.c-spin-middle {
+.c-spin-medium {
   & > .c-spin-wrapper svg {
-    width: var(--c-spin-middle);
-    height: var(--c-spin-middle);
+    width: var(--c-spin-medium);
+    height: var(--c-spin-medium);
   }
 }
 

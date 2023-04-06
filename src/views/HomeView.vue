@@ -12,6 +12,8 @@ import Switch from '@/components/switch/Switch.vue'
 import BackTop from '@/components/back-top/BackTop.vue'
 import Icon from '@/components/icon/Icon.vue'
 import Alert from '@/components/alert/Alert.vue'
+import ButtonGroup from '@/components/button/ButtonGroup.vue'
+import Checkbox from '@/components/checkbox/Checkbox.vue'
 
 const checked = shallowRef(false)
 </script>
@@ -59,7 +61,15 @@ const checked = shallowRef(false)
     <Button status="warning" :icon="IconArrowUp" />
     <Button status="danger" :icon="IconArrowUp" />
 
-    <Button :icon="IconArrowUp" theme="solid" />
+    <ButtonGroup size="large" shape="round">
+      <Button status="secondary">次要按钮</Button>
+      <Button status="tertiary">第三按钮</Button>
+      <Button status="success">成功按钮</Button>
+      <Button status="warning">警告按钮</Button>
+      <Button status="danger">危险按钮</Button>
+    </ButtonGroup>
+
+    <Button :icon="IconArrowUp" theme="solid" shape="round"/>
     <Button :icon="IconArrowUp" theme="light" />
 
     <Button :icon="IconArrowUp" theme="solid">收起</Button>
@@ -122,6 +132,7 @@ const checked = shallowRef(false)
       :show-icon="false"
       bordered
       status="warning"
+      banner
       description="This version of the document is going to expire after 4 days."
     />
 
@@ -140,6 +151,7 @@ const checked = shallowRef(false)
         </div>
       </Spin>
     </div>
+    <Checkbox />
   </Space>
   <div style="height: 2000px" />
 </template>

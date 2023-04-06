@@ -15,6 +15,7 @@ export interface Props {
   icon?: string | Component
   closeIcon?: string | Component
   bordered?: boolean
+  banner?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -24,7 +25,8 @@ const props = withDefaults(defineProps<Props>(), {
   description: undefined,
   icon: undefined,
   closeIcon: undefined,
-  bordered: false
+  bordered: false,
+  banner: false
 })
 
 const emit = defineEmits<{
@@ -56,7 +58,12 @@ const alertIcon = computed(() => {
 <template>
   <div
     v-if="visible"
-    :class="['c-alert', { [`c-alert-${status}`]: status }, { 'c-alert-bordered': bordered }]"
+    :class="[
+      'c-alert',
+      { [`c-alert-${status}`]: status },
+      { 'c-alert-bordered': bordered },
+      { 'c-alert-banner': banner }
+    ]"
     role="alert"
   >
     <div class="c-alert-content-wrapper">

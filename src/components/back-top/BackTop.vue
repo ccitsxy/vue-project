@@ -60,10 +60,10 @@ const hanleTransition = () => {
 <template>
   <div v-if="visible" class="c-back-top" @click="handleClick">
     <slot v-if="$slots.default" />
-    <Button v-else theme="light" :icon="IconArrowUp" />
+    <Button v-else theme="light" :icon="IconArrowUp" size="large" shape="circle" />
   </div>
 </template>
 
 <style lang="scss">
-@use 'backTop';
+@use './backTop.scss';
 </style>
