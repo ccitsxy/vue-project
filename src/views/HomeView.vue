@@ -21,30 +21,30 @@ const checked = shallowRef(false)
 <template>
   <Space wrap style="margin: 8px">
     <Button>主要按钮</Button>
-    <Button status="secondary">次要按钮</Button>
-    <Button status="tertiary">第三按钮</Button>
-    <Button status="success">成功按钮</Button>
-    <Button status="warning">警告按钮</Button>
-    <Button status="danger">危险按钮</Button>
+    <Button type="secondary">次要按钮</Button>
+    <Button type="tertiary">第三按钮</Button>
+    <Button type="success">成功按钮</Button>
+    <Button type="warning">警告按钮</Button>
+    <Button type="danger">危险按钮</Button>
 
-    <Button theme="solid" status="primary">深色主要</Button>
-    <Button theme="solid" status="secondary">深色次要</Button>
-    <Button theme="solid" status="tertiary">深色第三</Button>
-    <Button theme="solid" status="success">深色成功</Button>
-    <Button theme="solid" status="warning">深色警告</Button>
-    <Button theme="solid" status="danger">深色危险</Button>
+    <Button theme="solid" type="primary">深色主要</Button>
+    <Button theme="solid" type="secondary">深色次要</Button>
+    <Button theme="solid" type="tertiary">深色第三</Button>
+    <Button theme="solid" type="success">深色成功</Button>
+    <Button theme="solid" type="warning">深色警告</Button>
+    <Button theme="solid" type="danger">深色危险</Button>
 
-    <Button theme="borderless" status="primary">主要</Button>
-    <Button theme="borderless" status="secondary">次要</Button>
-    <Button theme="borderless" status="tertiary">第三</Button>
-    <Button theme="borderless" status="success">成功</Button>
-    <Button theme="borderless" status="warning">警告</Button>
-    <Button theme="borderless" status="danger">危险</Button>
+    <Button theme="borderless" type="primary">主要</Button>
+    <Button theme="borderless" type="secondary">次要</Button>
+    <Button theme="borderless" type="tertiary">第三</Button>
+    <Button theme="borderless" type="success">成功</Button>
+    <Button theme="borderless" type="warning">警告</Button>
+    <Button theme="borderless" type="danger">危险</Button>
 
     <Button disabled theme="borderless">无背景禁用</Button>
     <Button disabled theme="light">浅色禁用</Button>
-    <Button disabled theme="borderless" status="primary">无背景主要禁用</Button>
-    <Button disabled theme="solid" status="warning">深色警告禁用</Button>
+    <Button disabled theme="borderless" type="primary">无背景主要禁用</Button>
+    <Button disabled theme="solid" type="warning">深色警告禁用</Button>
 
     <Button size="large">大尺寸</Button>
     <Button>默认尺寸</Button>
@@ -56,20 +56,20 @@ const checked = shallowRef(false)
 
     <Button disabled :icon="IconArrowUp" />
 
-    <Button status="primary" :icon="IconArrowUp" />
-    <Button status="secondary" :icon="IconArrowUp" />
-    <Button status="warning" :icon="IconArrowUp" />
-    <Button status="danger" :icon="IconArrowUp" />
+    <Button type="primary" :icon="IconArrowUp" />
+    <Button type="secondary" :icon="IconArrowUp" />
+    <Button type="warning" :icon="IconArrowUp" />
+    <Button type="danger" :icon="IconArrowUp" />
 
     <ButtonGroup size="large" shape="round">
-      <Button status="secondary">次要按钮</Button>
-      <Button status="tertiary">第三按钮</Button>
-      <Button status="success">成功按钮</Button>
-      <Button status="warning">警告按钮</Button>
-      <Button status="danger">危险按钮</Button>
+      <Button type="secondary">次要按钮</Button>
+      <Button type="tertiary">第三按钮</Button>
+      <Button type="success">成功按钮</Button>
+      <Button type="warning">警告按钮</Button>
+      <Button type="danger">危险按钮</Button>
     </ButtonGroup>
 
-    <Button :icon="IconArrowUp" theme="solid" shape="round"/>
+    <Button :icon="IconArrowUp" theme="solid" shape="round" />
     <Button :icon="IconArrowUp" theme="light" />
 
     <Button :icon="IconArrowUp" theme="solid">收起</Button>
@@ -77,9 +77,9 @@ const checked = shallowRef(false)
 
     <Button loading>保存</Button>
 
-    <Button loading status="danger" :icon="IconArrowUp">删除</Button>
+    <Button loading type="danger" :icon="IconArrowUp">删除</Button>
 
-    <Button loading status="warning" block theme="solid">撤销</Button>
+    <Button loading type="warning" block theme="solid">撤销</Button>
 
     <Divider margin="12px" align="start"> 这是居左文字 </Divider>
 
@@ -114,24 +114,23 @@ const checked = shallowRef(false)
       <template #checkedText> 开 </template>
       <template #uncheckedText> 关 </template>
     </Switch>
-    <BackTop />
 
     <Icon :component="IconArrowUp" />
 
     <Alert
-      status="info"
+      type="info"
       title="A pre-released version is available."
       description="A pre-released version is available."
     />
     <Alert
       bordered
-      status="danger"
+      type="danger"
       description="This version of the document is going to expire after 4 days."
     />
     <Alert
       :show-icon="false"
       bordered
-      status="warning"
+      type="warning"
       banner
       description="This version of the document is going to expire after 4 days."
     />
@@ -151,7 +150,14 @@ const checked = shallowRef(false)
         </div>
       </Spin>
     </div>
-    <Checkbox />
+    <Checkbox v-model:checked="checked">
+      {{ checked ? 'checked' : 'unchecked' }}
+      <template #describe>
+        <div>Here are some texts.</div>
+        <div>And more texts on the way.</div>
+      </template>
+    </Checkbox>
   </Space>
   <div style="height: 2000px" />
+  <BackTop />
 </template>

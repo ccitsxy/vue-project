@@ -5,26 +5,28 @@ import { shallowRef, computed } from 'vue'
 import { Icon, IconInfo, IconWarning, IconDanger, IconSuccess, IconClose } from '../icon'
 import { Button } from '../button'
 
-export type Status = 'info' | 'success' | 'warning' | 'danger'
+export type Type = 'info' | 'success' | 'warning' | 'danger'
 
 export interface Props {
-  status?: Status
-  showIcon?: boolean
+  type?: Type
   title?: string
   description?: string
   icon?: string | Component
   closeIcon?: string | Component
+  showIcon?: boolean
+  closable?: boolean
   bordered?: boolean
   banner?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  status: 'info',
-  showIcon: true,
+  type: 'info',
   title: undefined,
   description: undefined,
   icon: undefined,
   closeIcon: undefined,
+  showIcon: true,
+  closable: false,
   bordered: false,
   banner: false
 })
@@ -40,7 +42,7 @@ const handleCloseClick = (e: MouseEvent) => {
 }
 
 const alertIcon = computed(() => {
-  switch (props.status) {
+  switch (props.type) {
     case 'info':
       return IconInfo
     case 'warning':
@@ -60,7 +62,7 @@ const alertIcon = computed(() => {
     v-if="visible"
     :class="[
       'c-alert',
-      { [`c-alert-${status}`]: status },
+      `c-alert-${type}`,
       { 'c-alert-bordered': bordered },
       { 'c-alert-banner': banner }
     ]"
@@ -83,11 +85,12 @@ const alertIcon = computed(() => {
         </div>
       </div>
       <Button
+        v-if="closable"
         class="c-alert-close"
         :icon="IconClose"
         theme="borderless"
         size="small"
-        status="tertiary"
+        type="tertiary"
         aria-label="Close"
         @click="handleCloseClick"
       />

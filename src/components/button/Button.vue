@@ -6,17 +6,17 @@ import { Icon, IconSpin } from '../icon'
 
 export type HtmlType = 'button' | 'reset' | 'submit'
 export type Size = 'small' | 'medium' | 'large'
-export type Status = 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger'
+export type Type = 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger'
 export type Shape = 'square' | 'circle' | 'round'
 export type Theme = 'solid' | 'borderless' | 'light'
 
 export interface Props {
   ariaLabel?: string
   size?: Size
-  status?: Status
+  type?: Type
   shape?: Shape
   theme?: Theme
-  type?: HtmlType
+  htmlType?: HtmlType
   block?: boolean
   disabled?: boolean
   loading?: boolean
@@ -27,10 +27,10 @@ export interface Props {
 const props = withDefaults(defineProps<Props>(), {
   ariaLabel: undefined,
   size: 'medium',
-  status: 'primary',
+  type: 'primary',
   shape: 'square',
   theme: 'light',
-  type: 'button',
+  htmlType: 'button',
   block: false,
   disabled: false,
   loading: false,
@@ -72,9 +72,9 @@ const ButtonIcon = () => {
   }
 }
 
-const { size, status, shape, theme, disabled } = inject(buttonGroupContextKey, {
+const { size, type, shape, theme, disabled } = inject(buttonGroupContextKey, {
   size: computed(() => props.size),
-  status: computed(() => props.status),
+  type: computed(() => props.type),
   shape: computed(() => props.shape),
   theme: computed(() => props.theme),
   disabled: computed(() => props.disabled)
@@ -88,7 +88,7 @@ const { size, status, shape, theme, disabled } = inject(buttonGroupContextKey, {
     :class="[
       'c-button',
       `c-button-${theme || props.theme}`,
-      `c-button-${status || props.status}`,
+      `c-button-${type || props.type}`,
       `c-button-${shape || props.shape}`,
       `c-button-${size || props.size}`,
       { 'c-button-disabled': disabled },
@@ -98,7 +98,7 @@ const { size, status, shape, theme, disabled } = inject(buttonGroupContextKey, {
       { 'c-button-with-icon-only': !$slots.default && (loading || icon || $slots.icon) }
     ]"
     :disabled="disabled"
-    :type="type"
+    :htmlType="type"
     @click="handleClick"
     @mousedown="handleMouseDown"
     @mouseenter="handleMouseEnter"

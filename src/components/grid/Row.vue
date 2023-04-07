@@ -24,7 +24,7 @@ const rowStyle = computed(() => useGutterStyle(props.gutter, size.value, 'row'))
 </script>
 
 <template>
-  <div :class="['c-row', `c-row-justify-${justify}`, `c-row-align-${align}`]" :style="rowStyle">
+  <div :class="['c-row', `c-row-align-${align}`, `c-row-justify-${justify}`]" :style="rowStyle">
     <slot />
   </div>
 </template>
