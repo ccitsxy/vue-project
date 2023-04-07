@@ -13,7 +13,6 @@ import BackTop from '@/components/back-top/BackTop.vue'
 import Icon from '@/components/icon/Icon.vue'
 import Alert from '@/components/alert/Alert.vue'
 import ButtonGroup from '@/components/button/ButtonGroup.vue'
-import Checkbox from '@/components/checkbox/Checkbox.vue'
 
 const checked = shallowRef(false)
 </script>
@@ -151,7 +150,6 @@ const checked = shallowRef(false)
         </div>
       </Spin>
     </div>
-    <Checkbox />
   </Space>
   <div style="height: 2000px" />
 </template>
