@@ -53,7 +53,7 @@
     cursor: not-allowed;
     opacity: var(--switch-disabled-opacity);
     background-color: var(--switch-bg-color);
-    &.c-switch-knob {
+    > .c-switch-knob {
       cursor: not-allowed;
     }
     &.c-switch-checked {

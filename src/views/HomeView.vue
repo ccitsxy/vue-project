@@ -14,6 +14,7 @@ import Icon from '@/components/icon/Icon.vue'
 import Alert from '@/components/alert/Alert.vue'
 import ButtonGroup from '@/components/button/ButtonGroup.vue'
 import Checkbox from '@/components/checkbox/Checkbox.vue'
+import Radio from '@/components/radio/Radio.vue'
 
 const checked = shallowRef(false)
 </script>
@@ -157,6 +158,13 @@ const checked = shallowRef(false)
         <div>And more texts on the way.</div>
       </template>
     </Checkbox>
+    <Radio v-model:checked="checked">
+      {{ checked ? 'checked' : 'unchecked' }}
+      <template #describe>
+        <div>Here are some texts.</div>
+        <div>And more texts on the way.</div>
+      </template>
+    </Radio>
   </Space>
   <div style="height: 2000px" />
   <BackTop />

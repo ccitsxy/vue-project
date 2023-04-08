@@ -200,7 +200,7 @@
   &-light {
     background-color: var(--c-button-light-bg-color);
 
-    &:not(:disabled) {
+    &:not(.c-button-disabled) {
       @media (any-hover: hover) {
         &:hover {
           background-color: var(--c-button-light-hover-bg-color);
@@ -216,7 +216,7 @@
   &-borderless {
     background-color: var(--c-button-borderless-bg-color);
 
-    &:not(:disabled) {
+    &:not(.c-button-disabled) {
       @media (any-hover: hover) {
         &:hover {
           background-color: var(--c-button-borderless-hover-bg-color);

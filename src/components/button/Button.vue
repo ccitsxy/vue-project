@@ -83,22 +83,22 @@ const { size, type, shape, theme, disabled } = inject(buttonGroupContextKey, {
 
 <template>
   <button
-    :aria-disabled="disabled"
+    :type="htmlType"
     :aria-label="ariaLabel"
+    :aria-disabled="disabled || props.disabled"
+    :disabled="disabled || props.disabled"
     :class="[
       'c-button',
       `c-button-${theme || props.theme}`,
       `c-button-${type || props.type}`,
       `c-button-${shape || props.shape}`,
       `c-button-${size || props.size}`,
-      { 'c-button-disabled': disabled },
+      { 'c-button-disabled': disabled || props.disabled },
       { 'c-button-block': block },
-      { 'c-button-loading': loading && !disabled },
+      { 'c-button-loading': loading && !(disabled || props.disabled) },
       { 'c-button-with-icon': loading || icon || $slots.icon },
       { 'c-button-with-icon-only': !$slots.default && (loading || icon || $slots.icon) }
     ]"
-    :disabled="disabled"
-    :htmlType="type"
     @click="handleClick"
     @mousedown="handleMouseDown"
     @mouseenter="handleMouseEnter"

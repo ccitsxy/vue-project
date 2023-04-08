@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { Icon, IconCheckbox } from '@/components/icon'
+import { Icon, IconRadio } from '@/components/icon'
 import { nanoid } from 'nanoid'
 
 export interface Props {
@@ -15,14 +15,14 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  id: `c-checkbox-${nanoid()}`,
+  id: `c-radio-${nanoid()}`,
   ariaLabel: undefined,
   checked: false,
   defaultChecked: false,
   label: undefined,
-  labelId: `c-checkbox-label-${nanoid()}`,
+  labelId: `c-radio-label-${nanoid()}`,
   describe: undefined,
-  describeId: `c-checkbox-extra-${nanoid()}`
+  describeId: `c-radio-extra-${nanoid()}`
 })
 
 const emit = defineEmits<{
@@ -40,27 +40,26 @@ const checked = computed({
 </script>
 
 <template>
-  <label :for="id" class="c-checkbox">
+  <label :for="id" class="c-radio">
     <input
       :id="id"
       v-model="checked"
-      :name="id"
       :aria-label="ariaLabel"
       :aria-labelledby="labelId"
       :aria-describedby="describeId"
       :checked="checked"
-      class="c-checkbox-input"
-      type="checkbox"
+      class="c-radio-input"
+      type="radio"
     />
-    <span aria-hidden="true" class="c-checkbox-inner">
-      <icon v-if="checked" :component="IconCheckbox" />
+    <span aria-hidden="true" class="c-radio-inner">
+      <icon v-if="checked" :component="IconRadio" />
     </span>
-    <span v-if="$slots.default || $slots.describe" :id="labelId" class="c-checkbox-content">
-      <div v-if="$slots.default" :id="labelId" class="c-checkbox-content-label">
+    <span v-if="$slots.default || $slots.describe" :id="labelId" class="c-radio-content">
+      <div v-if="$slots.default" :id="labelId" class="c-radio-content-label">
         {{ label }}
         <slot />
       </div>
-      <div v-if="$slots.describe" :id="describeId" class="c-checkbox-content-describe">
+      <div v-if="$slots.describe" :id="describeId" class="c-radio-content-describe">
         {{ describe }}
         <slot name="describe" />
       </div>
@@ -69,5 +68,5 @@ const checked = computed({
 </template>
 
 <style lang="scss">
-@use './checkbox.scss';
+@use './radio.scss';
 </style>
