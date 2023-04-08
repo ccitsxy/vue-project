@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .c-switch {
   box-sizing: border-box;
   display: inline-block;
@@ -6,7 +7,6 @@
   position: relative;
   cursor: pointer;
   background-color: var(--switch-bg-color);
-
   width: var(--switch-width);
   height: var(--switch-height);
 
@@ -53,9 +53,11 @@
     cursor: not-allowed;
     opacity: var(--switch-disabled-opacity);
     background-color: var(--switch-bg-color);
+
     > .c-switch-knob {
       cursor: not-allowed;
     }
+
     &.c-switch-checked {
       background-color: var(--switch-checked-bg-color);
     }
@@ -72,7 +74,6 @@
     inset-inline-end: auto;
     transition: transform var(--switch-knob-transition-duration) ease-in-out,
       width var(--switch-knob-transition-duration) ease-in-out;
-
     width: var(--switch-knob-width);
     height: var(--switch-knob-width);
     top: var(--switch-knob-top);
@@ -103,7 +104,6 @@
   &-loading {
     display: inline-flex;
     align-items: center;
-
     cursor: wait;
 
     &-spin {

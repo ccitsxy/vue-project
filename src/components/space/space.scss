@@ -4,23 +4,29 @@
   &-vertical {
     flex-direction: column;
   }
+
   &-horizontal {
     flex-direction: row;
   }
+
   &-align {
     &-center {
       align-items: center;
     }
+
     &-end {
       align-items: flex-end;
     }
+
     &-start {
       align-items: flex-start;
     }
+
     &-baseline {
       align-items: baseline;
     }
   }
+
   &-wrap {
     flex-wrap: wrap;
   }

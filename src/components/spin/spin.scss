@@ -2,7 +2,6 @@
   cursor: wait;
   position: relative;
   display: inline-block;
-
   height: auto;
   width: auto;
 
@@ -29,7 +28,6 @@
       animation: var(--c-spin-wrapper-animation-duration) linear infinite
         var(--c-spin-animation-function);
       animation-fill-mode: forwards;
-
       width: var(--c-spin-medium);
       height: var(--c-spin-medium);
     }

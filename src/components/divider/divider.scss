@@ -5,6 +5,7 @@
 
   &-dashed {
     border-bottom-style: dashed;
+
     &::before,
     &::after {
       border-bottom: var(--c-divider-line-border-width) dashed var(--c-divider-line-border-color);

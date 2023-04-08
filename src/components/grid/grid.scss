@@ -66,6 +66,7 @@
   .c-col-pull-#{$i} {
     inset-inline-end: calc($i / 24 * 100%);
   }
+
   @media (min-width: var(--c-grid-width-sm)) {
     .c-col-sm-#{$i} {
       width: calc($i / 24 * 100%);

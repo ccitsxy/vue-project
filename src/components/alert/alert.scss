@@ -3,11 +3,6 @@
   padding: var(--c-alert-padding);
   border-radius: var(--c-alert-border-radius);
 
-  &-content-wrapper {
-    display: flex;
-    flex-direction: row;
-  }
-
   &-title {
     color: var(--c-alert-title-color);
     font-size: var(--c-alert-title-font-size);
@@ -25,14 +20,19 @@
   }
 
   &-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    
     .c-alert-content {
       display: flex;
       flex: 1;
       align-items: center;
+
       &-body {
         display: flex;
         align-items: flex-start;
         flex-direction: column;
+
         .c-alert-title + .c-alert-description {
           margin-top: var(--c-alert-title-description-margin-top);
         }
@@ -95,6 +95,7 @@
 
   &-banner {
     border-radius: 0;
+
     &.c-alert-bordered {
       border: none;
     }

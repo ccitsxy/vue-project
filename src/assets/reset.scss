@@ -6,10 +6,6 @@ svg {
   display: inline-block;
 }
 
-body {
-  font-size: 14px;
-}
-
 button {
   padding: 0;
 }
@@ -39,8 +35,7 @@ Use a better box model (opinionated).
 
 html {
   line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-  -moz-tab-size: 4; /* 3 */
+  text-size-adjust: 100%; /* 2 */
   tab-size: 4; /* 3 */
 }
 
@@ -58,6 +53,8 @@ body {
   margin: 0; /* 1 */
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji'; /* 2 */
+    
+  font-size: 14px;
 }
 
 /*
@@ -191,7 +188,7 @@ button,
 [type='button'],
 [type='reset'],
 [type='submit'] {
-  -webkit-appearance: button;
+  appearance: button;
 }
 
 /**
@@ -251,7 +248,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
 */
 
 [type='search'] {
-  -webkit-appearance: textfield; /* 1 */
+  appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
 
@@ -260,7 +257,7 @@ Remove the inner padding in Chrome and Safari on macOS.
 */
 
 ::-webkit-search-decoration {
-  -webkit-appearance: none;
+  appearance: none;
 }
 
 /**
@@ -269,7 +266,7 @@ Remove the inner padding in Chrome and Safari on macOS.
 */
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
+  appearance: button; /* 1 */
   font: inherit; /* 2 */
 }
 
