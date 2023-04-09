@@ -40,9 +40,8 @@ const checked = computed({
 </script>
 
 <template>
-  <label :for="id" class="c-checkbox">
+  <label class="c-checkbox">
     <input
-      :id="id"
       v-model="checked"
       :name="id"
       :aria-label="ariaLabel"

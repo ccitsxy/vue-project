@@ -44,15 +44,15 @@ const checked = computed({
 })
 
 const handleClick = () => {
-  if (!props.loading && !props.disabled) checked.value = !checked.value
+  checked.value = !checked.value
 }
 
 const handleMouseEnter = (e: MouseEvent) => {
-  if (!props.loading && !props.disabled) emit('mouse-enter', e)
+  emit('mouse-enter', e)
 }
 
 const handleMouseLeave = (e: MouseEvent) => {
-  if (!props.loading && !props.disabled) emit('mouse-leave', e)
+  emit('mouse-leave', e)
 }
 </script>
 
@@ -77,7 +77,7 @@ const handleMouseLeave = (e: MouseEvent) => {
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
   >
-    <spin v-if="loading" wrapper-class="c-switch-loading-spin" :size="size" />
+    <spin v-if="loading" class="c-switch-loading-spin" :size="size" />
     <div v-else class="c-switch-knob" aria-hidden="true" />
     <template v-if="size !== 'small'">
       <div v-if="checked && (checkedText || $slots.checkedText)" class="c-switch-checked-text">

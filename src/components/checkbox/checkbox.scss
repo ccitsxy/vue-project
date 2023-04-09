@@ -4,7 +4,7 @@
   cursor: pointer;
   column-gap: 8px;
 
-  .c-checkbox-inner {
+  &-inner {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,7 +30,7 @@
     }
   }
 
-  .c-checkbox-input {
+  &-input {
     cursor: pointer;
     position: absolute;
     inset: 0;
@@ -72,7 +72,7 @@
     }
   }
 
-  .c-checkbox-content {
+  &-content {
     flex: 1 1;
     display: flex;
     flex-direction: column;
@@ -80,7 +80,7 @@
     user-select: none;
   }
 
-  .c-checkbox-content-describe {
+  &-content-describe {
     color: rgb(28 31 35 / 62%);
   }
 }

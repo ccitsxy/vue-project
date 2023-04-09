@@ -276,7 +276,7 @@
     }
   }
 
-  &.c-button-with-icon {
+  &-with-icon {
     display: inline-flex;
     align-items: center;
 
@@ -287,10 +287,10 @@
     }
   }
 
-  &.c-button-loading {
-    cursor: wait;
+  &-loading {
+    pointer-events: none;
     opacity: var(--c-button-loading-opacity);
-
+    
     .c-button-content {
       & > svg {
         width: 16px;
@@ -301,7 +301,7 @@
     }
   }
 
-  &.c-button-with-icon-only {
+  &-with-icon-only {
     padding: var(--c-button-icon-only-padding);
 
     &.c-button {
@@ -316,7 +316,7 @@
   }
 }
 
-.c-button-group > .c-button {
+.c-button-group .c-button {
   &:first-child {
     border-start-end-radius: 0;
     border-end-end-radius: 0;
@@ -338,5 +338,4 @@
       border-radius: 0;
     }
   }
-
 }

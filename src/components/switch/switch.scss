@@ -1,4 +1,3 @@
-/* stylelint-disable no-descending-specificity */
 .c-switch {
   box-sizing: border-box;
   display: inline-block;
@@ -104,7 +103,7 @@
   &-loading {
     display: inline-flex;
     align-items: center;
-    cursor: wait;
+    pointer-events: none;
 
     &-spin {
       .c-spin-wrapper {

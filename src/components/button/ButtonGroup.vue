@@ -30,7 +30,7 @@ provide(buttonGroupContextKey, { size, type, shape, theme, disabled })
 </script>
 
 <template>
-  <div class="c-button-group">
+  <div class="c-button-group" role="group">
     <slot />
   </div>
 </template>

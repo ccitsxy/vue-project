@@ -53,7 +53,7 @@ body {
   margin: 0; /* 1 */
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji'; /* 2 */
-    
+
   font-size: 14px;
 }
 
@@ -181,17 +181,6 @@ select {
 }
 
 /**
-Correct the inability to style clickable types in iOS and Safari.
-*/
-
-button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-  appearance: button;
-}
-
-/**
 Remove the inner border and padding in Firefox.
 */
 
@@ -258,16 +247,6 @@ Remove the inner padding in Chrome and Safari on macOS.
 
 ::-webkit-search-decoration {
   appearance: none;
-}
-
-/**
-1. Correct the inability to style clickable types in iOS and Safari.
-2. Change font properties to 'inherit' in Safari.
-*/
-
-::-webkit-file-upload-button {
-  appearance: button; /* 1 */
-  font: inherit; /* 2 */
 }
 
 /*
