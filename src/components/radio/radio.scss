@@ -4,6 +4,16 @@
   cursor: pointer;
   column-gap: 8px;
 
+  &-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(28 31 35 / 35%);
+    border-radius: 16px;
+    width: 16px;
+    height: 16px;
+  }
+
   @media (any-hover: hover) {
     &:hover {
       .c-radio-inner {
@@ -60,16 +70,6 @@
         }
       }
     }
-  }
-
-  &-inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgb(28 31 35 / 35%);
-    border-radius: 16px;
-    width: 16px;
-    height: 16px;
   }
 
   &-content {

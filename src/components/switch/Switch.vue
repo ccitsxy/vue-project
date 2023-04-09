@@ -77,8 +77,12 @@ const handleMouseLeave = (e: MouseEvent) => {
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
   >
-    <spin v-if="loading" class="c-switch-loading-spin" :size="size" />
-    <div v-else class="c-switch-knob" aria-hidden="true" />
+    <spin
+      v-if="loading"
+      :class="['c-switch-loading-spin', `c-switch-loading-spin-${size}`]"
+      :size="size"
+    />
+    <div v-else :class="['c-switch-knob', `c-switch-knob-${size}`]" aria-hidden="true" />
     <template v-if="size !== 'small'">
       <div v-if="checked && (checkedText || $slots.checkedText)" class="c-switch-checked-text">
         {{ checkedText }}
