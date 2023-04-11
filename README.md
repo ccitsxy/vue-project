@@ -72,7 +72,7 @@ pnpm lint
 
 ### Todo
 
-- [ ] Alert
+- [x] Alert
 - [x] Back Top
 - [x] Button
 - [x] Collapsible
@@ -88,9 +88,7 @@ pnpm lint
 - [ ] Input Number
 - [ ] Dropdown
 - [ ] Button Group
-- [ ] Checkbox
-- [ ] Radio
+- [x] Checkbox
+- [x] Radio
 - [ ] Table (tanstack-table)
-- [ ] Draggable
 - [ ] Layout
-- [ ] Typography
