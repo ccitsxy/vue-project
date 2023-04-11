@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<Props>(), {
   direction: 'horizontal',
   wrap: false,
   align: 'center',
-  gap: 'tight'
+  gap: 'medium'
 })
 const useGapStyleAndClass = (gap: Gap | [Gap, Gap]) => {
   const gapStyle: CSSProperties = {}

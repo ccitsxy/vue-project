@@ -21,7 +21,7 @@ const emit = defineEmits<{
 
 const handleClick = (e: MouseEvent) => {
   emit('click', e)
-  hanleTransition()
+  handleTransition()
 }
 
 const element = shallowRef<HTMLElement | null>(null)
@@ -34,7 +34,7 @@ const visible = computed(
   () => (props.target === 'window' ? windowY.value : elementY.value) > props.visibilityHeight
 )
 
-const hanleTransition = () => {
+const handleTransition = () => {
   const source = shallowRef(0)
   source.value = props.target === 'window' ? windowY.value : elementY.value
   const output = useTransition(source, {
@@ -60,7 +60,7 @@ const hanleTransition = () => {
 <template>
   <div v-if="visible" class="c-back-top" @click="handleClick">
     <slot v-if="$slots.default" />
-    <Button v-else theme="light" :icon="IconArrowUp" size="large" shape="circle" />
+    <Button v-else :icon="IconArrowUp" shape="circle" size="large" theme="light"/>
   </div>
 </template>
 

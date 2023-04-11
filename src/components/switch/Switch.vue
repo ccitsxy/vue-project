@@ -59,11 +59,10 @@ const handleMouseLeave = (e: MouseEvent) => {
 <template>
   <button
     ref="wrapper"
-    :aria-label="ariaLabel"
-    :aria-labelledby="ariaLabelledby"
     :aria-checked="checked"
     :aria-disabled="disabled"
-    :disabled="disabled"
+    :aria-label="ariaLabel"
+    :aria-labelledby="ariaLabelledby"
     :class="[
       'c-switch',
       `c-switch-${size}`,
@@ -71,6 +70,7 @@ const handleMouseLeave = (e: MouseEvent) => {
       { 'c-switch-loading': loading && !disabled },
       { 'c-switch-disabled': disabled }
     ]"
+    :disabled="disabled"
     role="switch"
     type="button"
     @click="handleClick"

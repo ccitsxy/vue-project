@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 import { Icon, IconRadio } from '@/components/icon'
 import { nanoid } from 'nanoid'
+import { radioGroupContextKey } from './context'
 
 export interface Props {
-  id?: string
   ariaLabel?: string
+  name?: string
+  value?: string | number
   checked?: boolean
   defaultChecked?: boolean
   label?: string
@@ -14,9 +16,10 @@ export interface Props {
   describeId?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  id: `c-radio-${nanoid()}`,
+withDefaults(defineProps<Props>(), {
   ariaLabel: undefined,
+  name: `c-radio-${nanoid()}`,
+  value: undefined,
   checked: false,
   defaultChecked: false,
   label: undefined,
@@ -25,36 +28,40 @@ const props = withDefaults(defineProps<Props>(), {
   describeId: `c-radio-extra-${nanoid()}`
 })
 
-const emit = defineEmits<{
-  (e: 'update:checked', value: boolean): void
-}>()
-
-const checked = computed({
-  get() {
-    return props.defaultChecked || props.checked
-  },
-  set(value: boolean) {
-    emit('update:checked', value)
-  }
+const { modelValue } = inject(radioGroupContextKey, {
+  modelValue: computed(() => '')
 })
 </script>
 
 <template>
-  <label :for="id" class="c-radio">
+  <label class="c-radio">
     <input
-      :id="id"
-      v-model="checked"
+      v-if="value"
+      v-model="modelValue"
+      :aria-describedby="describeId"
       :aria-label="ariaLabel"
       :aria-labelledby="labelId"
+      :checked="value === modelValue"
+      :name="name"
+      :value="value"
+      class="c-radio-input"
+      type="radio"
+    />
+    <input
+      v-if="value"
       :aria-describedby="describeId"
+      :aria-label="ariaLabel"
+      :aria-labelledby="labelId"
       :checked="checked"
+      :name="name"
+      :value="value"
       class="c-radio-input"
       type="radio"
     />
     <span aria-hidden="true" class="c-radio-inner">
-      <icon v-if="checked" :component="IconRadio" />
+      <icon v-if="(checked && value) || value === modelValue" :component="IconRadio" />
     </span>
-    <span v-if="$slots.default || $slots.describe" :id="labelId" class="c-radio-content">
+    <span v-if="$slots.default || $slots.describe" class="c-radio-content">
       <div v-if="$slots.default" :id="labelId" class="c-radio-content-label">
         {{ label }}
         <slot />

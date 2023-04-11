@@ -15,8 +15,12 @@ import Alert from '@/components/alert/Alert.vue'
 import ButtonGroup from '@/components/button/ButtonGroup.vue'
 import Checkbox from '@/components/checkbox/Checkbox.vue'
 import Radio from '@/components/radio/Radio.vue'
+import CheckboxGroup from '@/components/checkbox/CheckboxGroup.vue'
+import RadioGroup from '@/components/radio/RadioGroup.vue'
 
 const checked = shallowRef(false)
+const checkboxData = shallowRef([])
+const radioData = shallowRef()
 </script>
 
 <template>
@@ -151,20 +155,43 @@ const checked = shallowRef(false)
         </div>
       </Spin>
     </div>
-    <Checkbox v-model:checked="checked">
-      {{ checked ? 'checked' : 'unchecked' }}
-      <template #describe>
-        <div>Here are some texts.</div>
-        <div>And more texts on the way.</div>
-      </template>
-    </Checkbox>
-    <Radio v-model:checked="checked">
-      {{ checked ? 'checked' : 'unchecked' }}
-      <template #describe>
-        <div>Here are some texts.</div>
-        <div>And more texts on the way.</div>
-      </template>
-    </Radio>
+    <Space direction="vertical">
+      <Checkbox v-model:checked="checked">
+        {{ checked ? 'checked' : 'unchecked' }}
+        <template #describe>
+          <div>Here are some texts.</div>
+          <div>And more texts on the way.</div>
+        </template>
+      </Checkbox>
+      <Radio v-model:checked="checked">
+        {{ checked ? 'checked' : 'unchecked' }}
+        <template #describe>
+          <div>Here are some texts.</div>
+          <div>And more texts on the way.</div>
+        </template>
+      </Radio>
+    </Space>
+    <CheckboxGroup v-model="checkboxData">
+      <Space>
+        <Checkbox v-for="item in 5" :key="item" :value="item">
+          <template #describe>
+            <div>Here are some texts.</div>
+            <div>And more texts on the way.</div>
+          </template>
+        </Checkbox>
+      </Space>
+    </CheckboxGroup>
+
+    <RadioGroup v-model="radioData">
+      <Space>
+        <Radio v-for="item in 5" :key="item" :value="item">
+          <template #describe>
+            <div>Here are some texts.</div>
+            <div>And more texts on the way.</div>
+          </template>
+        </Radio>
+      </Space>
+    </RadioGroup>
   </Space>
   <div style="height: 2000px" />
   <BackTop />

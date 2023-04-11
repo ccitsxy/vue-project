@@ -72,33 +72,45 @@ const ButtonIcon = () => {
   }
 }
 
-const { size, type, shape, theme, disabled } = inject(buttonGroupContextKey, {
+const {
+  size: GroupSize,
+  type: GroupType,
+  shape: GroupShape,
+  theme: GroupTheme,
+  disabled: GroupDisabled
+} = inject(buttonGroupContextKey, {
   size: computed(() => props.size),
   type: computed(() => props.type),
   shape: computed(() => props.shape),
   theme: computed(() => props.theme),
   disabled: computed(() => props.disabled)
 })
+
+const size = computed(() => GroupSize.value || props.size)
+const type = computed(() => GroupType.value || props.type)
+const shape = computed(() => GroupShape.value || props.shape)
+const theme = computed(() => GroupTheme.value || props.theme)
+const disabled = computed(() => GroupDisabled.value || props.disabled)
 </script>
 
 <template>
   <button
-    :type="htmlType"
+    :aria-disabled="disabled"
     :aria-label="ariaLabel"
-    :aria-disabled="disabled || props.disabled"
-    :disabled="disabled || props.disabled"
     :class="[
       'c-button',
-      `c-button-${theme || props.theme}`,
-      `c-button-${type || props.type}`,
-      `c-button-${shape || props.shape}`,
-      `c-button-${size || props.size}`,
-      { 'c-button-disabled': disabled || props.disabled },
+      `c-button-${theme}`,
+      `c-button-${type}`,
+      `c-button-${shape}`,
+      `c-button-${size}`,
+      { 'c-button-disabled': disabled },
       { 'c-button-block': block },
-      { 'c-button-loading': loading && !(disabled || props.disabled) },
+      { 'c-button-loading': loading && !disabled },
       { 'c-button-with-icon': loading || icon || $slots.icon },
       { 'c-button-with-icon-only': !$slots.default && (loading || icon || $slots.icon) }
     ]"
+    :disabled="disabled"
+    :type="htmlType"
     @click="handleClick"
     @mousedown="handleMouseDown"
     @mouseenter="handleMouseEnter"

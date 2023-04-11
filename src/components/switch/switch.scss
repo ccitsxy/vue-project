@@ -60,12 +60,12 @@
       }
     }
 
-    .c-switch-knob  {
+    .c-switch-knob {
       transform: var(--switch-checked-knob-transform);
     }
 
     &:active {
-      .c-switch-knob  {
+      .c-switch-knob {
         transform: var(--switch-active-checked-knob-transform);
       }
     }
@@ -74,7 +74,7 @@
   &:active {
     border: var(--switch-border-width) solid var(--switch-active-border-color);
 
-    .c-switch-knob  {
+    .c-switch-knob {
       width: var(--switch-active-knob-width);
     }
   }
