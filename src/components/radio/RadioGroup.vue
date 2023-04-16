@@ -4,32 +4,43 @@ import { radioGroupContextKey } from './context'
 
 export interface Props {
   ariaLabel?: string
-  modelValue?: string | number
+  modelValue?: string | number | null
+  disabled?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   ariaLabel: undefined,
-  modelValue: ''
+  modelValue: undefined,
+  disabled: false
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: string | number): void
+  (e: 'update:modelValue', value?: string | number | null): void
 }>()
 
 const modelValue = computed({
   get() {
     return props.modelValue
   },
-  set(value: string | number) {
+  set(value?: string | number | null) {
     emit('update:modelValue', value)
   }
 })
 
-provide(radioGroupContextKey, { modelValue })
+const update = (value: string | number) => {
+  modelValue.value = value
+}
+
+provide(radioGroupContextKey, { modelValue, update })
 </script>
 
 <template>
-  <div :aria-label="ariaLabel" class="c-radio-group" role="group">
+  <div
+    :aria-disabled="disabled"
+    :aria-label="ariaLabel"
+    role="group"
+    class="c-radio-group"
+  >
     <slot />
   </div>
 </template>

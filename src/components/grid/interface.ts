@@ -1,7 +1,6 @@
 import type { CSSProperties } from 'vue'
 import { shallowRef } from 'vue'
 import { useEventListener } from '@vueuse/core'
-import { isNumber, isObject, isArray, isClient, isUndefined } from '@/utils'
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'
 
@@ -35,9 +34,9 @@ export const useSize = (width: number): Breakpoint => {
 }
 
 export const useRowSize = () => {
-  const size = shallowRef(useSize(isClient ? window.innerWidth : 0))
+  const size = shallowRef(useSize(window === undefined ? 0 : window.innerWidth))
   const updateSize = () => {
-    size.value = useSize(isClient ? window.innerWidth : 0)
+    size.value = useSize(window === undefined ? 0 : window.innerWidth)
   }
   useEventListener('resize', updateSize)
   return size
@@ -48,17 +47,17 @@ export const useColSizeClass = (sizesVal: (ColSize | undefined)[]) => {
 
   const sizes = ['xxl', 'xl', 'lg', 'sm', 'xs']
 
-  sizesVal.forEach((e) => {
-    const size = sizes[sizesVal.indexOf(e)]
-    if (isNumber(e)) {
-      classes.push(`semi-col-${size}-${e}`)
-    } else if (isObject(e)) {
+  sizesVal.forEach((element) => {
+    const size = sizes[sizesVal.indexOf(element)]
+    if (typeof element === 'number') {
+      classes.push(`c-col-${size}-${element}`)
+    } else if (typeof element === 'object') {
       classes.push(
-        e.span ? `semi-col-${size}-${e.span}` : '',
-        e.order ? `semi-col-${size}-order-${e.order}` : '',
-        e.offset ? `semi-col-${size}-offset-${e.offset}` : '',
-        e.push ? `semi-col-${size}-push-${e.push}` : '',
-        e.pull ? `semi-col-${size}-pull-${e.pull}` : ''
+        element.span ? `c-col-${size}-${element.span}` : '',
+        element.order ? `c-col-${size}-order-${element.order}` : '',
+        element.offset ? `c-col-${size}-offset-${element.offset}` : '',
+        element.push ? `c-col-${size}-push-${element.push}` : '',
+        element.pull ? `c-col-${size}-pull-${element.pull}` : ''
       )
     }
   })
@@ -74,7 +73,7 @@ export function useGutterStyle(
   const style: CSSProperties = {}
 
   const setPaddingX = (gutter: number | undefined) => {
-    if (!isUndefined(gutter)) {
+    if (gutter !== undefined) {
       if (direction === 'row') {
         style.paddingInlineStart = style.paddingInlineEnd = `${gutter / -2}px`
       } else if (direction === 'col') {
@@ -84,7 +83,7 @@ export function useGutterStyle(
   }
 
   const setPaddingY = (gutter: number | undefined) => {
-    if (!isUndefined(gutter)) {
+    if (gutter !== undefined) {
       if (direction === 'row') {
         style.paddingTop = style.paddingBottom = `${gutter / -2}px`
       } else if (direction === 'col') {
@@ -93,24 +92,24 @@ export function useGutterStyle(
     }
   }
 
-  if (isNumber(gutter)) {
+  if (typeof gutter === 'number') {
     setPaddingX(gutter)
   }
 
-  if (!isArray(gutter) && isObject(gutter)) {
+  if (!Array.isArray(gutter) && typeof gutter === 'object') {
     setPaddingX(gutter[currentSize])
   }
 
-  if (isArray(gutter)) {
+  if (Array.isArray(gutter)) {
     const [gutterX, gutterY] = gutter
-    if (isNumber(gutterX)) {
+    if (typeof gutterX === 'number') {
       setPaddingX(gutterX)
-    } else if (isObject(gutterX)) {
+    } else if (typeof gutterX === 'object') {
       setPaddingX(gutterX[currentSize])
     }
-    if (isNumber(gutterY)) {
+    if (typeof gutterY === 'number') {
       setPaddingY(gutterY)
-    } else if (isObject(gutterY)) {
+    } else if (typeof gutterY === 'object') {
       setPaddingX(gutterY[currentSize])
     }
   }

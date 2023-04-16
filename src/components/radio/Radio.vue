@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject } from 'vue'
+import { computed, inject, shallowRef } from 'vue'
 import { Icon, IconRadio } from '@/components/icon'
 import { nanoid } from 'nanoid'
 import { radioGroupContextKey } from './context'
@@ -16,11 +16,9 @@ export interface Props {
   describeId?: string
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   ariaLabel: undefined,
-  name: `c-radio-${nanoid()}`,
-  value: undefined,
-  checked: false,
+  checked: undefined,
   defaultChecked: false,
   label: undefined,
   labelId: `c-radio-label-${nanoid()}`,
@@ -28,38 +26,57 @@ withDefaults(defineProps<Props>(), {
   describeId: `c-radio-extra-${nanoid()}`
 })
 
-const { modelValue } = inject(radioGroupContextKey, {
-  modelValue: computed(() => '')
+const emit = defineEmits<{
+  (e: 'update:checked', value: boolean): void
+}>()
+
+const radioState = shallowRef(false)
+
+const checked = computed({
+  get() {
+    if (modelValue?.value !== undefined) {
+      return modelValue.value === props.value
+    } else if (props.checked !== undefined) {
+      return props.checked
+    } else {
+      return radioState.value
+    }
+  },
+  set(value: boolean) {
+    emit('update:checked', value)
+  }
 })
+
+const { modelValue, update } = inject(radioGroupContextKey, {
+  modelValue: undefined,
+  update: () => {}
+})
+
+const handleInput = () => {
+  if (modelValue?.value !== undefined && props.value !== undefined) {
+    update(props.value)
+  } else if (props.checked !== undefined && props.checked === false) {
+    checked.value = true
+  } else {
+    radioState.value = true
+  }
+}
 </script>
 
 <template>
   <label class="c-radio">
     <input
-      v-if="value"
-      v-model="modelValue"
-      :aria-describedby="describeId"
       :aria-label="ariaLabel"
       :aria-labelledby="labelId"
-      :checked="value === modelValue"
-      :name="name"
-      :value="value"
-      class="c-radio-input"
-      type="radio"
-    />
-    <input
-      v-if="value"
       :aria-describedby="describeId"
-      :aria-label="ariaLabel"
-      :aria-labelledby="labelId"
-      :checked="checked"
-      :name="name"
+      :aria-checked="checked"
       :value="value"
-      class="c-radio-input"
       type="radio"
+      :class="['c-radio-input', { 'c-radio-input-checked': checked }]"
+      @click.prevent="handleInput()"
     />
     <span aria-hidden="true" class="c-radio-inner">
-      <icon v-if="(checked && value) || value === modelValue" :component="IconRadio" />
+      <icon v-if="checked" :component="IconRadio" />
     </span>
     <span v-if="$slots.default || $slots.describe" class="c-radio-content">
       <div v-if="$slots.default" :id="labelId" class="c-radio-content-label">

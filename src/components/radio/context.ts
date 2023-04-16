@@ -1,7 +1,8 @@
-import type { ComputedRef, InjectionKey } from 'vue'
+import type { WritableComputedRef, InjectionKey } from 'vue'
 
 interface radioGroupContext {
-  modelValue: ComputedRef<string | number>
+  modelValue?: WritableComputedRef<string | number| null| undefined>
+  update: (value: string | number) => void
 }
 
 export const radioGroupContextKey = Symbol() as InjectionKey<radioGroupContext>

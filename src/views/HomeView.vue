@@ -20,7 +20,7 @@ import RadioGroup from '@/components/radio/RadioGroup.vue'
 
 const checked = shallowRef(false)
 const checkboxData = shallowRef([])
-const radioData = shallowRef()
+const radioData = shallowRef(null)
 </script>
 
 <template>
@@ -155,7 +155,8 @@ const radioData = shallowRef()
         </div>
       </Spin>
     </div>
-    <Space direction="vertical">
+    <Space>
+      <Checkbox /> <Radio />
       <Checkbox v-model:checked="checked">
         {{ checked ? 'checked' : 'unchecked' }}
         <template #describe>

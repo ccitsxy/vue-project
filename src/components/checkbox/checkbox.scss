@@ -1,5 +1,5 @@
 .c-checkbox {
-  display: flex;
+  display: inline-flex;
   position: relative;
   cursor: pointer;
   column-gap: 8px;
@@ -45,7 +45,7 @@
       outline-offset: 2px;
     }
 
-    &:checked {
+    &-checked {
       + .c-checkbox-inner {
         color: white;
         background-color: var(--c-primary-color);
@@ -86,5 +86,5 @@
 }
 
 .c-checkbox-group{
-  display: flex;
+  display: inline-flex;
 }

@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { computed, inject } from 'vue'
+import { computed, inject, shallowRef } from 'vue'
 import { Icon, IconCheckbox } from '@/components/icon'
 import { nanoid } from 'nanoid'
 import { checkboxGroupContextKey } from './context'
-
-export type Size = 'small' | 'medium' | 'large'
 
 export interface Props {
   ariaLabel?: string
@@ -15,8 +13,6 @@ export interface Props {
   labelId?: string
   describe?: string
   describeId?: string
-  disabled?: boolean
-  indeterminate?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -27,60 +23,65 @@ const props = withDefaults(defineProps<Props>(), {
   label: undefined,
   labelId: `c-checkbox-label-${nanoid()}`,
   describe: undefined,
-  describeId: `c-checkbox-extra-${nanoid()}`,
-  disabled: false,
-  indeterminate: false,
+  describeId: `c-checkbox-extra-${nanoid()}`
 })
 
 const emit = defineEmits<{
   (e: 'update:checked', value: boolean): void
 }>()
 
-const { modelValue } = inject(checkboxGroupContextKey, {
-  modelValue: computed(() => [])
-})
+
+const checkboxState = shallowRef(false)
 
 const checked = computed({
   get() {
-    return props.checked || props.defaultChecked
+    if (modelValue?.value !== undefined) {
+      return modelValue.value.includes(props.value as never)
+    } else if (props.checked !== undefined) {
+      return props.checked
+    } else {
+      return checkboxState.value
+    }
   },
   set(value: boolean) {
-    if (modelValue.value.includes(value as never)) {
-      emit('update:checked', true)
-    } else {
-      emit('update:checked', value)
-    }
+    emit('update:checked', value)
   }
 })
+
+const { modelValue, add, remove } = inject(checkboxGroupContextKey, {
+  modelValue: undefined,
+  add: () => {},
+  remove: () => {}
+})
+
+const handleInput = () => {
+  if (modelValue?.value !== undefined && props.value !== undefined) {
+    if (modelValue.value.includes(props.value as never)) {
+      remove(props.value)
+    } else {
+      add(props.value)
+    }
+  } else if (props.checked !== undefined) {
+    checked.value = !checked.value
+  } else {
+    checkboxState.value = !checkboxState.value
+  }
+}
 </script>
 
 <template>
   <label class="c-checkbox">
     <input
-      v-if="value"
-      v-model="modelValue"
-      :aria-describedby="describeId"
       :aria-label="ariaLabel"
       :aria-labelledby="labelId"
-      :checked="modelValue.includes(value as never)"
-      :disabled="disabled"
+      :aria-describedby="describeId"
+      :aria-checked="checked"
       :value="value"
-      class="c-checkbox-input"
       type="checkbox"
-    />
-    <input
-      v-else
-      v-model="checked"
-      :aria-describedby="describeId"
-      :aria-label="ariaLabel"
-      :aria-labelledby="labelId"
-      :checked="checked"
-      :disabled="disabled"
-      class="c-checkbox-input"
-      type="checkbox"
+      :class="['c-checkbox-input', { 'c-checkbox-input-checked': checked }]"
     />
     <span aria-hidden="true" class="c-checkbox-inner">
-      <icon v-if="(checked && !value) || modelValue.includes(value as never)" :component="IconCheckbox" />
+      <icon v-if="checked" :component="IconCheckbox" />
     </span>
     <span v-if="$slots.default || $slots.describe" class="c-checkbox-content">
       <div v-if="$slots.default" :id="labelId" class="c-checkbox-content-label">

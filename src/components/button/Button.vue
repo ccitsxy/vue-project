@@ -46,19 +46,19 @@ const emit = defineEmits<{
 }>()
 
 const handleClick = (e: MouseEvent) => {
-  emit('click', e)
+  if (!props.loading && !props.disabled) emit('click', e)
 }
 
 const handleMouseDown = (e: MouseEvent) => {
-  emit('mousedown', e)
+  if (!props.loading && !props.disabled) emit('mousedown', e)
 }
 
 const handleMouseEnter = (e: MouseEvent) => {
-  emit('mouseenter', e)
+  if (!props.loading && !props.disabled) emit('mouseenter', e)
 }
 
 const handleMouseLeave = (e: MouseEvent) => {
-  emit('mouseleave', e)
+  if (!props.loading && !props.disabled) emit('mouseleave', e)
 }
 
 const slots = useSlots()

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { CSSProperties } from 'vue'
 import { computed } from 'vue'
-import { isString, isNumber, isArray } from '@/utils'
 
 export type Align = 'start' | 'center' | 'end' | 'baseline'
 export type Gap = 'loose' | 'medium' | 'tight' | number
@@ -23,21 +22,21 @@ const useGapStyleAndClass = (gap: Gap | [Gap, Gap]) => {
   const gapStyle: CSSProperties = {}
   const gapClass: string[] = []
 
-  if (isNumber(gap)) {
+  if (typeof gap === 'number') {
     gapStyle.rowGap = `${gap}px`
     gapStyle.columnGap = `${gap}px`
-  } else if (isArray(gap)) {
-    if (isString(gap[0])) {
+  } else if (Array.isArray(gap)) {
+    if (typeof gap[0] === 'string') {
       gapClass.push(`c-space-${gap[0]}-horizontal`)
-    } else if (isNumber(gap[0])) {
+    } else if (typeof gap[0] === 'number') {
       gapStyle.columnGap = `${gap[0]}px;`
     }
-    if (isString(gap[1])) {
+    if (typeof gap[1] === 'string') {
       gapClass.push(`c-space-${gap[1]}-vertical`)
-    } else if (isNumber(gap[1])) {
+    } else if (typeof gap[1] === 'number') {
       gapStyle.rowGap = `${gap[1]}px`
     }
-  } else if (isString(gap)) {
+  } else if (typeof gap === 'string') {
     gapClass.push(`c-space-${gap}-horizontal`)
     gapClass.push(`c-space-${gap}-vertical`)
   }

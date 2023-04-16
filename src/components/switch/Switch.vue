@@ -44,25 +44,26 @@ const checked = computed({
 })
 
 const handleClick = () => {
-  checked.value = !checked.value
+  if (!props.loading && !props.disabled) checked.value = !checked.value
 }
 
 const handleMouseEnter = (e: MouseEvent) => {
-  emit('mouse-enter', e)
+  if (!props.loading && !props.disabled) emit('mouse-enter', e)
 }
 
 const handleMouseLeave = (e: MouseEvent) => {
-  emit('mouse-leave', e)
+  if (!props.loading && !props.disabled) emit('mouse-leave', e)
 }
 </script>
 
 <template>
   <button
     ref="wrapper"
-    :aria-checked="checked"
-    :aria-disabled="disabled"
     :aria-label="ariaLabel"
     :aria-labelledby="ariaLabelledby"
+    :aria-checked="checked"
+    :aria-disabled="disabled"
+    :disabled="disabled"
     :class="[
       'c-switch',
       `c-switch-${size}`,
@@ -70,19 +71,14 @@ const handleMouseLeave = (e: MouseEvent) => {
       { 'c-switch-loading': loading && !disabled },
       { 'c-switch-disabled': disabled }
     ]"
-    :disabled="disabled"
     role="switch"
     type="button"
     @click="handleClick"
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
   >
-    <spin
-      v-if="loading"
-      :class="['c-switch-loading-spin', `c-switch-loading-spin-${size}`]"
-      :size="size"
-    />
-    <div v-else :class="['c-switch-knob', `c-switch-knob-${size}`]" aria-hidden="true" />
+    <spin v-if="loading" :size="size" />
+    <div v-else class="c-switch-knob" aria-hidden="true" />
     <template v-if="size !== 'small'">
       <div v-if="checked && (checkedText || $slots.checkedText)" class="c-switch-checked-text">
         {{ checkedText }}
