@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, shallowRef } from 'vue'
 import { Icon, IconCheckbox } from '@/components/icon'
-import { nanoid } from 'nanoid'
 import { checkboxGroupContextKey } from './context'
 
 export interface Props {
@@ -15,23 +14,13 @@ export interface Props {
   describeId?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  ariaLabel: undefined,
-  value: undefined,
-  checked: undefined,
-  defaultChecked: false,
-  label: undefined,
-  labelId: `c-checkbox-label-${nanoid()}`,
-  describe: undefined,
-  describeId: `c-checkbox-extra-${nanoid()}`
-})
+const props = withDefaults(defineProps<Props>(), {})
 
 const emit = defineEmits<{
   (e: 'update:checked', value: boolean): void
 }>()
 
-
-const checkboxState = shallowRef(false)
+const _checked = shallowRef(props.defaultChecked)
 
 const checked = computed({
   get() {
@@ -40,7 +29,7 @@ const checked = computed({
     } else if (props.checked !== undefined) {
       return props.checked
     } else {
-      return checkboxState.value
+      return _checked.value
     }
   },
   set(value: boolean) {
@@ -54,7 +43,7 @@ const { modelValue, add, remove } = inject(checkboxGroupContextKey, {
   remove: () => {}
 })
 
-const handleInput = () => {
+const handleClick = () => {
   if (modelValue?.value !== undefined && props.value !== undefined) {
     if (modelValue.value.includes(props.value as never)) {
       remove(props.value)
@@ -64,7 +53,7 @@ const handleInput = () => {
   } else if (props.checked !== undefined) {
     checked.value = !checked.value
   } else {
-    checkboxState.value = !checkboxState.value
+    _checked.value = !_checked.value
   }
 }
 </script>
@@ -79,6 +68,7 @@ const handleInput = () => {
       :value="value"
       type="checkbox"
       :class="['c-checkbox-input', { 'c-checkbox-input-checked': checked }]"
+      @click="handleClick()"
     />
     <span aria-hidden="true" class="c-checkbox-inner">
       <icon v-if="checked" :component="IconCheckbox" />

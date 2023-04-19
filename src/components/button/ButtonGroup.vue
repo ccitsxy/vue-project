@@ -12,11 +12,6 @@ export interface Props {
   disabled?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
-  ariaLabel: undefined,
-  size: undefined,
-  type: undefined,
-  shape: undefined,
-  theme: undefined,
   disabled: false
 })
 

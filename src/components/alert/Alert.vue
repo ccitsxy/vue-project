@@ -21,10 +21,6 @@ export interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   type: 'info',
-  title: undefined,
-  description: undefined,
-  icon: undefined,
-  closeIcon: undefined,
   showIcon: true,
   closable: false,
   bordered: false,

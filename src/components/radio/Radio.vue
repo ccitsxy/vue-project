@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, shallowRef } from 'vue'
 import { Icon, IconRadio } from '@/components/icon'
-import { nanoid } from 'nanoid'
 import { radioGroupContextKey } from './context'
 
 export interface Props {
@@ -17,20 +16,14 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  ariaLabel: undefined,
-  checked: undefined,
-  defaultChecked: false,
-  label: undefined,
-  labelId: `c-radio-label-${nanoid()}`,
-  describe: undefined,
-  describeId: `c-radio-extra-${nanoid()}`
+  defaultChecked: false
 })
 
 const emit = defineEmits<{
-  (e: 'update:checked', value: boolean): void
+  (e: 'update:checked', value?: boolean): void
 }>()
 
-const radioState = shallowRef(false)
+const _checked = shallowRef(props.defaultChecked)
 
 const checked = computed({
   get() {
@@ -39,10 +32,10 @@ const checked = computed({
     } else if (props.checked !== undefined) {
       return props.checked
     } else {
-      return radioState.value
+      return _checked.value
     }
   },
-  set(value: boolean) {
+  set(value?: boolean) {
     emit('update:checked', value)
   }
 })
@@ -58,7 +51,7 @@ const handleInput = () => {
   } else if (props.checked !== undefined && props.checked === false) {
     checked.value = true
   } else {
-    radioState.value = true
+    _checked.value = true
   }
 }
 </script>
@@ -72,8 +65,9 @@ const handleInput = () => {
       :aria-checked="checked"
       :value="value"
       type="radio"
+      name="radio-group"
       :class="['c-radio-input', { 'c-radio-input-checked': checked }]"
-      @click.prevent="handleInput()"
+      @click="handleInput()"
     />
     <span aria-hidden="true" class="c-radio-inner">
       <icon v-if="checked" :component="IconRadio" />

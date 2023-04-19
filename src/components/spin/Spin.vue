@@ -17,9 +17,7 @@ export interface Props {
 const props = withDefaults(defineProps<Props>(), {
   spin: true,
   size: 'medium',
-  delay: 0,
-  tip: undefined,
-  childStyle: undefined
+  delay: 0
 })
 
 const spin = shallowRef(false)

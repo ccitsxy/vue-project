@@ -1,7 +1,7 @@
 import type { WritableComputedRef, InjectionKey } from 'vue'
 
 interface checkboxGroupContext {
-  modelValue?: WritableComputedRef<string[] | number[]| undefined>
+  modelValue?: WritableComputedRef<string[] | number[] | undefined>
   add: (value: string | number) => void
   remove: (value: string | number) => void
 }

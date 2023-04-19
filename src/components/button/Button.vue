@@ -25,7 +25,6 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  ariaLabel: undefined,
   size: 'medium',
   type: 'primary',
   shape: 'square',
@@ -34,7 +33,6 @@ const props = withDefaults(defineProps<Props>(), {
   block: false,
   disabled: false,
   loading: false,
-  icon: undefined,
   iconPlacement: 'start'
 })
 
@@ -73,11 +71,11 @@ const ButtonIcon = () => {
 }
 
 const {
-  size: GroupSize,
-  type: GroupType,
-  shape: GroupShape,
-  theme: GroupTheme,
-  disabled: GroupDisabled
+  size: _size,
+  type: _type,
+  shape: _shape,
+  theme: _theme,
+  disabled: _disabled
 } = inject(buttonGroupContextKey, {
   size: computed(() => props.size),
   type: computed(() => props.type),
@@ -86,11 +84,11 @@ const {
   disabled: computed(() => props.disabled)
 })
 
-const size = computed(() => GroupSize.value || props.size)
-const type = computed(() => GroupType.value || props.type)
-const shape = computed(() => GroupShape.value || props.shape)
-const theme = computed(() => GroupTheme.value || props.theme)
-const disabled = computed(() => GroupDisabled.value || props.disabled)
+const size = computed(() => _size.value || props.size)
+const type = computed(() => _type.value || props.type)
+const shape = computed(() => _shape.value || props.shape)
+const theme = computed(() => _theme.value || props.theme)
+const disabled = computed(() => _disabled.value || props.disabled)
 </script>
 
 <template>

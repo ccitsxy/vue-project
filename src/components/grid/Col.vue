@@ -22,12 +22,7 @@ const props = withDefaults(defineProps<Props>(), {
   order: 0,
   offset: 0,
   pull: 0,
-  push: 0,
-  xxl: undefined,
-  xl: undefined,
-  lg: undefined,
-  sm: undefined,
-  xs: undefined
+  push: 0
 })
 
 const colSizeClass = computed(() =>

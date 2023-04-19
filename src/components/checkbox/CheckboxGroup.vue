@@ -1,55 +1,52 @@
 <script setup lang="ts">
-import { computed, provide, shallowRef, readonly } from 'vue'
+import { computed, provide } from 'vue'
 import { checkboxGroupContextKey } from './context'
 
 export interface Props {
   ariaLabel?: string
   modelValue?: string[] | number[]
   disabled?: boolean
+  name?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  ariaLabel: undefined,
-  modelValue: undefined,
   disabled: false
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value?: string[] | number[] | undefined): void
+  (e: 'update:modelValue', value?: string[] | number[]): void
 }>()
 
 const modelValue = computed({
   get() {
     return props.modelValue
   },
-  set(value?: string[] | number[] | undefined) {
+  set(value?: string[] | number[]) {
     emit('update:modelValue', value)
   }
 })
 
-const checkboxGroupKey = shallowRef(0)
-
 const add = (value: string | number) => {
-  modelValue.value?.push(value as never)
-  checkboxGroupKey.value++
+  if (modelValue.value !== undefined) {
+    const values = modelValue.value.slice()
+    values.push(value as never)
+    modelValue.value = values
+  }
 }
 
 const remove = (value: string | number) => {
-  modelValue.value?.splice(modelValue.value.indexOf(value as never), 1)
-  checkboxGroupKey.value++
+  if (modelValue.value !== undefined) {
+    const values = modelValue.value.slice()
+    values.splice(modelValue.value.indexOf(value as never), 1)
+    modelValue.value = values
+  }
 }
 
 provide(checkboxGroupContextKey, { modelValue, add, remove })
 </script>
 
 <template>
-  <div
-    :aria-disabled="disabled"
-    :aria-label="ariaLabel"
-    :key="checkboxGroupKey"
-    role="group"
-    class="c-checkbox-group"
-  >
+  <div :aria-disabled="disabled" :aria-label="ariaLabel" role="group" class="c-checkbox-group">
     <slot />
   </div>
 </template>

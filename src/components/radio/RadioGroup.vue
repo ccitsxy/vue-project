@@ -9,8 +9,6 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  ariaLabel: undefined,
-  modelValue: undefined,
   disabled: false
 })
 
@@ -35,12 +33,7 @@ provide(radioGroupContextKey, { modelValue, update })
 </script>
 
 <template>
-  <div
-    :aria-disabled="disabled"
-    :aria-label="ariaLabel"
-    role="group"
-    class="c-radio-group"
-  >
+  <div :aria-disabled="disabled" :aria-label="ariaLabel" role="group" class="c-radio-group">
     <slot />
   </div>
 </template>

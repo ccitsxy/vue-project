@@ -17,12 +17,8 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  ariaLabel: undefined,
-  ariaLabelledby: undefined,
   checked: false,
   defaultChecked: false,
-  checkedText: undefined,
-  uncheckedText: undefined,
   disabled: false,
   loading: false,
   size: 'medium'

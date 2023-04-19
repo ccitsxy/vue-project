@@ -12,8 +12,7 @@ export interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   align: 'center',
-  justify: 'start',
-  gutter: undefined
+  justify: 'start'
 })
 
 const gutter = computed(() => props.gutter)

@@ -60,7 +60,7 @@ const handleTransition = () => {
 <template>
   <div v-if="visible" class="c-back-top" @click="handleClick">
     <slot v-if="$slots.default" />
-    <Button v-else :icon="IconArrowUp" shape="circle" size="large" theme="light"/>
+    <Button v-else :icon="IconArrowUp" shape="circle" size="large" theme="light" />
   </div>
 </template>
 
