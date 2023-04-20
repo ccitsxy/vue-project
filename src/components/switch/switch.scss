@@ -116,7 +116,7 @@
       }
     }
 
-    .c-switch-loading-spin {
+    .c-spin {
       transform: var(--switch-loading-spin-transform);
 
       & > .c-spin-wrapper > svg {
@@ -126,13 +126,13 @@
     }
 
     &.c-switch-checked {
-      .c-switch-loading-spin {
+      .c-spin {
         transform: var(--switch-loading-checked-spin-transform);
       }
     }
 
     &.c-switch-small {
-      .c-switch-loading-spin {
+      .c-spin {
         transform: var(--switch-small-loading-spin-transform);
 
         & > .c-spin-wrapper > svg {
@@ -142,14 +142,14 @@
       }
 
       &.c-switch-checked {
-        .c-switch-loading-spin {
+        .c-spin {
           transform: var(--switch-small-loading-checked-spin-transform);
         }
       }
     }
 
     &.c-switch-large {
-      .c-switch-loading-spin {
+      .c-spin {
         transform: var(--switch-large-loading-spin-transform);
 
         & > .c-spin-wrapper > svg {
@@ -159,7 +159,7 @@
       }
 
       &.c-switch-checked {
-        .c-switch-loading-spin {
+        .c-spin {
           transform: var(--switch-large-loading-checked-spin-transform);
         }
       }

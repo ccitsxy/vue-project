@@ -14,7 +14,10 @@ export interface Props {
   describeId?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {})
+const props = withDefaults(defineProps<Props>(), {
+  checked: undefined,
+  defaultChecked: false
+})
 
 const emit = defineEmits<{
   (e: 'update:checked', value: boolean): void
@@ -24,8 +27,8 @@ const _checked = shallowRef(props.defaultChecked)
 
 const checked = computed({
   get() {
-    if (modelValue?.value !== undefined) {
-      return modelValue.value.includes(props.value as never)
+    if (modelValue?.value !== undefined && props.value !== undefined) {
+      return modelValue.value.includes(props.value)
     } else if (props.checked !== undefined) {
       return props.checked
     } else {
@@ -45,7 +48,7 @@ const { modelValue, add, remove } = inject(checkboxGroupContextKey, {
 
 const handleClick = () => {
   if (modelValue?.value !== undefined && props.value !== undefined) {
-    if (modelValue.value.includes(props.value as never)) {
+    if (modelValue.value.includes(props.value)) {
       remove(props.value)
     } else {
       add(props.value)

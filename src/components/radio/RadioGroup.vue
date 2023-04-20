@@ -13,14 +13,14 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value?: string | number | null): void
+  (e: 'update:modelValue', value: string | number | null | undefined): void
 }>()
 
 const modelValue = computed({
   get() {
     return props.modelValue
   },
-  set(value?: string | number | null) {
+  set(value: string | number | null | undefined) {
     emit('update:modelValue', value)
   }
 })

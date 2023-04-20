@@ -16,11 +16,12 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  checked: undefined,
   defaultChecked: false
 })
 
 const emit = defineEmits<{
-  (e: 'update:checked', value?: boolean): void
+  (e: 'update:checked', value: boolean | undefined): void
 }>()
 
 const _checked = shallowRef(props.defaultChecked)

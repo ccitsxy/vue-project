@@ -4,7 +4,7 @@ import { checkboxGroupContextKey } from './context'
 
 export interface Props {
   ariaLabel?: string
-  modelValue?: string[] | number[]
+  modelValue?: (string| number)[]
   disabled?: boolean
   name?: string
 }
@@ -14,31 +14,31 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value?: string[] | number[]): void
+  (e: 'update:modelValue', value: (string| number)[] | undefined): void
 }>()
 
 const modelValue = computed({
   get() {
     return props.modelValue
   },
-  set(value?: string[] | number[]) {
+  set(value: (string| number)[] | undefined) {
     emit('update:modelValue', value)
   }
 })
 
 const add = (value: string | number) => {
   if (modelValue.value !== undefined) {
-    const values = modelValue.value.slice()
-    values.push(value as never)
-    modelValue.value = values
+    const _modelValue = modelValue.value.slice()
+    _modelValue.push(value)
+    modelValue.value = _modelValue
   }
 }
 
 const remove = (value: string | number) => {
   if (modelValue.value !== undefined) {
-    const values = modelValue.value.slice()
-    values.splice(modelValue.value.indexOf(value as never), 1)
-    modelValue.value = values
+    const _modelValue = modelValue.value.slice()
+    _modelValue.splice(modelValue.value.indexOf(value as never), 1)
+    modelValue.value = _modelValue
   }
 }
 

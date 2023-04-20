@@ -143,13 +143,7 @@ const radioData = shallowRef(null)
     <div style="height: fit-content; width: fit-content">
       <Spin :delay="2000" size="large">
         <template #tip> I am loading... </template>
-        <div
-          style="
-            border: 1px solid var(--c-primary-color);
-            border-radius: 6px;
-            padding-inline-start: 8px;
-          "
-        >
+        <div style="border: 1px solid var(--c-primary-color); border-radius: 6px; padding-inline-start: 8px;">
           <p>Here are some texts.</p>
           <p>And more texts on the way.</p>
         </div>
@@ -182,7 +176,7 @@ const radioData = shallowRef(null)
         </Checkbox>
       </Space>
     </CheckboxGroup>
-
+    {{ checkboxData }}
     <RadioGroup v-model="radioData">
       <Space>
         <Radio v-for="item in 5" :key="item" :value="item">
@@ -193,6 +187,7 @@ const radioData = shallowRef(null)
         </Radio>
       </Space>
     </RadioGroup>
+    {{ radioData }}
   </Space>
   <div style="height: 2000px" />
   <BackTop />
