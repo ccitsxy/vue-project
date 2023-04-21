@@ -194,7 +194,8 @@ Restore the focus styles unset by the previous rule.
 */
 
 :-moz-focusring {
-  outline: 1px dotted ButtonText;
+  // outline: 1px dotted ButtonText;
+  outline: none;
 }
 
 /**

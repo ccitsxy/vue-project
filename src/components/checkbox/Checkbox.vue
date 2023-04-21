@@ -4,9 +4,9 @@ import { Icon, IconCheckbox } from '@/components/icon'
 import { checkboxGroupContextKey } from './context'
 
 export interface Props {
+  modelValue?: boolean
   ariaLabel?: string
-  value?: string | number
-  checked?: boolean
+  value?: boolean | string | number
   defaultChecked?: boolean
   label?: string
   labelId?: string
@@ -15,45 +15,49 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  checked: undefined,
+  modelValue: undefined,
   defaultChecked: false
 })
 
 const emit = defineEmits<{
-  (e: 'update:checked', value: boolean): void
+  (e: 'update:modelValue', value: boolean): void
 }>()
 
 const _checked = shallowRef(props.defaultChecked)
 
 const checked = computed({
   get() {
-    if (modelValue?.value !== undefined && props.value !== undefined) {
-      return modelValue.value.includes(props.value)
-    } else if (props.checked !== undefined) {
-      return props.checked
+    if (groupValue?.value !== undefined && props.value !== undefined) {
+      return groupValue.value.includes(props.value)
+    } else if (props.modelValue !== undefined) {
+      return props.modelValue
     } else {
       return _checked.value
     }
   },
   set(value: boolean) {
-    emit('update:checked', value)
+    emit('update:modelValue', value)
   }
 })
 
-const { modelValue, add, remove } = inject(checkboxGroupContextKey, {
+const {
+  modelValue: groupValue,
+  add,
+  remove
+} = inject(checkboxGroupContextKey, {
   modelValue: undefined,
   add: () => {},
   remove: () => {}
 })
 
 const handleClick = () => {
-  if (modelValue?.value !== undefined && props.value !== undefined) {
-    if (modelValue.value.includes(props.value)) {
+  if (groupValue?.value !== undefined && props.value !== undefined) {
+    if (groupValue.value.includes(props.value)) {
       remove(props.value)
     } else {
       add(props.value)
     }
-  } else if (props.checked !== undefined) {
+  } else if (props.modelValue !== undefined) {
     checked.value = !checked.value
   } else {
     _checked.value = !_checked.value

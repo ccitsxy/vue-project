@@ -3,8 +3,8 @@ import { computed, provide } from 'vue'
 import { checkboxGroupContextKey } from './context'
 
 export interface Props {
+  modelValue?: (boolean | string | number)[]
   ariaLabel?: string
-  modelValue?: (string| number)[]
   disabled?: boolean
   name?: string
 }
@@ -14,19 +14,19 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: (string| number)[] | undefined): void
+  (e: 'update:modelValue', value: (boolean | string | number)[] | undefined): void
 }>()
 
 const modelValue = computed({
   get() {
     return props.modelValue
   },
-  set(value: (string| number)[] | undefined) {
+  set(value: (boolean | string | number)[] | undefined) {
     emit('update:modelValue', value)
   }
 })
 
-const add = (value: string | number) => {
+const add = (value: boolean | string | number) => {
   if (modelValue.value !== undefined) {
     const _modelValue = modelValue.value.slice()
     _modelValue.push(value)
@@ -34,7 +34,7 @@ const add = (value: string | number) => {
   }
 }
 
-const remove = (value: string | number) => {
+const remove = (value: boolean | string | number) => {
   if (modelValue.value !== undefined) {
     const _modelValue = modelValue.value.slice()
     _modelValue.splice(modelValue.value.indexOf(value as never), 1)

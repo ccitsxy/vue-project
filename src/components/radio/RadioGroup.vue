@@ -3,8 +3,8 @@ import { computed, provide } from 'vue'
 import { radioGroupContextKey } from './context'
 
 export interface Props {
-  ariaLabel?: string
   modelValue?: string | number | null
+  ariaLabel?: string
   disabled?: boolean
 }
 

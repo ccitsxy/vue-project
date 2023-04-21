@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, shallowRef } from 'vue'
 import { Spin } from '../spin'
 
 export type Size = 'small' | 'medium' | 'large'
 
 export interface Props {
+  modelValue?: boolean
   ariaLabel?: string
   ariaLabelledby?: string
-  checked?: boolean
   defaultChecked?: boolean
   checkedText?: string
   uncheckedText?: string
@@ -17,7 +17,7 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  checked: false,
+  modelValue: undefined,
   defaultChecked: false,
   disabled: false,
   loading: false,
@@ -25,17 +25,23 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'update:checked', value: boolean): void
+  (e: 'update:modelValue', value: boolean): void
   (e: 'mouse-enter', event: MouseEvent): void
   (e: 'mouse-leave', event: MouseEvent): void
 }>()
 
+const _checked = shallowRef(props.defaultChecked)
+
 const checked = computed({
   get() {
-    return props.defaultChecked || props.checked
+    if (props.modelValue !== undefined) {
+      return props.modelValue
+    } else {
+      return _checked.value
+    }
   },
   set(value: boolean) {
-    emit('update:checked', value)
+    emit('update:modelValue', value)
   }
 })
 

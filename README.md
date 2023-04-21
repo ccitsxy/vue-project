@@ -84,10 +84,10 @@ pnpm lint
 - [x] Space
 - [ ] Popover (floating-ui)
 - [ ] Tooltip (floating-ui)
-- [ ] Input
+- [x] Input
 - [ ] Input Number
 - [ ] Dropdown
-- [ ] Button Group
+- [x] Button Group
 - [x] Checkbox
 - [x] Radio
 - [ ] Table (tanstack-table)

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Component } from 'vue'
-import { useSlots, h, computed, inject } from 'vue'
+import { computed, inject } from 'vue'
+import { createReusableTemplate } from '@vueuse/core'
 import { buttonGroupContextKey } from './context'
 import { Icon, IconSpin } from '../icon'
 
@@ -59,17 +60,6 @@ const handleMouseLeave = (e: MouseEvent) => {
   if (!props.loading && !props.disabled) emit('mouseleave', e)
 }
 
-const slots = useSlots()
-const ButtonIcon = () => {
-  if (props.loading && !props.disabled) {
-    return h(IconSpin)
-  } else if (props.icon) {
-    return h(Icon, { component: props.icon })
-  } else if (slots.icon) {
-    return slots.icon()
-  }
-}
-
 const {
   size: _size,
   type: _type,
@@ -89,9 +79,17 @@ const type = computed(() => _type.value || props.type)
 const shape = computed(() => _shape.value || props.shape)
 const theme = computed(() => _theme.value || props.theme)
 const disabled = computed(() => _disabled.value || props.disabled)
+
+const ButtonIcon = createReusableTemplate()
 </script>
 
 <template>
+  <ButtonIcon.define>
+    <IconSpin v-if="loading && !disabled" />
+    <Icon v-else-if="icon" :component="icon" />
+    <slot v-else-if="$slots.icon" name="icon" />
+  </ButtonIcon.define>
+
   <button
     :aria-disabled="disabled"
     :aria-label="ariaLabel"
@@ -116,14 +114,14 @@ const disabled = computed(() => _disabled.value || props.disabled)
   >
     <span class="c-button-content">
       <template v-if="!$slots.default && (loading || icon || $slots.icon)">
-        <button-icon />
+        <ButtonIcon.reuse />
       </template>
       <template v-else-if="!loading && !$slots.icon && !icon">
         <slot />
       </template>
       <template v-else-if="$slots.default && (loading || icon || $slots.icon)">
         <template v-if="iconPlacement === 'start'">
-          <button-icon />
+          <ButtonIcon.reuse />
           <span class="c-button-content-end">
             <slot />
           </span>
@@ -132,7 +130,7 @@ const disabled = computed(() => _disabled.value || props.disabled)
           <span class="c-button-content-start">
             <slot />
           </span>
-          <button-icon />
+          <ButtonIcon.reuse />
         </template>
       </template>
     </span>

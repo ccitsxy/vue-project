@@ -17,10 +17,12 @@ import Checkbox from '@/components/checkbox/Checkbox.vue'
 import Radio from '@/components/radio/Radio.vue'
 import CheckboxGroup from '@/components/checkbox/CheckboxGroup.vue'
 import RadioGroup from '@/components/radio/RadioGroup.vue'
+import Input from '@/components/input/Input.vue'
 
 const checked = shallowRef(false)
 const checkboxData = shallowRef([])
 const radioData = shallowRef(null)
+const text = shallowRef('')
 </script>
 
 <template>
@@ -105,17 +107,17 @@ const radioData = shallowRef(null)
       <Col :span="6" :push="6" style="background-color: var(--c-success-color)">col-6 push-6</Col>
       <Col :span="6" :pull="6" style="background-color: var(--c-success-color)">col-6 pull-6</Col>
     </Row>
-    <Switch v-model:checked="checked" size="small" />
-    <Switch v-model:checked="checked" />
-    <Switch v-model:checked="checked" size="large" />
+    <Switch v-model="checked" size="small" />
+    <Switch v-model="checked" />
+    <Switch v-model="checked" size="large" />
 
-    <Switch v-model:checked="checked" size="small" loading />
-    <Switch v-model:checked="checked" loading />
-    <Switch v-model:checked="checked" size="large" loading />
+    <Switch v-model="checked" size="small" loading />
+    <Switch v-model="checked" loading />
+    <Switch v-model="checked" size="large" loading />
 
-    <Switch v-model:checked="checked" checked-text="开" unchecked-text="关" />
-    <Switch v-model:checked="checked" disabled checked-text="开" unchecked-text="关" />
-    <Switch v-model:checked="checked" disabled>
+    <Switch v-model="checked" checked-text="开" unchecked-text="关" />
+    <Switch v-model="checked" disabled checked-text="开" unchecked-text="关" />
+    <Switch v-model="checked" disabled>
       <template #checkedText> 开 </template>
       <template #uncheckedText> 关 </template>
     </Switch>
@@ -143,7 +145,13 @@ const radioData = shallowRef(null)
     <div style="height: fit-content; width: fit-content">
       <Spin :delay="2000" size="large">
         <template #tip> I am loading... </template>
-        <div style="border: 1px solid var(--c-primary-color); border-radius: 6px; padding-inline-start: 8px;">
+        <div
+          style="
+            border: 1px solid var(--c-primary-color);
+            border-radius: 6px;
+            padding-inline-start: 8px;
+          "
+        >
           <p>Here are some texts.</p>
           <p>And more texts on the way.</p>
         </div>
@@ -151,14 +159,14 @@ const radioData = shallowRef(null)
     </div>
     <Space>
       <Checkbox /> <Radio />
-      <Checkbox v-model:checked="checked">
+      <Checkbox v-model="checked">
         {{ checked ? 'checked' : 'unchecked' }}
         <template #describe>
           <div>Here are some texts.</div>
           <div>And more texts on the way.</div>
         </template>
       </Checkbox>
-      <Radio v-model:checked="checked">
+      <Radio v-model="checked">
         {{ checked ? 'checked' : 'unchecked' }}
         <template #describe>
           <div>Here are some texts.</div>
@@ -176,7 +184,6 @@ const radioData = shallowRef(null)
         </Checkbox>
       </Space>
     </CheckboxGroup>
-    {{ checkboxData }}
     <RadioGroup v-model="radioData">
       <Space>
         <Radio v-for="item in 5" :key="item" :value="item">
@@ -187,7 +194,8 @@ const radioData = shallowRef(null)
         </Radio>
       </Space>
     </RadioGroup>
-    {{ radioData }}
+    <Input v-model="text" placeholder="Please Input" />
+    <Input v-model="text" placeholder="Please Input" password />
   </Space>
   <div style="height: 2000px" />
   <BackTop />

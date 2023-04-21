@@ -26,10 +26,11 @@ const modelValue = computed({
   }
 })
 
-const disabled = computed(()=> props.disabled)
+const disabled = computed(() => props.disabled)
 
-provide(accordionContextKey,{
-  modelValue, disabled
+provide(accordionContextKey, {
+  modelValue,
+  disabled
 })
 </script>
 

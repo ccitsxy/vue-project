@@ -4,10 +4,10 @@ import { Icon, IconRadio } from '@/components/icon'
 import { radioGroupContextKey } from './context'
 
 export interface Props {
+  modelValue?: boolean
   ariaLabel?: string
   name?: string
   value?: string | number
-  checked?: boolean
   defaultChecked?: boolean
   label?: string
   labelId?: string
@@ -16,40 +16,44 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  checked: undefined,
+  modelValue: undefined,
   defaultChecked: false
 })
 
 const emit = defineEmits<{
-  (e: 'update:checked', value: boolean | undefined): void
+  (e: 'update:modelValue', value: boolean | undefined): void
 }>()
 
 const _checked = shallowRef(props.defaultChecked)
 
 const checked = computed({
   get() {
-    if (modelValue?.value !== undefined) {
-      return modelValue.value === props.value
-    } else if (props.checked !== undefined) {
-      return props.checked
+    if (groupValue?.value !== undefined) {
+      return groupValue.value === props.value
+    } else if (props.modelValue !== undefined) {
+      return props.modelValue
     } else {
       return _checked.value
     }
   },
   set(value?: boolean) {
-    emit('update:checked', value)
+    emit('update:modelValue', value)
   }
 })
 
-const { modelValue, update } = inject(radioGroupContextKey, {
+const { modelValue: groupValue, update } = inject(radioGroupContextKey, {
   modelValue: undefined,
   update: () => {}
 })
 
 const handleInput = () => {
-  if (modelValue?.value !== undefined && props.value !== undefined) {
+  if (
+    groupValue?.value !== undefined &&
+    props.value !== undefined &&
+    groupValue.value !== props.value
+  ) {
     update(props.value)
-  } else if (props.checked !== undefined && props.checked === false) {
+  } else if (props.modelValue !== undefined && props.modelValue === false) {
     checked.value = true
   } else {
     _checked.value = true
