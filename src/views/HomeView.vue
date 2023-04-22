@@ -144,17 +144,9 @@ const text = shallowRef('')
 
     <div style="height: fit-content; width: fit-content">
       <Spin :delay="2000" size="large">
+        <p>Here are some texts.</p>
+        <p>And more texts on the way.</p>
         <template #tip> I am loading... </template>
-        <div
-          style="
-            border: 1px solid var(--c-primary-color);
-            border-radius: 6px;
-            padding-inline-start: 8px;
-          "
-        >
-          <p>Here are some texts.</p>
-          <p>And more texts on the way.</p>
-        </div>
       </Spin>
     </div>
     <Space>
@@ -177,6 +169,7 @@ const text = shallowRef('')
     <CheckboxGroup v-model="checkboxData">
       <Space>
         <Checkbox v-for="item in 5" :key="item" :value="item">
+          Here are some texts.
           <template #describe>
             <div>Here are some texts.</div>
             <div>And more texts on the way.</div>
@@ -187,6 +180,7 @@ const text = shallowRef('')
     <RadioGroup v-model="radioData">
       <Space>
         <Radio v-for="item in 5" :key="item" :value="item">
+          Here are some texts.
           <template #describe>
             <div>Here are some texts.</div>
             <div>And more texts on the way.</div>
@@ -195,7 +189,9 @@ const text = shallowRef('')
       </Space>
     </RadioGroup>
     <Input v-model="text" placeholder="Please Input" />
-    <Input v-model="text" placeholder="Please Input" password />
+    <Input v-model="text" placeholder="Please Input" />
+    <Input v-model="text" placeholder="Please Input" type="password" />
+    {{ text }}
   </Space>
   <div style="height: 2000px" />
   <BackTop />

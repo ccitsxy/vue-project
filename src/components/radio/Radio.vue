@@ -68,7 +68,6 @@ const handleInput = () => {
       :aria-labelledby="labelId"
       :aria-describedby="describeId"
       :aria-checked="checked"
-      :value="value"
       type="radio"
       name="radio-group"
       :class="['c-radio-input', { 'c-radio-input-checked': checked }]"

@@ -3,6 +3,7 @@
   position: relative;
   cursor: pointer;
   column-gap: 8px;
+  line-height: 20px;
 
   &-inner {
     display: flex;
@@ -12,6 +13,7 @@
     border-radius: 16px;
     width: 16px;
     height: 16px;
+    margin-top: 2px;
   }
 
   @media (any-hover: hover) {
@@ -39,6 +41,7 @@
     margin: 0;
     width: 16px;
     height: 16px;
+    margin-top: 2px;
 
     &:focus-visible + .c-radio-inner {
       outline: 1px solid var(--c-primary-hover-color);
@@ -78,6 +81,10 @@
     flex-direction: column;
     row-gap: 8px;
     user-select: none;
+
+    &-label {
+      line-height: 16px;
+    }
 
     &-describe {
       color: rgb(28 31 35 / 62%);

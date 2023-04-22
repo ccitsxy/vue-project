@@ -14,6 +14,14 @@
   &:focus-within {
     border: 1px solid rgb(0 100 250);
   }
+
+  &:hover {
+    background-color: rgb(46 50 56 / 9%);
+  }
+
+  &:active{
+    background-color: rgb(46 50 56 / 13%);
+  }
 }
 
 .c-input-wrapper-small {

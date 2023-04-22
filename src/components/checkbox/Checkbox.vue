@@ -72,7 +72,6 @@ const handleClick = () => {
       :aria-labelledby="labelId"
       :aria-describedby="describeId"
       :aria-checked="checked"
-      :value="value"
       type="checkbox"
       :class="['c-checkbox-input', { 'c-checkbox-input-checked': checked }]"
       @click="handleClick()"
