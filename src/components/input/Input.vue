@@ -44,8 +44,8 @@ const InputWrapper = createReusableTemplate()
         { 'c-input-wrapper-disabled': disabled }
       ]"
     >
-      <div v-if="$slots.suffix" class="c-input-suffix">
-        <slot name="suffix" />
+      <div v-if="$slots.prefix" class="c-input-prefix">
+        <slot name="prefix" />
       </div>
       <input
         v-model="value"
@@ -60,12 +60,15 @@ const InputWrapper = createReusableTemplate()
     </div>
   </InputWrapper.define>
 
-  <div v-if="$slots.prepend || $slots.append" class="c-input-outer">
-    <div v-if="$slots.prepend" class="c-input-prefix">
+  <div
+    v-if="$slots.prepend || $slots.append"
+    :class="['c-input-outer', `c-input-outer-${size}`, { 'c-input-outer-disabled': disabled }]"
+  >
+    <div v-if="$slots.prepend" class="c-input-prepend">
       <slot name="prepend" />
     </div>
-    <InputWrapper.reuse />
-    <div v-if="$slots.append" class="c-input-suffix">
+    <InputWrapper.reuse class="c-input-" />
+    <div v-if="$slots.append" class="c-input-append">
       <slot name="append" />
     </div>
   </div>

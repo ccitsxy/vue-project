@@ -28,6 +28,7 @@ const text = shallowRef('')
 <template>
   <Space wrap style="margin: 8px">
     <Button>主要按钮</Button>
+    <Button>Button</Button>
     <Button type="secondary">次要按钮</Button>
     <Button type="tertiary">第三按钮</Button>
     <Button type="success">成功按钮</Button>
@@ -189,9 +190,27 @@ const text = shallowRef('')
       </Space>
     </RadioGroup>
     <Input v-model="text" placeholder="Please Input" />
-    <Input v-model="text" placeholder="Please Input" />
-    <Input v-model="text" placeholder="Please Input" type="password" />
-    {{ text }}
+    <Input v-model="text" placeholder="Please Input" password />
+    <Input>
+      <template #prepend>prepend </template>
+      <template #append>append </template>
+    </Input>
+    <Input>
+      <template #prepend>prepend </template>
+    </Input>
+    <Input>
+      <template #append>append </template>
+    </Input>
+    <Input>
+      <template #prefix>prefix </template>
+      <template #suffix>suffix </template>
+    </Input>
+    <Input>
+      <template #prefix>prefix </template>
+    </Input>
+    <Input>
+      <template #suffix>suffix </template>
+    </Input>
   </Space>
   <div style="height: 2000px" />
   <BackTop />

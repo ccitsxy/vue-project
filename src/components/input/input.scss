@@ -1,5 +1,6 @@
-.c-input-wrapper {
-  display: inline-block;
+.c-input-wrapper,
+.c-input-outer {
+  display: inline-flex;
   position: relative;
   vertical-align: middle;
   box-shadow: none;
@@ -10,36 +11,86 @@
   color: rgb(28 31 35);
   border: 1px solid transparent;
   border-radius: 6px;
+  font-size: 14px;
+}
 
-  &:focus-within {
-    border: 1px solid rgb(0 100 250);
-  }
+.c-input-outer {
+  background-color: transparent;
+}
 
+.c-input-wrapper {
   &:hover {
     background-color: rgb(46 50 56 / 9%);
   }
 
-  &:active{
+  &:active {
     background-color: rgb(46 50 56 / 13%);
+  }
+
+  &:focus-within {
+    border: 1px solid rgb(0 100 250);
   }
 }
 
+.c-input-outer-small,
 .c-input-wrapper-small {
   height: 24px;
   line-height: 22px;
   font-size: 16px;
 }
 
+.c-input-outer-medium,
 .c-input-wrapper-medium {
   height: 32px;
   line-height: 30px;
   font-size: 14px;
 }
 
+.c-input-outer-large,
 .c-input-wrapper-large {
   height: 40px;
   line-height: 38px;
   font-size: 14px;
+}
+
+.c-input-prefix,
+.c-input-suffix {
+  color: rgb(28 31 35 / 62%);
+  font-weight: 600;
+  padding: 0 12px;
+  height: 100%;
+}
+
+.c-input-prefix + .c-input {
+  padding-inline-start: 0;
+}
+
+.c-input + .c-input-prefix {
+  padding-inline-end: 0;
+}
+
+.c-input-prepend,
+.c-input-append {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  color: rgb(28 31 35 / 62%);
+  background-color: rgb(48 48 56 / 5%);
+  height: inherit;
+}
+
+.c-input-outer > .c-input-wrapper {
+  border-radius: 0;
+}
+
+.c-input-outer > :last-child {
+  border-start-end-radius: 6px;
+  border-end-end-radius: 6px;
+}
+
+.c-input-outer > :first-child {
+  border-end-start-radius: 6px;
+  border-start-start-radius: 6px;
 }
 
 .c-input {

@@ -2,7 +2,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  vertical-align: middle;
   cursor: pointer;
   user-select: none;
   border: var(--c-button-border);
@@ -12,7 +11,6 @@
   font-family: var(--c-button-font-family);
   font-weight: var(--c-button-font-weight);
   height: var(--c-button-height);
-  line-height: var(--c-button-line-height);
 
   &:focus-visible {
     outline-width: var(--c-button-focus-outline-width);
@@ -240,7 +238,6 @@
 
   &-large {
     height: var(--c-button-large-height);
-    line-height: var(--c-button-large-line-height);
     padding: var(--c-button-large-padding);
 
     &.c-button-round {
@@ -250,7 +247,6 @@
 
   &-small {
     height: var(--c-button-small-height);
-    line-height: var(--c-button-small-line-height);
     padding: var(--c-button-small-padding);
 
     &.c-button-round {
