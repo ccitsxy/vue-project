@@ -3,19 +3,43 @@ import { computed } from 'vue'
 import { createReusableTemplate } from '@vueuse/core'
 
 export type Size = 'small' | 'medium' | 'large'
+export type Type =
+  | 'button'
+  | 'checkbox'
+  | 'color'
+  | 'date'
+  | 'datetime-local'
+  | 'email'
+  | 'file'
+  | 'hidden'
+  | 'image'
+  | 'month'
+  | 'number'
+  | 'password'
+  | 'radio'
+  | 'range'
+  | 'reset'
+  | 'search'
+  | 'submit'
+  | 'tel'
+  | 'text'
+  | 'time'
+  | 'url'
+  | 'week'
 
 export interface Props {
   modelValue?: string | number
   defaultValue?: string | number
+  type?: Type
   placeholder?: string
   size?: Size
-  password?: boolean
   disabled?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   modelValue: '',
   defaultValue: '',
+  type: 'text',
   size: 'medium',
   password: false,
   disabled: false
@@ -49,7 +73,7 @@ const InputWrapper = createReusableTemplate()
       </div>
       <input
         v-model="value"
-        :type="password ? 'password' : 'text'"
+        :type="type"
         :placeholder="placeholder"
         :disabled="disabled"
         class="c-input"

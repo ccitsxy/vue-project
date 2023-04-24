@@ -7,17 +7,17 @@ import { Icon, IconSpin } from '../icon'
 
 export type HtmlType = 'button' | 'reset' | 'submit'
 export type Size = 'small' | 'medium' | 'large'
-export type Type = 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger'
+export type Status = 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger'
 export type Shape = 'square' | 'circle' | 'round'
 export type Theme = 'solid' | 'borderless' | 'light'
 
 export interface Props {
   ariaLabel?: string
   size?: Size
-  type?: Type
+  status?: Status
   shape?: Shape
   theme?: Theme
-  htmlType?: HtmlType
+  type?: HtmlType
   block?: boolean
   disabled?: boolean
   loading?: boolean
@@ -27,7 +27,7 @@ export interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   size: 'medium',
-  type: 'primary',
+  status: 'primary',
   shape: 'square',
   theme: 'light',
   htmlType: 'button',
@@ -62,20 +62,20 @@ const handleMouseLeave = (e: MouseEvent) => {
 
 const {
   size: _size,
-  type: _type,
+  status: _status,
   shape: _shape,
   theme: _theme,
   disabled: _disabled
 } = inject(buttonGroupContextKey, {
   size: computed(() => props.size),
-  type: computed(() => props.type),
+  status: computed(() => props.status),
   shape: computed(() => props.shape),
   theme: computed(() => props.theme),
   disabled: computed(() => props.disabled)
 })
 
 const size = computed(() => _size.value || props.size)
-const type = computed(() => _type.value || props.type)
+const status = computed(() => _status.value || props.status)
 const shape = computed(() => _shape.value || props.shape)
 const theme = computed(() => _theme.value || props.theme)
 const disabled = computed(() => _disabled.value || props.disabled)
@@ -96,7 +96,7 @@ const ButtonIcon = createReusableTemplate()
     :class="[
       'c-button',
       `c-button-${theme}`,
-      `c-button-${type}`,
+      `c-button-${status}`,
       `c-button-${shape}`,
       `c-button-${size}`,
       { 'c-button-disabled': disabled },
@@ -106,7 +106,7 @@ const ButtonIcon = createReusableTemplate()
       { 'c-button-with-icon-only': !$slots.default && (loading || icon || $slots.icon) }
     ]"
     :disabled="disabled"
-    :type="htmlType"
+    :type="type"
     @click="handleClick"
     @mousedown="handleMouseDown"
     @mouseenter="handleMouseEnter"

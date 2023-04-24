@@ -6,6 +6,6 @@
   <div></div>
 </template>
 
-<style>
-
+<style lang="scss">
+@use './input.scss';
 </style>

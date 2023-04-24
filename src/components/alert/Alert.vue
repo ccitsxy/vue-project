@@ -5,10 +5,10 @@ import { shallowRef, computed } from 'vue'
 import { Icon, IconInfo, IconWarning, IconDanger, IconSuccess, IconClose } from '../icon'
 import { Button } from '../button'
 
-export type Type = 'info' | 'success' | 'warning' | 'danger'
+export type Status = 'info' | 'success' | 'warning' | 'danger'
 
 export interface Props {
-  type?: Type
+  status?: Status
   title?: string
   description?: string
   icon?: string | Component
@@ -20,7 +20,7 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  type: 'info',
+  status: 'info',
   showIcon: true,
   closable: false,
   bordered: false,
@@ -38,7 +38,7 @@ const handleCloseClick = (e: MouseEvent) => {
 }
 
 const alertIcon = computed(() => {
-  switch (props.type) {
+  switch (props.status) {
     case 'info':
       return IconInfo
     case 'warning':
@@ -58,7 +58,7 @@ const alertIcon = computed(() => {
     v-if="visible"
     :class="[
       'c-alert',
-      `c-alert-${type}`,
+      `c-alert-${status}`,
       { 'c-alert-bordered': bordered },
       { 'c-alert-banner': banner }
     ]"
@@ -86,7 +86,7 @@ const alertIcon = computed(() => {
         :icon="IconClose"
         theme="borderless"
         size="small"
-        type="tertiary"
+        status="tertiary"
         aria-label="Close"
         @click="handleCloseClick"
       />
