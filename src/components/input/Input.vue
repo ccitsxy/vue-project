@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import type { Component } from 'vue'
+import { computed, shallowRef } from 'vue'
 import { createReusableTemplate } from '@vueuse/core'
+import { Icon, IconClear, IconEye, IconEyeInvisible } from '../icon'
 
 export type Size = 'small' | 'medium' | 'large'
 export type Type =
@@ -34,6 +36,8 @@ export interface Props {
   placeholder?: string
   size?: Size
   disabled?: boolean
+  allowClear?: boolean
+  clearIcon?: string | Component
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -42,7 +46,8 @@ const props = withDefaults(defineProps<Props>(), {
   type: 'text',
   size: 'medium',
   password: false,
-  disabled: false
+  disabled: false,
+  allowClear: false
 })
 const emit = defineEmits<{
   (e: 'update:modelValue', value: string | number | undefined): void
@@ -57,6 +62,18 @@ const value = computed({
   }
 })
 const InputWrapper = createReusableTemplate()
+
+const inputRef = shallowRef<HTMLElement | null>(null)
+
+const handleClear = () => {
+  value.value = ''
+  inputRef.value?.focus()
+}
+
+const visible = shallowRef(false)
+const handleVisible = () => {
+  visible.value = !visible.value
+}
 </script>
 
 <template>
@@ -68,19 +85,29 @@ const InputWrapper = createReusableTemplate()
         { 'c-input-wrapper-disabled': disabled }
       ]"
     >
-      <div v-if="$slots.prefix" class="c-input-prefix">
+      <span v-if="$slots.prefix" class="c-input-prefix">
         <slot name="prefix" />
-      </div>
+      </span>
       <input
+        ref="inputRef"
         v-model="value"
-        :type="type"
+        :type="visible ? 'text' : type"
         :placeholder="placeholder"
         :disabled="disabled"
         class="c-input"
       />
-      <div v-if="$slots.suffix" class="c-input-suffix">
+      <button v-if="allowClear && value" tabindex="-1" class="c-input-clear" @click="handleClear()">
+        <Icon v-if="clearIcon" :component="clearIcon" />
+        <slot v-else-if="$slots.clearIcon" name="clearIcon" />
+        <Icon v-else :component="IconClear" />
+      </button>
+      <button v-if="type === 'password'" class="c-input-visible" @click="handleVisible()">
+        <Icon v-if="visible" :component="IconEye" />
+        <Icon v-else :component="IconEyeInvisible" />
+      </button>
+      <span v-if="$slots.suffix" class="c-input-suffix">
         <slot name="suffix" />
-      </div>
+      </span>
     </div>
   </InputWrapper.define>
 
@@ -88,13 +115,13 @@ const InputWrapper = createReusableTemplate()
     v-if="$slots.prepend || $slots.append"
     :class="['c-input-outer', `c-input-outer-${size}`, { 'c-input-outer-disabled': disabled }]"
   >
-    <div v-if="$slots.prepend" class="c-input-prepend">
+    <span v-if="$slots.prepend" class="c-input-prepend">
       <slot name="prepend" />
-    </div>
-    <InputWrapper.reuse class="c-input-" />
-    <div v-if="$slots.append" class="c-input-append">
+    </span>
+    <InputWrapper.reuse />
+    <span v-if="$slots.append" class="c-input-append">
       <slot name="append" />
-    </div>
+    </span>
   </div>
 
   <InputWrapper.reuse v-else />

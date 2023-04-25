@@ -85,7 +85,7 @@ const ButtonIcon = createReusableTemplate()
 
 <template>
   <ButtonIcon.define>
-    <IconSpin v-if="loading && !disabled" />
+    <Icon v-if="loading && !disabled" :component="IconSpin" />
     <Icon v-else-if="icon" :component="icon" />
     <slot v-else-if="$slots.icon" name="icon" />
   </ButtonIcon.define>
