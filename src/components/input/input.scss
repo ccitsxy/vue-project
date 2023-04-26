@@ -96,7 +96,7 @@
 }
 
 .c-input-clear,
-.c-input-visible{
+.c-input-visible {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,7 +105,7 @@
   cursor: pointer;
   color: rgb(28 21 35 / 62%);
   background-color: transparent;
-  &:hover{
+  &:hover {
     color: var(--c-primary-color);
   }
 }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Component } from 'vue'
-import { computed, shallowRef } from 'vue'
+import { computed, shallowRef, nextTick } from 'vue'
 import { createReusableTemplate } from '@vueuse/core'
 import { Icon, IconClear, IconEye, IconEyeInvisible } from '../icon'
 
@@ -63,7 +63,7 @@ const value = computed({
 })
 const InputWrapper = createReusableTemplate()
 
-const inputRef = shallowRef<HTMLElement | null>(null)
+const inputRef = shallowRef<HTMLInputElement | null>(null)
 
 const handleClear = () => {
   value.value = ''
@@ -73,6 +73,11 @@ const handleClear = () => {
 const visible = shallowRef(false)
 const handleVisible = () => {
   visible.value = !visible.value
+  nextTick(() => {
+    inputRef.value?.focus()
+    const length = inputRef.value?.value.length
+    if (length) inputRef.value?.setSelectionRange(length, length)
+  })
 }
 </script>
 
@@ -101,7 +106,12 @@ const handleVisible = () => {
         <slot v-else-if="$slots.clearIcon" name="clearIcon" />
         <Icon v-else :component="IconClear" />
       </button>
-      <button v-if="type === 'password'" class="c-input-visible" @click="handleVisible()">
+      <button
+        v-if="type === 'password'"
+        tabindex="-1"
+        class="c-input-visible"
+        @click="handleVisible()"
+      >
         <Icon v-if="visible" :component="IconEye" />
         <Icon v-else :component="IconEyeInvisible" />
       </button>

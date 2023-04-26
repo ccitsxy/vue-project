@@ -190,12 +190,12 @@ const text = shallowRef('')
       </Space>
     </RadioGroup>
     <Input v-model="text" placeholder="Please Input" size="small" />
-    <Input v-model="text" placeholder="Please Input" type="password" />
+    <Input v-model="text" placeholder="Please Input" type="password" allow-clear />
     <Input v-model="text" placeholder="Please Input" size="large" />
     <Input v-model="text">
       <template #prepend>prepend </template>
       <template #append>append </template>
-    </Input >
+    </Input>
     <Input v-model="text">
       <template #prepend>prepend </template>
     </Input>
