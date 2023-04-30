@@ -284,7 +284,8 @@
   }
 
   &-loading {
-    cursor: wait;
+    pointer-events: none;
+    opacity: var(--c-button-loading-opacity);
 
     .c-button-content {
       & > svg {

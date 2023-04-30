@@ -45,19 +45,19 @@ const emit = defineEmits<{
 }>()
 
 const handleClick = (e: MouseEvent) => {
-  if (!props.loading && !props.disabled) emit('click', e)
+  emit('click', e)
 }
 
 const handleMouseDown = (e: MouseEvent) => {
-  if (!props.loading && !props.disabled) emit('mousedown', e)
+  emit('mousedown', e)
 }
 
 const handleMouseEnter = (e: MouseEvent) => {
-  if (!props.loading && !props.disabled) emit('mouseenter', e)
+  emit('mouseenter', e)
 }
 
 const handleMouseLeave = (e: MouseEvent) => {
-  if (!props.loading && !props.disabled) emit('mouseleave', e)
+  emit('mouseleave', e)
 }
 
 const {

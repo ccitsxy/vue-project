@@ -148,6 +148,7 @@
   --c-button-borderless-active-bg-color: var(--c-borderless-active-bg-color);
   --c-button-content-start-margin-inline-end: 8px;
   --c-button-content-end-margin-inline-start: 8px;
+  --c-button-loading-opacity: 0.4;
   --c-button-loading-duration: 3600ms;
   --c-button-loading-function: c-animation-spin;
   --c-button-group-border: 1px solid rgb(255 255 255 / 50%);
@@ -208,7 +209,7 @@
   --c-spin-large: 32px;
   --c-spin-medium: 20px;
   --c-spin-small: 14px;
-  --c-spin-child-opacity: 0.5;
+  --c-spin-child-opacity: 0.4;
 }
 
 .c-switch {
@@ -232,7 +233,7 @@
   --switch-loading-spin-transform: translateX(2px);
   --switch-loading-spin-width: 18px;
   --switch-loading-checked-spin-transform: translateX(18px);
-  --switch-disabled-opacity: 0.5;
+  --switch-disabled-opacity: 0.4;
   --switch-knob-box-shadow: 0 4px 6px #0000001a, 0 0 1px #0000004d;
   --switch-knob-border-radius: calc(var(--switch-knob-width) / 2);
   --switch-knob-bg-color: white;

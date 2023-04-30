@@ -53,9 +53,11 @@
     cursor: not-allowed;
     opacity: var(--switch-disabled-opacity);
     background-color: var(--switch-bg-color);
+
     > .c-switch-knob {
       cursor: not-allowed;
     }
+
     &.c-switch-checked {
       background-color: var(--switch-checked-bg-color);
     }
@@ -104,7 +106,7 @@
     display: inline-flex;
     align-items: center;
 
-    cursor: wait;
+    pointer-events: none;
 
     > .c-spin {
       > .c-spin-wrapper {

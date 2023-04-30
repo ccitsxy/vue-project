@@ -1,33 +1,11 @@
 <script setup lang="ts">
-import type { Component } from 'vue'
+import type { Component, InputHTMLAttributes } from 'vue'
 import { computed, shallowRef, nextTick } from 'vue'
 import { createReusableTemplate } from '@vueuse/core'
 import { Icon, IconClear, IconEye, IconEyeInvisible } from '../icon'
 
 export type Size = 'small' | 'medium' | 'large'
-export type Type =
-  | 'button'
-  | 'checkbox'
-  | 'color'
-  | 'date'
-  | 'datetime-local'
-  | 'email'
-  | 'file'
-  | 'hidden'
-  | 'image'
-  | 'month'
-  | 'number'
-  | 'password'
-  | 'radio'
-  | 'range'
-  | 'reset'
-  | 'search'
-  | 'submit'
-  | 'tel'
-  | 'text'
-  | 'time'
-  | 'url'
-  | 'week'
+export type Type = 'text' | 'password' | 'textarea'
 
 export interface Props {
   modelValue?: string | number
@@ -36,8 +14,13 @@ export interface Props {
   placeholder?: string
   size?: Size
   disabled?: boolean
-  allowClear?: boolean
+  maxlength?: number
+  minlength?: number
+  clearable?: boolean
   clearIcon?: string | Component
+  rows?: number
+  autoSize?: boolean
+  inputProps?: InputHTMLAttributes
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -45,9 +28,10 @@ const props = withDefaults(defineProps<Props>(), {
   defaultValue: '',
   type: 'text',
   size: 'medium',
-  password: false,
   disabled: false,
-  allowClear: false
+  clearable: false,
+  rows: 3,
+  autoSize: false
 })
 const emit = defineEmits<{
   (e: 'update:modelValue', value: string | number | undefined): void
@@ -87,21 +71,37 @@ const handleVisible = () => {
       :class="[
         'c-input-wrapper',
         `c-input-wrapper-${size}`,
-        { 'c-input-wrapper-disabled': disabled }
+        { 'c-input-wrapper-disabled': disabled },
+        { 'c-input-textarea-wrapper': type === 'textarea' }
       ]"
     >
       <span v-if="$slots.prefix" class="c-input-prefix">
         <slot name="prefix" />
       </span>
+      <textarea
+        v-if="type === 'textarea'"
+        ref="inputRef"
+        v-model="value"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :rows="rows"
+        :maxlength="maxlength"
+        :minlength="minlength"
+        class="c-input c-input-textarea"
+      />
       <input
+        v-else
         ref="inputRef"
         v-model="value"
         :type="visible ? 'text' : type"
         :placeholder="placeholder"
         :disabled="disabled"
+        :maxlength="maxlength"
+        :minlength="minlength"
+        v-bind="inputProps"
         class="c-input"
       />
-      <button v-if="allowClear && value" tabindex="-1" class="c-input-clear" @click="handleClear()">
+      <button v-if="clearable && value" tabindex="-1" class="c-input-clear" @click="handleClear()">
         <Icon v-if="clearIcon" :component="clearIcon" />
         <slot v-else-if="$slots.clearIcon" name="clearIcon" />
         <Icon v-else :component="IconClear" />
@@ -123,7 +123,12 @@ const handleVisible = () => {
 
   <div
     v-if="$slots.prepend || $slots.append"
-    :class="['c-input-outer', `c-input-outer-${size}`, { 'c-input-outer-disabled': disabled }]"
+    :class="[
+      'c-input-outer',
+      `c-input-outer-${size}`,
+      { 'c-input-outer-disabled': disabled },
+      { 'c-input-textarea-outer': type === 'textarea' }
+    ]"
   >
     <span v-if="$slots.prepend" class="c-input-prepend">
       <slot name="prepend" />

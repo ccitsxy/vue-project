@@ -46,15 +46,15 @@ const checked = computed({
 })
 
 const handleClick = () => {
-  if (!props.loading && !props.disabled) checked.value = !checked.value
+  checked.value = !checked.value
 }
 
 const handleMouseEnter = (e: MouseEvent) => {
-  if (!props.loading && !props.disabled) emit('mouse-enter', e)
+  emit('mouse-enter', e)
 }
 
 const handleMouseLeave = (e: MouseEvent) => {
-  if (!props.loading && !props.disabled) emit('mouse-leave', e)
+  emit('mouse-leave', e)
 }
 </script>
 
