@@ -6,10 +6,7 @@ import inspect from 'vite-plugin-inspect'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    inspect()
-  ],
+  plugins: [vue(), inspect()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
