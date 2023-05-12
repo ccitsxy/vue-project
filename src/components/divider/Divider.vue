@@ -1,5 +1,5 @@
 <script setup lang="ts">
-export interface Props {
+interface Props {
   direction?: 'horizontal' | 'vertical'
   align?: 'start' | 'end' | 'center'
   dashed?: boolean

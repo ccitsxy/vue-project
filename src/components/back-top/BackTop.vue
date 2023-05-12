@@ -4,7 +4,7 @@ import { shallowRef, onMounted, computed, watch } from 'vue'
 import { useScroll, useTransition, TransitionPresets, useWindowScroll } from '@vueuse/core'
 import { IconArrowUp } from '../icon'
 
-export interface Props {
+interface Props {
   duration?: number
   target?: string
   visibilityHeight?: number
@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'click', event: MouseEvent): void
+  click: [event: MouseEvent]
 }>()
 
 const handleClick = (e: MouseEvent) => {

@@ -7,7 +7,7 @@ import { Icon, IconClear, IconEye, IconEyeInvisible } from '../icon'
 export type Size = 'small' | 'medium' | 'large'
 export type Type = 'text' | 'password' | 'textarea'
 
-export interface Props {
+interface Props {
   modelValue?: string | number
   defaultValue?: string | number
   type?: Type
@@ -34,7 +34,7 @@ const props = withDefaults(defineProps<Props>(), {
   autoSize: false
 })
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: string | number | undefined): void
+  'update:modelValue': [value: string | number | undefined]
 }>()
 
 const value = computed({

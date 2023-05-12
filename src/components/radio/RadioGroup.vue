@@ -2,7 +2,7 @@
 import { computed, provide } from 'vue'
 import { radioGroupContextKey } from './context'
 
-export interface Props {
+interface Props {
   modelValue?: string | number | null
   ariaLabel?: string
   disabled?: boolean
@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: string | number | null | undefined): void
+  'update:modelValue': [value: string | number | null | undefined]
 }>()
 
 const modelValue = computed({

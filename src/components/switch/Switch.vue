@@ -4,7 +4,7 @@ import { Spin } from '../spin'
 
 export type Size = 'small' | 'medium' | 'large'
 
-export interface Props {
+interface Props {
   modelValue?: boolean
   ariaLabel?: string
   ariaLabelledby?: string
@@ -25,9 +25,9 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: boolean): void
-  (e: 'mouse-enter', event: MouseEvent): void
-  (e: 'mouse-leave', event: MouseEvent): void
+  'update:modelValue': [value: boolean]
+  'mouse-enter': [event: MouseEvent]
+  'mouse-leave': [event: MouseEvent]
 }>()
 
 const _checked = shallowRef(props.defaultChecked)

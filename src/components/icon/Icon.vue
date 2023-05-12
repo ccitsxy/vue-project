@@ -3,7 +3,7 @@ import type { Component } from 'vue'
 
 export type IconSize = 'inherit' | 'extra-small' | 'small' | 'medium' | 'large' | 'extra-large'
 
-export interface Props {
+interface Props {
   ariaLabel?: string
   component?: string | Component
   rotate?: number

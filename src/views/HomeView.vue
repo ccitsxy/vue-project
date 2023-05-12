@@ -18,6 +18,8 @@ import Radio from '@/components/radio/Radio.vue'
 import CheckboxGroup from '@/components/checkbox/CheckboxGroup.vue'
 import RadioGroup from '@/components/radio/RadioGroup.vue'
 import Input from '@/components/input/Input.vue'
+import Breadcrumb from '@/components/breadcrumb/Breadcrumb.vue'
+import BreadcurmbItem from '@/components/breadcrumb/BreadcurmbItem.vue'
 
 const checked = shallowRef(false)
 const checkboxData = shallowRef([])
@@ -215,6 +217,11 @@ const text = shallowRef('')
       <template #prefix>prefix </template>
       <template #suffix>suffix </template>
     </Input>
+    <Breadcrumb>
+      <BreadcurmbItem>Here are some texts.</BreadcurmbItem>
+      <BreadcurmbItem>Here are some texts.</BreadcurmbItem>
+      <BreadcurmbItem>Here are some texts.</BreadcurmbItem>
+    </Breadcrumb>
   </Space>
   <BackTop />
 </template>

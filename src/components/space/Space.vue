@@ -5,7 +5,7 @@ import { computed } from 'vue'
 export type Align = 'start' | 'center' | 'end' | 'baseline'
 export type Gap = 'loose' | 'medium' | 'tight' | number
 
-export interface Props {
+interface Props {
   direction?: 'horizontal' | 'vertical'
   wrap?: boolean
   align?: Align

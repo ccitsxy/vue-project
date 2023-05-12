@@ -11,7 +11,7 @@ export type Status = 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning
 export type Shape = 'square' | 'circle' | 'round'
 export type Theme = 'solid' | 'borderless' | 'light'
 
-export interface Props {
+interface Props {
   ariaLabel?: string
   size?: Size
   status?: Status
@@ -38,10 +38,10 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'click', event: MouseEvent): void
-  (e: 'mousedown', event: MouseEvent): void
-  (e: 'mouseenter', event: MouseEvent): void
-  (e: 'mouseleave', event: MouseEvent): void
+  click: [event: MouseEvent]
+  mousedown: [event: MouseEvent]
+  mouseenter: [event: MouseEvent]
+  mouseleave: [event: MouseEvent]
 }>()
 
 const handleClick = (e: MouseEvent) => {

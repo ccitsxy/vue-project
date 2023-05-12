@@ -7,7 +7,7 @@ import { Button } from '../button'
 
 export type Status = 'info' | 'success' | 'warning' | 'danger'
 
-export interface Props {
+interface Props {
   status?: Status
   title?: string
   description?: string
@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'close', event: MouseEvent): void
+  close: [event: MouseEvent]
 }>()
 
 const visible = shallowRef(true)

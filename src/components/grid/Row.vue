@@ -4,7 +4,7 @@ import type { Gutter } from './interface'
 import { useGutterStyle, useRowSize } from './interface'
 import { rowContextKey } from './context'
 
-export interface Props {
+interface Props {
   align?: 'start' | 'center' | 'end'
   justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between'
   gutter?: Gutter | [Gutter, Gutter]

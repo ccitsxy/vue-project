@@ -6,7 +6,7 @@ import SpinIcon from '../icon/IconSpin.vue'
 
 export type Size = 'small' | 'medium' | 'large'
 
-export interface Props {
+interface Props {
   spin?: boolean
   size?: Size
   delay?: number

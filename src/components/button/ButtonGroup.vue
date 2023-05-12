@@ -3,7 +3,7 @@ import { computed, provide } from 'vue'
 import type { Size, Status, Shape, Theme } from './Button.vue'
 import { buttonGroupContextKey } from './context'
 
-export interface Props {
+interface Props {
   ariaLabel?: string
   size?: Size
   status?: Status

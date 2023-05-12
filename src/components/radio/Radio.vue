@@ -3,7 +3,7 @@ import { computed, inject, shallowRef } from 'vue'
 import { Icon, IconRadio } from '@/components/icon'
 import { radioGroupContextKey } from './context'
 
-export interface Props {
+interface Props {
   modelValue?: boolean
   ariaLabel?: string
   name?: string
@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: boolean | undefined): void
+  'update:modelValue': [value: boolean | undefined]
 }>()
 
 const _checked = shallowRef(props.defaultChecked)

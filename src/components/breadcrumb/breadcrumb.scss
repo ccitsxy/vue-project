@@ -1,0 +1,51 @@
+.c-breadcrumb {
+  display: flex;
+  align-items: center;
+
+  & > ol {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &-item {
+    display: inline-flex;
+    cursor: default;
+    font-size: 14px;
+
+    &:last-child {
+      .c-breadcrumb-item-content {
+        cursor: pointer;
+        color: rgb(28 31 35);
+        font-weight: 600;
+
+        &:hover {
+          color: var(--c-primary-color);
+        }
+      }
+
+      .c-breadcrumb-item-separator {
+        display: none;
+      }
+    }
+
+    &-content {
+      cursor: pointer;
+      color: rgb(28 31 35 / 62%);
+
+      &:hover {
+        color: var(--c-primary-color);
+      }
+
+      &:active {
+        color: var(--c-primary-hover-color);
+      }
+    }
+
+    &-separator {
+      color: rgb(28 31 35 / 62%);
+      margin-inline: 4px;
+    }
+  }
+}

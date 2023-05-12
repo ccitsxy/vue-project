@@ -4,7 +4,7 @@ import type { ColSize } from './interface'
 import { useRowSize, useColSizeClass, useGutterStyle } from './interface'
 import { rowContextKey } from './context'
 
-export interface Props {
+interface Props {
   span?: number
   order?: number
   offset?: number

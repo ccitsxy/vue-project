@@ -3,7 +3,7 @@ import { computed, inject, shallowRef } from 'vue'
 import { Icon, IconCheckbox } from '@/components/icon'
 import { checkboxGroupContextKey } from './context'
 
-export interface Props {
+interface Props {
   modelValue?: boolean
   ariaLabel?: string
   value?: boolean | string | number
@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: boolean): void
+  'update:modelValue': [value: boolean]
 }>()
 
 const _checked = shallowRef(props.defaultChecked)

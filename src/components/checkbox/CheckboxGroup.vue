@@ -2,7 +2,7 @@
 import { computed, provide } from 'vue'
 import { checkboxGroupContextKey } from './context'
 
-export interface Props {
+interface Props {
   modelValue?: (boolean | string | number)[]
   ariaLabel?: string
   disabled?: boolean
@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: (boolean | string | number)[] | undefined): void
+  'update:modelValue': [value: (boolean | string | number)[] | undefined]
 }>()
 
 const modelValue = computed({
