@@ -19,5 +19,5 @@ withDefaults(defineProps<Props>(), {
 </template>
 
 <style lang="scss">
-@use './breadcrumb.scss'
+@use './breadcrumb.scss';
 </style>

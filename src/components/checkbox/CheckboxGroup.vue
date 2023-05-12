@@ -37,7 +37,7 @@ const add = (value: boolean | string | number) => {
 const remove = (value: boolean | string | number) => {
   if (modelValue.value !== undefined) {
     const _modelValue = modelValue.value.slice()
-    _modelValue.splice(modelValue.value.indexOf(value as never), 1)
+    _modelValue.splice(modelValue.value.indexOf(value), 1)
     modelValue.value = _modelValue
   }
 }

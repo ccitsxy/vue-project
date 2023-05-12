@@ -1,23 +1,13 @@
 <script setup lang="ts">
-interface Props {
-  
-}
+interface Props {}
 
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {})
 
-})
-
-const emit = defineEmits<{
-
-}>()
-
+const emit = defineEmits<{}>()
 </script>
 
 <template>
   <div></div>
 </template>
 
-<style>
-
-</style>
-
+<style></style>
