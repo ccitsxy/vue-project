@@ -27,19 +27,15 @@ const modelValue = computed({
 })
 
 const add = (value: boolean | string | number) => {
-  if (modelValue.value !== undefined) {
-    const _modelValue = modelValue.value.slice()
-    _modelValue.push(value)
-    modelValue.value = _modelValue
-  }
+  const _modelValue = modelValue.value?.slice()
+  _modelValue?.push(value)
+  modelValue.value = _modelValue
 }
 
 const remove = (value: boolean | string | number) => {
-  if (modelValue.value !== undefined) {
-    const _modelValue = modelValue.value.slice()
-    _modelValue.splice(modelValue.value.indexOf(value), 1)
-    modelValue.value = _modelValue
-  }
+  const _modelValue = modelValue.value?.slice()
+  _modelValue?.splice(_modelValue.indexOf(value), 1)
+  modelValue.value = _modelValue
 }
 
 provide(checkboxGroupContextKey, { modelValue, add, remove })
