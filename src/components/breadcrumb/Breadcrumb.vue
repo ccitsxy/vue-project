@@ -2,7 +2,7 @@
 import type { Component } from 'vue'
 
 interface Props {
-  separator: string | Component
+  separator?: string | Component
 }
 
 withDefaults(defineProps<Props>(), {

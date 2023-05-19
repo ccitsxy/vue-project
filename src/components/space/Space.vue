@@ -36,9 +36,11 @@ const useGapStyleAndClass = (gap: Gap | [Gap, Gap]) => {
     } else if (typeof gap[1] === 'number') {
       gapStyle.rowGap = `${gap[1]}px`
     }
-  } else if (typeof gap === 'string') {
-    gapClass.push(`c-space-${gap}-horizontal`)
-    gapClass.push(`c-space-${gap}-vertical`)
+  } else {
+    {
+      gapClass.push(`c-space-${gap}-horizontal`)
+      gapClass.push(`c-space-${gap}-vertical`)
+    }
   }
 
   return { gapStyle, gapClass }
