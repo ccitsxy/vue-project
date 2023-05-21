@@ -53,7 +53,7 @@ const handleInput = () => {
     groupValue.value !== props.value
   ) {
     update(props.value)
-  } else if (props.modelValue !== undefined && !props.modelValue) {
+  } else if (props.modelValue !== undefined && props.modelValue === false) {
     checked.value = true
   } else {
     _checked.value = true
